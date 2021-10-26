@@ -4,8 +4,9 @@
     <list default="true" id="9041997b-1677-4a28-91df-d15ec802c2c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controlador/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/controlador/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/editar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/nuevo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vista/usuarios/Consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/consultar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vista/usuarios/estiloLogin.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/estiloLogin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vista/usuarios/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controlador/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="632">
+              <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/usuarios/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -27,17 +37,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/usuarios/nuevo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="28" column="57" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="57" />
+            <state relative-caret-position="108">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/usuarios/editar.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
               <caret line="21" column="50" lean-forward="true" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/usuarios/consultar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -70,10 +89,10 @@
         <option value="$PROJECT_DIR$/vista/comunes/index.html" />
         <option value="$PROJECT_DIR$/controlador/__init__.py" />
         <option value="$PROJECT_DIR$/vista/usuarios.html" />
-        <option value="$PROJECT_DIR$/vista/usuarios/login.html" />
         <option value="$PROJECT_DIR$/vista/usuarios/nuevo.html" />
-        <option value="$PROJECT_DIR$/controlador/app.py" />
         <option value="$PROJECT_DIR$/vista/usuarios/editar.html" />
+        <option value="$PROJECT_DIR$/vista/usuarios/login.html" />
+        <option value="$PROJECT_DIR$/controlador/app.py" />
       </list>
     </option>
   </component>
@@ -107,6 +126,17 @@
             <path>
               <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="vista" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -125,6 +155,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mario\Documents\GitHub\AmbakitiShop\static\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -184,7 +219,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15806112" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15806112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -192,7 +227,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -227,24 +262,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/usuarios/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/usuarios/nuevo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="28" column="57" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlador/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="108">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -252,6 +273,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="21" column="50" lean-forward="true" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/usuarios/consultar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/usuarios/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlador/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
         </state>
       </provider>
     </entry>
