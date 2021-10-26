@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
-        <h1>Listado de pedidos</h1>
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+    <h1>Listado de Mis pedidos</h1>
     <table border="1">
         <thead>
             <th>idProducto</th>
@@ -45,5 +43,5 @@
             <td>Entregado</td> 
         </tr>
     </table>
-</body>
-</html>
+    <a href="/" class="btn btn-warning">Regresar</a>
+{% endblock %}

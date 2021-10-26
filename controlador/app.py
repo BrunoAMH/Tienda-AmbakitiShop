@@ -58,7 +58,10 @@ def consultarProductos():
 @app.route('/productos/agregarProducto')
 def agregarProducto():
     return render_template('/productos/nuevo.html')
-
+#PEDIDOS
+@app.route('/pedidos/MisPedidos')
+def misPedidos():
+    return render_template('/pedidos/consultar.html')
 
 
 
