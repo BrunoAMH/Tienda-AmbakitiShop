@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9041997b-1677-4a28-91df-d15ec802c2c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controlador/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/controlador/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/estiloTarjetas.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/estiloTarjetas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/comunes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/comunes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/comunes/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/comunes/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/productos/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/productos/nuevo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/tarjetas/nueva.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/tarjetas/nueva.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vista/usuarios/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/nuevo.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,18 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controlador/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/comunes/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vista/usuarios/nuevo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="328">
+              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -89,11 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/usuarios/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
+            <state relative-caret-position="189">
               <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/usuarios/editar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -142,7 +132,6 @@
         <option value="$PROJECT_DIR$/vista/comunes/menu2.html" />
         <option value="$PROJECT_DIR$/vista/sugerencias/nueva.html" />
         <option value="$PROJECT_DIR$/vista/direcciones/editar.html" />
-        <option value="$PROJECT_DIR$/vista/usuarios/editar.html" />
         <option value="$PROJECT_DIR$/vista/carrito/nuevo" />
         <option value="$PROJECT_DIR$/vista/comunes/prueba.html" />
         <option value="$PROJECT_DIR$/static/css/bloquesCentro.css" />
@@ -159,8 +148,9 @@
         <option value="$PROJECT_DIR$/vista/comunes/index.html" />
         <option value="$PROJECT_DIR$/vista/comunes/menu.html" />
         <option value="$PROJECT_DIR$/vista/direcciones/nueva.html" />
-        <option value="$PROJECT_DIR$/vista/usuarios/nuevo.html" />
         <option value="$PROJECT_DIR$/vista/usuarios/login.html" />
+        <option value="$PROJECT_DIR$/vista/usuarios/editar.html" />
+        <option value="$PROJECT_DIR$/vista/usuarios/nuevo.html" />
       </list>
     </option>
   </component>
@@ -194,66 +184,7 @@
             <path>
               <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="vista" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="carrito" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="comunes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="descuentos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="direcciones" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="pedidos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="productos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="sugerencias" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="tarjetas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
@@ -405,13 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/usuarios/editar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/carrito/nuevo" />
     <entry file="file://$PROJECT_DIR$/vista/comunes/menu2.html" />
     <entry file="file://$PROJECT_DIR$/vista/direcciones/editar.html">
@@ -558,13 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/usuarios/nuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/comunes/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -574,8 +491,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vista/usuarios/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="189">
           <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/usuarios/editar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/usuarios/nuevo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
         </state>
       </provider>
     </entry>
