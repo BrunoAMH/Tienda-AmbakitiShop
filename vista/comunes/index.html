@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
-    <main>
-        <H1>Bienvenido a AmbakitiShop</H1>
-        <p><i>Productos tradicionales de Michoacan</i></p>
-        <a href="/usuarios/login" >Iniciar Sesion</a>
-        <a href="/usuarios/consultarUsuarios">Consultar Usuarios</a>
-    </main>
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
 
-</body>
-</html>
+
+
+    <div class="container">
+        <div class="row">
+             <main>
+                <H1>Bienvenido a AmbakitiShop</H1>
+                <p><i>Productos tradicionales de Michoacan</i></p>
+             </main>
+        </div>
+    </div>
+{% endblock %}
+
+

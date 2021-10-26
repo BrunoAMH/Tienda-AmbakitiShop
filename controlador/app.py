@@ -1,6 +1,8 @@
 from flask import Flask,render_template,request
+from flask_bootstrap import Bootstrap
 
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
+Bootstrap(app)
 
 @app.route('/')
 def inicio():
@@ -33,6 +35,20 @@ def iniciandoSesion():
 @app.route('/usuarios/consultarUsuarios')
 def consultarUsuarios():
     return render_template('usuarios/consultar.html')
+
+#Sugerencias
+@app.route('/sugerencias/nuevaSugerencia')
+def nuevaSugerencia():
+    return render_template('/sugerencias/nueva.html')
+
+@app.route('/sugerencias/consultarSugerencias')
+def consultarSugerencia():
+    return render_template('/sugerencias/consultar.html')
+
+#PRODUCTOS
+@app.route('/productos/consultarProductos')
+def consultarProductos():
+    return render_template('/productos/consultar.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
