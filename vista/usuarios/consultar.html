@@ -6,17 +6,17 @@
 </head>
 <body>
     <h1>Listado de Usuarios</h1>
-    <a href="/usuarios/nuevo"><img src="{{url_for('static',filename='imagenes/add.gif')}}">Nuevo</a>
+    <a href="/usuarios/registrarNuevo"><img src="{{url_for('static',filename='imagenes/añadir.png')}}">Nuevo</a>
     <table border="1">
         <thead>
-            <th>idusuario</th>
+            <th>idUsuario</th>
             <th>idDireccion</th>
             <th>Nombre</th>
             <th>Telefono</th>
             <th>Estatus</th>
             <th>Tipo</th>
             <th>Correo</th>
-            <th>Contraseña</th>
+            <th>Editar</th>
         </thead>
         <tr>
         	<td>1</td>
@@ -26,7 +26,7 @@
         	<td>Activo</td>
             <td>Administrador</td>
             <td>jcaste367@accitesz.com</td>
-            <td>hola.123</td>          
+            <td><a href="/usuarios/editarUsuario"><img src="{{url_for('static',filename='imagenes/editar.png')}}"></a></td>
         </tr>
         <tr>
             <td>2</td>
@@ -36,7 +36,7 @@
         	<td>Activo</td>
             <td>Cliente</td>
             <td>jnavarrete405@accitesz.com</td>
-            <td>hola.123</td>  
+            <td><a href="/usuarios/editarUsuario"><img src="{{url_for('static',filename='imagenes/editar.png')}}"></a></td>
         </tr>
     </table>
     <a href="/">Regresar</a>

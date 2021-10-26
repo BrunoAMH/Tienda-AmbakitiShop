@@ -6,7 +6,7 @@
 </head>
 <body>
     <main>
-        <h1>Registro de Usuario</h1>
+        <h1>Editar Usuario</h1>
         <form action="/usuarios/creacionCuenta" method="post">
             <label>Nombre</label>
             <input type="text" required name="nombre" placeholder="Ingresa tu nombre completo" maxlength="80" value="Mario Eduardo Palato Villa">
@@ -29,6 +29,7 @@
             <input type="checkbox" name="estatus" checked>
             <br>
             <button type="submit">Registrar</button>
+            <a href="/usuarios/consultarUsuarios">Regresar</a>
         </form>
     </main>
 

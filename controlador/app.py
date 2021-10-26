@@ -25,6 +25,11 @@ def editarUsuario():
 def login():
     return render_template('usuarios/login.html')
 
+@app.route('/usuarios/iniciandoSesion', methods=['post'])
+def iniciandoSesion():
+    correo=request.form['correo']
+    return "iniciando sesion con " + correo
+
 @app.route('/usuarios/consultarUsuarios')
 def consultarUsuarios():
     return render_template('usuarios/consultar.html')
