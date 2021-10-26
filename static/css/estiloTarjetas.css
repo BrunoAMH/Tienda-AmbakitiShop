@@ -1,0 +1,12 @@
+#bloque{
+    width: 400px;
+    margin: 0px auto;
+}
+#cajaTexto{
+   width: 400px;
+}
+#bloqueBotones{
+    height: 0px auto;
+    width: 0px auto;
+    text-align: center;
+}

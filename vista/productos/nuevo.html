@@ -4,29 +4,40 @@
    {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
+    <head>
+         <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
+    </head>
 
-    <main>
+    <main id="bloque">
     <h1 id="titulo">Registro de productos</h1>
         <form action="/usuarios/registrar" method="post">
         <label>Nombre del producto:</label>
-        <input type="text" required  name="nombreProducto" placeholder="Ingresa el nombre del producto" maxlength="60">
+        <input id="cajaTexto" type="text" required  name="nombreProducto" placeholder="Ingresa el nombre del producto" maxlength="60">
         <br>
         <label>Descripcion:</label>
-        <input type="text" name="Descripcion" placeholder="Agrega Descripcion" maxlength="150">
+        <input id="cajaTexto" type="text" name="Descripcion" placeholder="Agrega Descripcion" maxlength="150">
         <br>
         <label>PrecioVenta:</label>
-        <input type="text" name="PrecioVenta" placeholder="PrecioVenta" maxlength="6">
+        <input id="cajaTexto" type="text" name="PrecioVenta" placeholder="PrecioVenta" maxlength="6">
         <br>
         <label>Estatus</label>
         <input type="radio" name="estatus" checked>Existente
         <input type="radio" name="estatus" >Agotado
         <br>
-        <label>Categoria</label>
-        <input type="text" name="categoria" placeholder="ingresa datos" maxlength="1">
-        <br>
-        <button type="submit" class="btn btn-success">Registrar</button>
-        <a href="/" class="btn btn-warning">Regresar</a>
 
+        <label>Categoria</label>
+            <select id="cajaTexto" name="cars" id="anio" required>
+                <option value="Selecciona una opcion">Selecciona una opcion</option>
+                <option value="Ropa">Ropa</option>
+                <option value="Comestibles">Comestibles</option>
+                <option value="Suvenirs">Suvenirs</option>
+            </select>
+        <br>
+
+        <nav id="bloqueBotones">
+            <button type="submit" class="btn btn-success">Registrar</button>
+            <a href="/" class="btn btn-warning">Regresar</a>
+        </nav>
     </form>
     </main>
 {% endblock %}

@@ -2,15 +2,6 @@
   <div class="container-fluid">
       <ul class="nav navbar-nav navbar-left">
 
-        <!--<li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Productos
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/productos/consultarProductos">Ropa</a></li>
-          <li><a href="/productos/consultarProductos">Comestibles</a></li>
-          <li><a href="/productos/consultarProductos">Suvenirs</a></li>
-        </ul>
-        </li>-->
         <li><a href="/">Inicio</a></li>
         <li><a href="/productos/consultarProductos">Productos</a></li>
         <li><a href="/pedidos/MisPedidos">Mis pedidos</a></li>
@@ -19,11 +10,20 @@
 
       </ul>
 
-
     <ul class="nav navbar-nav navbar-right">
-        <a class="navbar-brand" href="/usuarios/editarUsuario">
-        <img src="{{url_for('static',filename='imagenes/perfil.png')}}" alt="Avatar Logo" style="width:38px;" class="rounded-pill">
-        </a>
+
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <img src="{{url_for('static',filename='imagenes/perfil.png')}}" alt="Avatar Logo" style="width:38px;" class="rounded-pill">
+                <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a href="/usuarios/login">Iniciar Sesion</a></li>
+                <li><a href="/usuarios/editarUsuario">Editar Perfil</a></li>
+            </ul>
+        </li>
+
         <li><a href="/carrito/consultar"><img src="{{url_for('static',filename='imagenes/carrito.png')}}"> Carrito</a></li>
         <li><a href="/sugerencias/nuevaSugerencia">Enviar Sugerencia</a></li>
 

@@ -77,6 +77,9 @@ def agregarTarjeta():
 def comun():
     return render_template('/comunes/prueba.html')
 
+@app.route('/tarjetas/confirmaCompra', methods=['post'])
+def confirmarCompra():
+    return "Compra confirmada"
 
 if __name__ == '__main__':
     app.run(debug=True)

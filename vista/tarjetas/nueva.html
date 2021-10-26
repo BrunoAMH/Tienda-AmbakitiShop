@@ -4,17 +4,17 @@
 {% endblock %}
 {% block principal %}
     <head>
-         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+         <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
     </head>
      <main id="bloque">
         <h1 id="titulo">Elije metodo de pago</h1>
-            <form action="#" method="post">
+            <form action="/tarjetas/confirmaCompra" method="post">
                 <label>Numero de Tarjeta</label>
-                <input id="caja" type="text" required name="noTarjeta" placeholder="Ingresa el numero de la tarjeta" maxlength="80">
+                <input id="cajaTexto" type="text" required name="noTarjeta" placeholder="Ingresa el numero de la tarjeta" maxlength="80">
                 <br>
 
                 <label>Emisora</label>
-                <select id="caja" name="cars" id="Emisora">
+                <select id="cajaTexto" name="cars" id="Emisora">
                     <option value="MasterCard">MasterCard</option>
                     <option value="Visa">Visa</option>
                     <option value="AmericanExpress">AmericanExpress</option>
@@ -22,7 +22,7 @@
                 <br>
 
                 <label>Mes de Vencimiento</label>
-                <select name="cars" id="mes" required>
+                <select id="cajaTexto" name="cars" id="mes" required>
                     <option value="Enero">Enero</option>
                     <option value="Febrero">Febrero</option>
                     <option value="Marzo">Marzo</option>
@@ -39,7 +39,7 @@
                 <br>
 
                 <label>Año de vencimiento</label>
-                <select name="cars" id="anio" required>
+                <select id="cajaTexto" name="cars" id="anio" required>
                     <option value="2021">2021</option>
                     <option value="2022">2022</option>
                     <option value="2023">2023</option>
@@ -50,7 +50,7 @@
                 <br>
 
                 <label>Tipo de tarjeta</label>
-                <select name="cars" id="tipoTarjeta" required>
+                <select id="cajaTexto" name="cars" id="tipoTarjeta" required>
                     <option value="Credito">Elije una opcion</option>
                     <option value="Credito">Credito</option>
                     <option value="Debito">Debito</option>
@@ -58,11 +58,12 @@
                 <br>
 
                  <label>CVC</label>
-                <input type="password" name="cvc"  maxlength="3" >
+                <input id="cajaTexto" type="password" name="cvc"  maxlength="3" >
                 <br>
-
-                <button type="submit" class="btn btn-success">Registrar</button>
-                <a href="/" class="btn btn-warning">Regresar</a>
+                <nav id="bloqueBotones">
+                    <button type="submit" class="btn btn-success">Confirmar Compra</button>
+                    <a href="/carrito/consultar" class="btn btn-warning">Regresar</a>
+                </nav>
             </form>
 
 
