@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    HEAD
     <list default="true" id="9041997b-1677-4a28-91df-d15ec802c2c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vista/usuarios/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/nuevo.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    =======
+    <list default="true" id="9041997b-1677-4a28-91df-d15ec802c2c3" name="Default Changelist" comment="" />
+    &gt;&gt;&gt;&gt;&gt;&gt;&gt; 61ad0b6b55be1bad1b3ff6ed9c45de6a17af8c0c
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -207,18 +211,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mario\Documents\GitHub\AmbakitiShop\static\css" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
