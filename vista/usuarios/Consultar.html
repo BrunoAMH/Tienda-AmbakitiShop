@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AmbakitiShop</title>
+</head>
+<body>
+    <h1>Listado de Usuarios</h1>
+    <a href="/usuarios/nuevo"><img src="{{url_for('static',filename='imagenes/add.gif')}}">Nuevo</a>
+    <table border="1">
+        <thead>
+            <th>idusuario</th>
+            <th>idDireccion</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Estatus</th>
+            <th>Tipo</th>
+            <th>Correo</th>
+            <th>Contraseña</th>
+        </thead>
+        <tr>
+        	<td>1</td>
+        	<td>1</td>
+            <td>Jaime Castel Mercado</td>
+            <td>351-305-4584</td>
+        	<td>Activo</td>
+            <td>Administrador</td>
+            <td>jcaste367@accitesz.com</td>
+            <td>hola.123</td>          
+        </tr>
+        <tr>
+            <td>2</td>
+        	<td>2</td>
+            <td>Julian Nacarrete Plancarte</td>
+            <td>351-154-4596</td>
+        	<td>Activo</td>
+            <td>Cliente</td>
+            <td>jnavarrete405@accitesz.com</td>
+            <td>hola.123</td>  
+        </tr>
+    </table>
+    <a href="/">Regresar</a>
+</html>
