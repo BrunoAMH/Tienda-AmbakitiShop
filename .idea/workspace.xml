@@ -67,15 +67,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vista/sugerencias/consultar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/usuarios/nuevo.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="513">
@@ -93,11 +84,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/tarjetas/consultar.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
               <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vista/direcciones/nueva.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -134,6 +134,7 @@
         <option value="$PROJECT_DIR$/vista/usuarios/nuevo.html" />
         <option value="$PROJECT_DIR$/vista/tarjetas/nueva.html" />
         <option value="$PROJECT_DIR$/vista/tarjetas/consultar.html" />
+        <option value="$PROJECT_DIR$/vista/direcciones/nueva.html" />
       </list>
     </option>
   </component>
@@ -179,6 +180,36 @@
               <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="vista" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="vista" type="462c0819:PsiDirectoryNode" />
+              <item name="comunes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="vista" type="462c0819:PsiDirectoryNode" />
+              <item name="direcciones" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="vista" type="462c0819:PsiDirectoryNode" />
+              <item name="productos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="vista" type="462c0819:PsiDirectoryNode" />
+              <item name="sugerencias" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="vista" type="462c0819:PsiDirectoryNode" />
+              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,6 +432,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/direcciones/nueva.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
