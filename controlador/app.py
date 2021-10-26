@@ -36,6 +36,13 @@ def iniciandoSesion():
 def consultarUsuarios():
     return render_template('usuarios/consultar.html')
 
+@app.route('/usuarios/guardarCambios', methods=['post'])
+def guardarCambios():
+    nombre=request.form['nombre']
+    return "cambios guardados del usuarios " + nombre
+
+
+
 #DIRECCION
 @app.route('/usuarios/editarDireccion')
 def editarDireccion():
@@ -80,6 +87,12 @@ def comun():
 @app.route('/tarjetas/confirmaCompra', methods=['post'])
 def confirmarCompra():
     return "Compra confirmada"
+
+#DESCUENTOS
+@app.route('/descuentos/consultar')
+def consultarDescuentos():
+    return render_template('/descuentos/consultar.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

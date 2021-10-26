@@ -1,40 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
-    <h1>Listado del carrito</h1>
-        <table id="tablaPedidos" border="3">
-            <thead>
-                <th>idDescuento</th>
-                <th>idProducto</th>
-                <th>fechaInicio</th>
-                <th>fechaFin</th>
-                <th>porcentajeDesc</th>
-            </thead>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>18/10/2021</td>
-                <td>26/10/2021</td>
-                <td>6%</td>                
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>16/09/2021</td>
-                <td>18/09/2021</td>
-                <td>2%</td>    
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>20/10/2021</td>
-                <td>23/10/2021</td>
-                <td>7%</td>    
-            </tr>
-        </table>
-</body>
-</html>
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+    <head>
+         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+    <main id="bloque">
+        <h1>Descuentos</h1>
+            <table id="tablaPedidos" border="3">
+                <thead>
+                    <th>idDescuento</th>
+                    <th>idProducto</th>
+                    <th>fechaInicio</th>
+                    <th>fechaFin</th>
+                    <th>porcentajeDesc</th>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>18/10/2021</td>
+                    <td>26/10/2021</td>
+                    <td>6%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>16/09/2021</td>
+                    <td>18/09/2021</td>
+                    <td>2%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>20/10/2021</td>
+                    <td>23/10/2021</td>
+                    <td>7%</td>
+                </tr>
+            </table>
+         <a href="/" class="btn btn-warning">Regresar</a>
+    </main>
+{% endblock %}
