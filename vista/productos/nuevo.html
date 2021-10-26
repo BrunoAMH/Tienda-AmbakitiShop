@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AmbakitiShop</title>
 </head>
 <body>
+    <main>
+    <h1 id="titulo">Registro de productos</h1>
+        <form action="/usuarios/registrar" method="post">
+        <label>Nombre del producto:</label>
+        <input type="text" required  name="nombreProducto" placeholder="Ingresa el nombre del producto" maxlength="60">
+        <br>
+        <label>Descripcion:</label>
+        <input type="text" name="Descripcion" placeholder="Agrega Descripcion" maxlength="150">
+        <br>
+        <label>PrecioVenta:</label>
+        <input type="text" name="PrecioVenta" placeholder="PrecioVenta" maxlength="6">
+        <br>
+        <label>Estatus</label>
+        <input type="radio" name="estatus" checked>Existente
+        <input type="radio" name="estatus" >Agotado
+        <br>
+        <label>Categoria</label>
+        <input type="text" name="categoria" placeholder="ingresa datos" maxlength="1">
+        <br>
+        <button type="submit">Registrar</button>
+        <a href="/usuarios" class="linkButton">Regresar</a>
+        <a href="/usuarios/iniciarSesion" class="linkButton">Iniciar Sesion</a>
 
+    </form>
+    </main>
 </body>
 </html>

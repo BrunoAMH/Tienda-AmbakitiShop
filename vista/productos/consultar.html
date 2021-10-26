@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AmbakitiShop</title>
 </head>
 <body>
-
+    <h1>Listado de productos</h1>
+    <a href="/usuarios/nuevo"><img src="{{url_for('static',filename='imagenes/add.gif')}}">Nuevo</a>
+    <table border="1">
+        <thead>
+            <th>idProducto</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>PrecioVenta</th>
+            <th>Estatus</th>
+            <th>Categoria</th>
+        </thead>
+        <tr>
+            <td>1</td>
+            <td>Guayabera</td>
+            <td>Camisa de vestir tipa de veracruz</td>
+            <td>500</td>
+            <td>Existente</td>
+            <td>1</td>            
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>zapatos</td>
+            <td>Zapatos de vestir</td>
+            <td>700</td>
+            <td>Existente</td>
+            <td>2</td>
+        </tr>
+    </table>
+    <a href="/">Regresar</a>
 </body>
 </html>
