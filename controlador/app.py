@@ -68,6 +68,10 @@ def misPedidos():
 def miCarrito():
     return render_template('/carrito/consultar.html')
 
+#TARJETAS
+@app.route('/tarjeta/anadir')
+def agregarTarjeta():
+    return render_template('/tarjetas/nueva.html')
 
 @app.route('/comunes/prueba')
 def comun():

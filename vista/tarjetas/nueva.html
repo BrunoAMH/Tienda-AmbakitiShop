@@ -1,10 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+    <head>
+         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+     <main id="bloque">
+        <h1 id="titulo">Elije metodo de pago</h1>
+            <form action="#" method="post">
+                <label>Numero de Tarjeta</label>
+                <input id="caja" type="text" required name="noTarjeta" placeholder="Ingresa el numero de la tarjeta" maxlength="80">
+                <br>
 
-</body>
-</html>
+                <label>Emisora</label>
+                <select id="caja" name="cars" id="Emisora">
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Visa">Visa</option>
+                    <option value="AmericanExpress">AmericanExpress</option>
+                 </select>
+                <br>
+
+                <label>Mes de Vencimiento</label>
+                <select name="cars" id="mes" required>
+                    <option value="Enero">Enero</option>
+                    <option value="Febrero">Febrero</option>
+                    <option value="Marzo">Marzo</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Mayo">Mayo</option>
+                    <option value="Junio">Junio</option>
+                    <option value="Julio">Julio</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Septiembre">Septiembre</option>
+                    <option value="Octubre">Octubre</option>
+                    <option value="Noviembre">Noviembre</option>
+                    <option value="Diciembre">Diciembre</option>
+                 </select>
+                <br>
+
+                <label>Año de vencimiento</label>
+                <select name="cars" id="anio" required>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                 </select>
+                <br>
+
+                <label>Tipo de tarjeta</label>
+                <select name="cars" id="tipoTarjeta" required>
+                    <option value="Credito">Elije una opcion</option>
+                    <option value="Credito">Credito</option>
+                    <option value="Debito">Debito</option>
+                 </select>
+                <br>
+
+                 <label>CVC</label>
+                <input type="password" name="cvc"  maxlength="3" >
+                <br>
+
+                <button type="submit" class="btn btn-success">Registrar</button>
+                <a href="/" class="btn btn-warning">Regresar</a>
+            </form>
+
+
+    </main>
+{% endblock %}
