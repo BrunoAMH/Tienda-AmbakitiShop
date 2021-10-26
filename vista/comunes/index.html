@@ -4,15 +4,17 @@
 {% endblock %}
 {% block principal %}
 
+    <main>
     <header>
         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
         <div id="bloqueIndex">
         <h1>Productos tradicionales de Michoacan</h1>
-        <img src="{{url_for('static',filename='imagenes/michoacan.jpeg')}}" width="400px" >
+        <img src="{{url_for('static',filename='imagenes/michoacan.jpeg')}}" width="800px" >
         </div>
     </header>
 
-    <div id="bloqueIndex" class="container">
+
+   <div id="bloqueIndex" class="container">
         <div class="row">
              <main>
                 <H1>Bienvenido a AmbakitiShop</H1>
@@ -20,6 +22,8 @@
              </main>
         </div>
     </div>
+    </main>
+
 {% endblock %}
 
 

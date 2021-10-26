@@ -4,34 +4,54 @@
    {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
+    <head>
+         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    </head>
 
-    <h1>Listado de productos</h1>
-    <a href="/productos/agregarProducto"><img src="{{url_for('static',filename='imagenes/añadir.png')}}">Nuevo</a>
-    <table border="1">
-        <thead>
-            <th>idProducto</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>PrecioVenta</th>
-            <th>Estatus</th>
-            <th>Categoria</th>
-        </thead>
-        <tr>
-            <td>1</td>
-            <td>Guayabera</td>
-            <td>Camisa de vestir tipa de veracruz</td>
-            <td>500</td>
-            <td>Existente</td>
-            <td>1</td>            
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>zapatos</td>
-            <td>Zapatos de vestir</td>
-            <td>700</td>
-            <td>Existente</td>
-            <td>2</td>
-        </tr>
-    </table>
-   <a href="/" class="btn btn-warning">Regresar</a>
+    <div id="bloque" class="row row-cols-1 row-cols-md-3 g-4">
+        <h1>Listado de productos</h1>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{url_for('static',filename='imagenes/dulces.png')}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Dulces</h3>
+            <p class="card-text">Dulces tipicos de Zamora</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{url_for('static',filename='imagenes/camisa.png')}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Guayabera</h3>
+            <p class="card-text">Camisa de vestir tipa de veracruz</p>
+              <p class="card-text"><small>$200</small></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{url_for('static',filename='imagenes/sombrero.png')}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Sombrero</h3>
+            <p class="card-text">Sombrero de la comunidad de Paracho</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{url_for('static',filename='imagenes/vestido.png')}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">Vestido</h3>
+            <p class="card-text">Vestido hecho a mano en la comunidad de Carapan</p>
+          </div>
+        </div>
+      </div>
+        <a href="/" class="btn btn-warning">Regresar</a>
+        <a href="/productos/agregarProducto"><img src="{{url_for('static',filename='imagenes/añadir.png')}}">Nuevo</a>
+    </div>
+
+
 {% endblock %}

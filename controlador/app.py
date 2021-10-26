@@ -63,8 +63,15 @@ def agregarProducto():
 def misPedidos():
     return render_template('/pedidos/consultar.html')
 
+#CARRITO
+@app.route('/carrito/consultar')
+def miCarrito():
+    return render_template('/carrito/consultar.html')
 
 
+@app.route('/comunes/prueba')
+def comun():
+    return render_template('/comunes/prueba.html')
 
 
 if __name__ == '__main__':
