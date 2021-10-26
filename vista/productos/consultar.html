@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
+
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+
     <h1>Listado de productos</h1>
-    <a href="/usuarios/nuevo"><img src="{{url_for('static',filename='imagenes/add.gif')}}">Nuevo</a>
+    <a href="/productos/agregarProducto"><img src="{{url_for('static',filename='imagenes/añadir.png')}}">Nuevo</a>
     <table border="1">
         <thead>
             <th>idProducto</th>
@@ -33,6 +33,5 @@
             <td>2</td>
         </tr>
     </table>
-    <a href="/">Regresar</a>
-</body>
-</html>
+   <a href="/" class="btn btn-warning">Regresar</a>
+{% endblock %}

@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
+
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
     <main>
         <h1 id="titulo">Registro de domicilio</h1>
-            <form action="/direcciones/registrar" method="post"></form>
-            <label>Nombre de la persona</label>
-            <input type="text" required name="NombreDelQueRecibe" placeholder="Ingresa nombre" maxlength="80">
-            <br>
+            <form action="#" method="post">
+                <label>Nombre de la persona</label>
+                <input type="text" required name="NombreDelQueRecibe" placeholder="Ingresa nombre" maxlength="80">
+                <br>
 
-            <label>Calle</label>
-            <input type="text" required  name="Calle" placeholder="Ingresa datos" maxlength="80">
-            <br>
+                <label>Calle</label>
+                <input type="text" required  name="Calle" placeholder="Ingresa datos" maxlength="80">
+                <br>
 
-            <label>Codigo Postal</label>
-            <input type="text" required name="Codigo" placeholder="Ingresa Codigo" maxlength="5">
-            <br>
+                <label>Codigo Postal</label>
+                <input type="text" required name="Codigo" placeholder="Ingresa Codigo" maxlength="5">
+                <br>
 
-            <label>Provincia</label>
-            <input type="text" required name="Provincia" placeholder="Ingresa datos" maxlength="80">
-            <br>
+                <label>Provincia</label>
+                <input type="text" required name="Provincia" placeholder="Ingresa datos" maxlength="80">
+                <br>
 
-            <label>Ciudad</label>
-            <input type="text" required name="Ciudad" placeholder="Ingresa datos" maxlength="80">
-            <br>
+                <label>Ciudad</label>
+                <input type="text" required name="Ciudad" placeholder="Ingresa datos" maxlength="80">
+                <br>
 
-            <label>Colonia</label>
-            <input type="text" required name="Colonia" placeholder="Ingresa datos" maxlength="80">
-            <br>
+                <label>Colonia</label>
+                <input type="text" required name="Colonia" placeholder="Ingresa datos" maxlength="80">
+                <br>
 
-            <label>Instuccion</label>
-            <input type="text" name="Instuccion" placeholder="Ingresa datos" maxlength="200">
-            <br>
-           
-            <button type="submit">Registrar</button>
+                <label>Instuccion</label>
+                <input type="text" name="Instuccion" placeholder="Ingresa datos" maxlength="200">
+                <br>
+
+                <button type="submit" class="btn btn-success">Registrar</button>
+                <a href="/" class="btn btn-warning">Regresar</a>
+            </form>
  
 
     </main>
-
-</body>
-</html>
+{% endblock %}

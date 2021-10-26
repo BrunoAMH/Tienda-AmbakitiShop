@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
+
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+
     <main>
     <h1 id="titulo">Registro de productos</h1>
         <form action="/usuarios/registrar" method="post">
@@ -24,11 +24,9 @@
         <label>Categoria</label>
         <input type="text" name="categoria" placeholder="ingresa datos" maxlength="1">
         <br>
-        <button type="submit">Registrar</button>
-        <a href="/usuarios" class="linkButton">Regresar</a>
-        <a href="/usuarios/iniciarSesion" class="linkButton">Iniciar Sesion</a>
+        <button type="submit" class="btn btn-success">Registrar</button>
+        <a href="/" class="btn btn-warning">Regresar</a>
 
     </form>
     </main>
-</body>
-</html>
+{% endblock %}

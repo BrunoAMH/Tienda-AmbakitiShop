@@ -36,7 +36,12 @@ def iniciandoSesion():
 def consultarUsuarios():
     return render_template('usuarios/consultar.html')
 
-#Sugerencias
+#DIRECCION
+@app.route('/usuarios/editarDireccion')
+def editarDireccion():
+    return render_template('/direcciones/editar.html')
+
+#SUGERENCIAS
 @app.route('/sugerencias/nuevaSugerencia')
 def nuevaSugerencia():
     return render_template('/sugerencias/nueva.html')
@@ -49,6 +54,15 @@ def consultarSugerencia():
 @app.route('/productos/consultarProductos')
 def consultarProductos():
     return render_template('/productos/consultar.html')
+
+@app.route('/productos/agregarProducto')
+def agregarProducto():
+    return render_template('/productos/nuevo.html')
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
