@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AmbakitiShop</title>
 </head>
 <body>
+    <main>
+        <h1>Registro de Usuario</h1>
+        <form action="/usuarios/creacionCuenta" method="post">
+            <label>Nombre</label>
+            <input type="text" required name="nombre" placeholder="Ingresa tu nombre completo" maxlength="80">
+            <br>
+            <label>Teléfono</label>
+            <input type="tel" required name="telefono" placeholder="###-###-####">
+            <br>
+            <label>Correo</label>
+            <input type="email" required name="telefono" placeholder="Ingresa tu correo" maxlength="80">
+            <br>
+            <label>Contraseña</label>
+            <input type="password" required name="contrasena" placeholder="Ingresa tu contraseña" maxlength="50">
+            <input type="checkbox"> Ver Contraseña
+            <br>
+            <label>Tipo:</label>
+            <input type="radio" name="tipo">Administrador
+            <input type="radio" name="tipo">Cliente
+            <br>
+            <label>Estatus</label>
+            <input type="checkbox" name="estatus" checked>
+            <br>
+            <button type="submit">Registrar</button>
+        </form>
+    </main>
 
 </body>
 </html>
