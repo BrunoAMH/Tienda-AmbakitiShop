@@ -3,45 +3,51 @@
    {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-    <h1>Listado de Mis pedidos</h1>
-    <table border="1">
-        <thead>
-            <th>idProducto</th>
-            <th>idUsuario</th>
-            <th>idTarjeta</th>
-            <th>FechaCompra</th>
-            <th>CostoEnvio</th>
-            <th>Costo total</th>
-            <th>Comentarios</th>
-            <th>Estatus</th>
-        </thead>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>25/10/2021</td>
-            <td>200</td>
-            <td>800</td> 
-            <td>En camino</td>           
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-            <td>25/10/2021</td>
-            <td>150</td>
-            <td>1300</td> 
-            <td>En camino</td> 
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-            <td>22/9/2021</td>
-            <td>250</td>
-            <td>2200</td> 
-            <td>Entregado</td> 
-        </tr>
-    </table>
-    <a href="/" class="btn btn-warning">Regresar</a>
+
+    <head>
+         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+    <main id="bloque">
+        <h1>Listado de Mis pedidos</h1>
+        <table id="tablaPedidos" border="3">
+            <thead>
+                <th>idProducto</th>
+                <th>idUsuario</th>
+                <th>idTarjeta</th>
+                <th>FechaCompra</th>
+                <th>CostoEnvio</th>
+                <th>Costo total</th>
+                <th>Comentarios</th>
+                <th>Estatus</th>
+            </thead>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>25/10/2021</td>
+                <td>200</td>
+                <td>800</td>
+                <td>En camino</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>25/10/2021</td>
+                <td>150</td>
+                <td>1300</td>
+                <td>En camino</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>22/9/2021</td>
+                <td>250</td>
+                <td>2200</td>
+                <td>Entregado</td>
+            </tr>
+        </table>
+        <a id="botonTabla" href="/" class="btn btn-warning">Regresar</a>
+</main>
 {% endblock %}

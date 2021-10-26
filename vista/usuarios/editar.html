@@ -4,20 +4,23 @@
    {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-    <main>
+    <head>
+        <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+    <main id="bloque">
         <h1>Editar Usuario</h1>
         <form action="/usuarios/guardarCambiosUsuario" method="post">
             <label>Nombre</label>
-            <input type="text" required name="nombre" placeholder="Ingresa tu nombre completo" maxlength="80" value="Mario Eduardo Palato Villa">
+            <input id="caja" type="text" required name="nombre" placeholder="Ingresa tu nombre completo" maxlength="80" value="Mario Eduardo Palato Villa">
             <br>
             <label>Teléfono</label>
-            <input type="tel" required name="telefono" placeholder="###-###-####" value="351-645-7845">
+            <input id="caja" type="tel" required name="telefono" placeholder="###-###-####" value="351-645-7845">
             <br>
             <label>Correo</label>
-            <input type="email" required name="telefono" placeholder="Ingresa tu correo" maxlength="80" value="mario@gmail.com">
+            <input id="caja" type="email" required name="telefono" placeholder="Ingresa tu correo" maxlength="80" value="mario@gmail.com">
             <br>
             <label>Contraseña</label>
-            <input type="password" required name="contrasena" placeholder="Ingresa tu contraseña" maxlength="50" value="cisco123">
+            <input id="caja" type="password" required name="contrasena" placeholder="Ingresa tu contraseña" maxlength="50" value="cisco123">
             <input type="checkbox"> Ver Contraseña
             <br>
             <label>Tipo:</label>
@@ -27,9 +30,11 @@
             <label>Estatus</label>
             <input type="checkbox" name="estatus" checked>
             <br>
-            <button type="submit" class="btn btn-success">Guadar Cambios</button>
-            <a href="/usuarios/editarDireccion" class="btn btn-info">Mi direccion</a>
-            <a href="/"  class="btn btn-warning">Regresar</a>
+            <div id="bloqueBotones">
+                <button type="submit" class="btn btn-success">Guadar Cambios</button>
+                <a href="/usuarios/editarDireccion" class="btn btn-info">Mi direccion</a>
+                <a href="/"  class="btn btn-warning">Regresar</a>
+            </div>
 
         </form>
     </main>
