@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Escribir sugerencia</title>
-</head>
-<body>
+
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+
     <h1>Nueva Sugerencia</h1>
     <form action="" method="post">
 
@@ -17,8 +17,7 @@
            <label for="msg">Comentario:</label>
            <textarea id="msg" name="user_message"></textarea>
             <br>
-        <button class="button" type="submit">Enviar Sugerencia</button>
-        <a href="/" class="linkButton">Regresar</a>
+        <button class="btn btn-success" type="submit" >Enviar Sugerencia</button>
+        <a href="/" class="btn btn-warning">Regresar</a>
     </form>
-</body>
-</html>
+{% endblock %}

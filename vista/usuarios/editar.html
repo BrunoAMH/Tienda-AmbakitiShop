@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AmbakitiShop</title>
-</head>
-<body>
+
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
     <main>
         <h1>Editar Usuario</h1>
-        <form action="/usuarios/creacionCuenta" method="post">
+        <form action="/usuarios/guardarCambiosUsuario" method="post">
             <label>Nombre</label>
             <input type="text" required name="nombre" placeholder="Ingresa tu nombre completo" maxlength="80" value="Mario Eduardo Palato Villa">
             <br>
@@ -28,11 +27,11 @@
             <label>Estatus</label>
             <input type="checkbox" name="estatus" checked>
             <br>
-            <button type="submit">Registrar</button>
-            <a href="/usuarios/consultarUsuarios">Regresar</a>
+            <button type="submit" class="btn btn-success">Guadar Cambios</button>
+            <a href="/usuarios/editarDireccion" class="btn btn-info">Mi direccion</a>
+            <a href="/"  class="btn btn-warning">Regresar</a>
+
         </form>
     </main>
 
-
-</body>
-</html>
+{% endblock %}
