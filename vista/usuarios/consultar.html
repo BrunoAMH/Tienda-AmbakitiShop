@@ -18,26 +18,18 @@
             <th>Correo</th>
             <th>Editar</th>
         </thead>
+        {% for usu in usuarios %}
         <tr>
-        	<td>1</td>
-        	<td>1</td>
-            <td>Jaime Castel Mercado</td>
-            <td>351-305-4584</td>
-        	<td>Activo</td>
-            <td>Administrador</td>
-            <td>jcaste367@accitesz.com</td>
-            <td><a href="/usuarios/editarUsuario"><img src="{{url_for('static',filename='imagenes/editar.png')}}"></a></td>
+            <td>{{usu.idUsuario}}</td>
+            <td>{{usu.nombre}}</td>
+            <td>{{usu.telefono}}</td>
+            <td>{{usu.estatus}}</td>
+            <td>{{usu.tipo}}</td>
+            <td>{{usu.correo}}</td>
+             <td>{{usu.contrasena}}</td>
         </tr>
-        <tr>
-            <td>2</td>
-        	<td>2</td>
-            <td>Julian Nacarrete Plancarte</td>
-            <td>351-154-4596</td>
-        	<td>Activo</td>
-            <td>Cliente</td>
-            <td>jnavarrete405@accitesz.com</td>
-            <td><a href="/usuarios/editarUsuario"><img src="{{url_for('static',filename='imagenes/editar.png')}}"></a></td>
-        </tr>
+        {% endfor %}
     </table>
+</body>
     <a href="/">Regresar</a>
 </html>

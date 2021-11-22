@@ -1,8 +1,19 @@
-from flask import Flask,render_template,request
+
+import urllib
+
+from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
+from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
+from modelo.DAO import db,Usuario
 
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
+
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.0.1/mydb'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.secret_key='cl4v3'
+
+
 
 @app.route('/')
 def inicio():
@@ -34,7 +45,8 @@ def iniciandoSesion():
 
 @app.route('/usuarios/consultarUsuarios')
 def consultarUsuarios():
-    return render_template('usuarios/consultar.html')
+    u = Usuario()
+    return render_template('usuarios/consultar.html',usuarios = u.consultaGeneral())
 
 @app.route('/usuarios/guardarCambios', methods=['post'])
 def guardarCambios():
@@ -95,4 +107,5 @@ def consultarDescuentos():
 
 
 if __name__ == '__main__':
+    db.init_app(app)
     app.run(debug=True)
