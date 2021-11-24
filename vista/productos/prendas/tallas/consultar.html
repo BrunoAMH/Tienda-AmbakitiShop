@@ -1,0 +1,56 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<div class="well">
+    <h1>Listado de Tallas</h1>
+    <select name="nombre">
+        <option>--Selecciona la talla--</option>
+        <option>XL</option>
+        <option>X</option>
+        <option>L</option>
+    </select>
+    <table class="table">
+        <THEAD>
+            <TH>ID</TH>
+            <TH>NOMBRE</TH>
+            <TH>MEDIDAS</TH>
+            <TH>EDITAR</TH>
+            <TH>ELIMINAR</TH>
+
+        </THEAD>
+        {% for tall in tallas %}
+            <tr>
+                <td>{{tall.idTalla}}</td>
+                <td>{{tall.nombreTalla}}</td>
+                <td>{{tall.medidas}}</td>
+                <td>
+                    <a href="/productos/prendas/tallas/ver/{{tall.idTalla}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="/productos/prendas/tallas/eliminar/{{tall.idTalla}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+        </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+     <head>
+        <link href="../static/css/especial.css" rel="stylesheet">
+    </head>
+    <div id="bloque">
+        <h1>Registro de prenda</h1>
+        <form action="/productos/prendas/nueva" method="post">
+             <div  class="mb-3">
+                <label for="caja" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="caja" placeholder="Ingresa las unidades en existencia" maxlength="80" required name="nombre">
+             </div>
+            <div  class="mb-3">
+                <label for="caja" class="form-label">Nombre</label>
+                <input type="color" class="form-control" id="color"  maxlength="80" required name="nombre">
+             </div>
+            <div class="mb-3">
+                <label for="caja" class="form-label">Genero</label>
+                <input type="radio" name="tipo">Masculino
+                <input type="radio" name="tipo">Femenino
+                <input type="radio" name="tipo">Ambos
+             </div>
+        </form>
+         <div>
+             <button type="submit" class="btn btn-success">Guadar Cambios</button>
+             <a href="/"  class="btn btn-warning">Regresar</a>
+         </div>
+
+    </div>
+{% endblock %}

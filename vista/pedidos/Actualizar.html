@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<main id="bloque">
+        <h1>Actualizar pedido</h1>
+
+        <form action="/pedidos/Actualizar" method="post">
+            <label>Fecha de compra</label>
+
+	        <input id="cajaTexto" type="text" required  name="Fecha compra" placeholder="Introduce la fecha" maxlength="8" value="22/11/21">
+	        <br>
+	        <label>Costo de envío:</label>
+	        <input id="cajaTexto" type="text" name="Costo envío" placeholder="Introduce el costo" maxlength="6" value="100">
+	        <br>
+	        <label>Costo Final:</label>
+	        <input id="cajaTexto" type="text" name="Costo Final" placeholder="Introduce el costo" maxlength="6" value="500">
+	        <br>
+	        <label>Comentarios:</label>
+	        <input id="cajaTexto" type="text" name="Comentarios" placeholder="Agrega un comentario" maxlength="200" value="Buen producto">
+	        <br>
+	        <label>Estatus</label>
+	        <input type="radio" name="estatus" >Pendiente  
+	        <input type="radio" name="estatus" checked>Verificado
+	        <br>
+
+            
+            <div id="bloqueBotones">
+                <button type="submit" class="btn btn-success">Guadar Cambios</button>
+            </div>
+
+        </form>
+    </main>
+
+</body>
+</html>

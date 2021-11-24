@@ -7,36 +7,61 @@
     <head>
         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
     </head>
-    <main id="bloque">
+    <div id="bloque">
         <h1>Editar Usuario</h1>
         <form action="/usuarios/guardarCambios" method="post">
-            <label>Nombre</label>
-            <input id="caja" type="text" required name="nombre" placeholder="Ingresa tu nombre completo" maxlength="80" value="Mario Eduardo Palato Villa">
-            <br>
-            <label>Teléfono</label>
-            <input id="caja" type="tel" required name="telefono" placeholder="###-###-####" value="351-645-7845">
-            <br>
-            <label>Correo</label>
-            <input id="caja" type="email" required name="telefono" placeholder="Ingresa tu correo" maxlength="80" value="mario@gmail.com">
-            <br>
-            <label>Contraseña</label>
-            <input id="caja" type="password" required name="contrasena" placeholder="Ingresa tu contraseña" maxlength="50" value="cisco123">
-            <input type="checkbox"> Ver Contraseña
-            <br>
-            <label>Tipo:</label>
-            <input type="radio" name="tipo" checked>Administrador
-            <input type="radio" name="tipo">Cliente
-            <br>
-            <label>Estatus</label>
-            <input type="checkbox" name="estatus" checked>
-            <br>
-            <div id="bloqueBotones">
+             <div  class="mb-3">
+                <label for="caja" class="form-label">Nombre</label>
+                <input value="{{current_user.nombre}}" type="text" class="form-control" id="caja" placeholder="Ingresa tu nombre completo" maxlength="80" required name="nombre">
+             </div>
+             <div class="mb-3">
+                <label for="caja" class="form-label">Telefono</label>
+                <input value="{{current_user.telefono}}" type="text" class="form-control" id="caja" name="telefono" placeholder="Ingresa tu número de telefono" required>
+             </div>
+
+             <div class="mb-3">
+                <label for="caja" class="form-label">Correo</label>
+                <input  value="{{current_user.correo}}" type="email" class="form-control" id="caja" name="correo" placeholder="Ingresa tu correo electronico" required>
+             </div>
+
+             <div class="mb-3">
+                <label for="caja" class="form-label">Contraseña</label>
+                <input value="{{current_user.contrasena}}" type="password" class="form-control" id="caja" name="contrasena" placeholder="Ingresa una contraseña" required>
+             </div>
+             <div class="mb-3">
+                <label for="caja" class="form-label">Tipo</label>
+                 {% if current_user.tipo == 'Admin' %}
+                 <input type="radio" name="tipo" checked>Administrador
+                 <input type="radio" name="tipo">Cliente
+                 {% endif %}
+                 {% if current_user.tipo == 'Cliente' %}
+                 <input type="radio" name="tipo" checked>Cliente
+                 {% endif %}
+             </div>
+
+             <div class="mb-3">
+                 {% if current_user.estatus == 1%}
+                 <label for="caja">Estatus</label>
+                 <input  type="checkbox" name="estatus" checked>
+                 {% endif %}
+             </div>
+
+            <div>
                 <button type="submit" class="btn btn-success">Guadar Cambios</button>
                 <a href="/usuarios/editarDireccion" class="btn btn-info">Mi direccion</a>
                 <a href="/"  class="btn btn-warning">Regresar</a>
             </div>
 
         </form>
-    </main>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
 
 {% endblock %}

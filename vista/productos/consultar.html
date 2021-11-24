@@ -1,63 +1,55 @@
-
 {% extends "comunes/base.html" %}
 {% block navbar %}
-   {% include 'comunes/menu.html' %}
+{% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-    <head>
-         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
-    </head>
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
 
-    <div id="bloque" class="row row-cols-1 row-cols-md-3 g-4">
-        <h1>Listado de productos</h1>
+<div class="well">
+    <h1>Listado de Productos</h1>
+    <!--
+    <select name="categoria">
+        <option>--Selecciona la categoria --</option>
+        <option>Refrescos</option>
+        <option>Calzado</option>
+        <option>Varios</option>
+    </select>-->
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="{{url_for('static',filename='imagenes/dulces.png')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title">Dulces</h3>
-            <p class="card-text">Dulces tipicos de Zamora</p>
-              <p class="card-text"><small>$100</small></p>
-            <p><a class="btn btn-info"><small>Agregar al carrito</small> </a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="{{url_for('static',filename='imagenes/camisa.png')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title">Guayabera</h3>
-            <p class="card-text">Camisa de vestir tipa de veracruz</p>
-              <p class="card-text"><small>$200</small></p>
-            <p><a class="btn btn-info"><small>Agregar al carrito</small> </a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="{{url_for('static',filename='imagenes/sombrero.png')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title">Sombrero</h3>
-            <p class="card-text">Sombrero de la comunidad de Paracho</p>
-              <p class="card-text"><small>$300</small></p>
-            <p><a class="btn btn-info"><small>Agregar al carrito</small> </a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="{{url_for('static',filename='imagenes/vestido.png')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title">Vestido</h3>
-            <p class="card-text">Vestido hecho a mano en la comunidad de Carapan</p>
-              <p class="card-text"><small>$400</small></p>
-              <p><a class="btn btn-info"><small>Agregar al carrito</small> </a></p>
-          </div>
-        </div>
-      </div>
-        <a href="/" class="btn btn-warning">Regresar</a>
-        <a href="/productos/agregarProducto"><img src="{{url_for('static',filename='imagenes/añadir.png')}}">Nuevo</a>
-    </div>
+    <table class="table">
+        <THEAD>
+            <TH>ID</TH>
+            <TH>NOMBRE</TH>
+            <TH>DESCRIPCION</TH>
+            <TH>PRECIO</TH>
+            <TH>ESTATUS</TH>
+            <th>CATEGORIA</th>
+            <TH>FOTO</TH>
+            <TH>EDITAR</TH>
+            <TH>ELIMINAR</TH>
+        </THEAD>
+        {% for prod in productos %}
+            <tr>
+                 <td>{{prod.idProducto}}</td>
+                <td>{{prod.nombre}}</td>
+                <td>{{prod.descripcion}}</td>
+                <td>{{prod.precioVenta}}</td>
+                <td>{{prod.estatus}}</td>
+                <td><td><img src="/productos/imagen/{{prod.idFoto}}" width="100px"></td></td>
+                <td>
+                    <a href="/productos/ver/{{prod.idProducto}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="/productos/eliminar/{{prod.idProducto}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
 
-
+            </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

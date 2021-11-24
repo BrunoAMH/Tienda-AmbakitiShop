@@ -1,0 +1,59 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<div class="well">
+    <h1>Listado de Prendas</h1>
+    <select name="producto">
+        <option>--Selecciona la categoria de prenda--</option>
+        <option>Playeras</option>
+        <option>Camisas</option>
+        <option>Varios</option>
+    </select>
+    <select name="talla">
+        <option>--Selecciona la talla--</option>
+        <option>XL</option>
+        <option>x</option>
+        <option>L</option>
+    </select>
+
+    <table class="table">
+        <a href="/productos/prendas/nuevo">
+        <THEAD>
+            <TH>ID</TH>
+            <TH>CATEGORIA</TH>
+            <TH>TALLA</TH>
+            <TH>STOCK</TH>
+            <TH>COLOR</TH>
+            <th>GENERO</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+        </THEAD>
+        {% for pren in prendas %}
+            <tr>
+                <td>{{pren.idPrenda}}</td>
+                <td>{{pren.producto.categoria}}</td>
+                <td>{{pren.talla.nombreTalla}}</td>
+                <td>{{pren.unidadesExistencia}}</td>
+                <td>{{pren.color}}</td>
+                <td>{{pren.genero}}</td>
+                <td>
+                    <a href="/productos/prendas/ver/{{pren.idPrenda}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                 <td>
+                    <a href="/productos/prendas/eliminar/{{pren.idPrenda}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

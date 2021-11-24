@@ -1,0 +1,38 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+    <head>
+         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+    <div id="bloque">
+        <h1>Registro de Tallas</h1>
+        <form action="/productos/prendas/tallas/validarTalla" method="post">
+             <div  class="mb-3">
+                <label for="caja" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="caja" placeholder="Ingresa el nombre de la talla" maxlength="80" required name="nombreTalla">
+             </div>
+             <div class="mb-3">
+                <label for="caja" class="form-label">Medidas</label>
+                <input type="text" class="form-control" id="caja" name="medidas" placeholder="Ingresa las medidas" required>
+             </div>
+            <br>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Registrar</button>
+                <a href="/usuarios/login" class="btn btn-warning">Regresar</a>
+            </div>
+
+        </form>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+   </div>
+
+{% endblock %}

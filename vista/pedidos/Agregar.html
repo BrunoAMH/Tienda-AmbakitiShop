@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Agregar pedidos</title>
+</head>
+<body>
+	<main id="bloque">
+    <h1 id="titulo">Registrar pedido</h1>
+        <form action="/pedidos/registrar" method="post">
+        <label>Fecha de compra:</label>
+        <input id="cajaTexto" type="text" required  name="Fecha compra" placeholder="Introduce la fecha" maxlength="8">
+        <br>
+        <label>Costo de envío:</label>
+        <input id="cajaTexto" type="text" name="Costo envío" placeholder="Introduce el costo" maxlength="6">
+        <br>
+        <label>Costo Final:</label>
+        <input id="cajaTexto" type="text" name="Costo Final" placeholder="Introduce el costo" maxlength="6">
+        <br>
+        <label>Comentarios:</label>
+        <input id="cajaTexto" type="text" name="Comentarios" placeholder="Agrega un comentario" maxlength="200">
+        <br>
+        <label>Estatus</label>
+        <input type="radio" name="estatus" checked>En camino 
+        <input type="radio" name="estatus" >Entregado
+        <br>
+
+        <nav id="bloqueBotones">
+            <button type="submit" class="btn btn-success">Registrar</button>
+            <a href="/" class="btn btn-warning">Regresar</a>
+        </nav>
+    </form>
+    </main>
+</body>
+</html>

@@ -6,38 +6,59 @@
 {% block principal %}
     <head>
          <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
+
     </head>
 
-    <main id="bloque">
+    <div id="bloque">
     <h1 id="titulo">Registro de productos</h1>
-        <form action="/usuarios/registrar" method="post">
-        <label>Nombre del producto:</label>
-        <input id="cajaTexto" type="text" required  name="nombreProducto" placeholder="Ingresa el nombre del producto" maxlength="60">
-        <br>
-        <label>Descripcion:</label>
-        <input id="cajaTexto" type="text" name="Descripcion" placeholder="Agrega Descripcion" maxlength="150">
-        <br>
-        <label>PrecioVenta:</label>
-        <input id="cajaTexto" type="text" name="PrecioVenta" placeholder="PrecioVenta" maxlength="6">
-        <br>
-        <label>Estatus</label>
-        <input type="radio" name="estatus" checked>Existente
-        <input type="radio" name="estatus" >Agotado
-        <br>
+            <form action="/productos/guardandoProducto" method="post" enctype="multipart/form-data">
+            <label>Nombre del producto:</label>
+            <input id="cajaTexto" type="text" required  name="nombre" placeholder="Ingresa el nombre del producto" maxlength="60">
+            <br>
+            <label>Descripcion:</label>
+            <input id="cajaTexto" type="text" name="descripcion" placeholder="Agrega Descripcion" maxlength="150">
+            <br>
+            <label>PrecioVenta:</label>
+            <input id="cajaTexto" type="text" name="precioVenta" placeholder="PrecioVenta" maxlength="6">
+            <br>
+            <label>Estatus</label>
+            <input type="radio" name="estatus" checked>Existente
+            <input type="radio" name="estatus" >Agotado
+            <br>
 
-        <label>Categoria</label>
-            <select id="cajaTexto" name="cars" id="anio" required>
-                <option value="Selecciona una opcion">Selecciona una opcion</option>
-                <option value="Ropa">Ropa</option>
-                <option value="Comestibles">Comestibles</option>
-                <option value="Suvenirs">Suvenirs</option>
-            </select>
-        <br>
+            <div class="form-group">
+                <label>Imagen:</label>
+                <input type="file" name="foto" class="form-control" placeholder="Imagen de la categoria">
+            </div>
+
+
+            <!--<label>Categoria</label>
+                <form action="">
+                    <select id="cajaTexto" name="opciones" id="anio" required>
+                        <option value="Selecciona una opcion">Selecciona una opcion</option>
+                        <option value="Ropa">Ropa</option>
+                        <option value="Comestibles">Comestibles</option>
+                        <option value="Suvenirs">Suvenirs</option>
+                    </select>
+                    <br>
+                    <div>
+                    <button type="submit" class="btn btn-success">Ok</button>
+                    </div>
+                </form>-->
 
         <nav id="bloqueBotones">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success">Siguiente</button>
             <a href="/" class="btn btn-warning">Regresar</a>
         </nav>
     </form>
-    </main>
+        <br>
+    </div>
+    {% if get_flashed_messages() %}
+    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}

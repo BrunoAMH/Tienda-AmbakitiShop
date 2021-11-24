@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Descuentos</title>
+</head>
+<body>
+	<main id="bloque">
+    <h1 id="titulo">Registro de descuentos</h1>
+        <form action="/productos/registrar" method="post">
+        <label>Inicio del descuento:</label>
+        <input id="cajaTexto" type="text" required  name="Fecha inicio" placeholder="Fecha de inicio" maxlength="8">
+        <br>
+        <label>Terminacion del descuento:</label>
+        <input id="cajaTexto" type="text" name="Fecha fin" placeholder="Fecha de finalización" maxlength="8">
+        <br>
+        <label>Porcentaje de descuento:</label>
+        <input id="cajaTexto" type="text" name="Porcentaje" placeholder="Porcentaje de descuento" maxlength="2">
+        <br>
+
+        <nav id="bloqueBotones">
+            <button type="submit" class="btn btn-success">Registrar</button>
+            <a href="/" class="btn btn-warning">Regresar</a>
+        </nav>
+    </form>
+    </main>
+</body>
+</html>

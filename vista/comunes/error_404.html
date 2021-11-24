@@ -1,0 +1,12 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+ <head>
+    <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+ </head>
+<div id="bloque">
+    <img src="{{url_for('static',filename='imagenes/error_404.png')}}">
+</div>
+{% endblock %}

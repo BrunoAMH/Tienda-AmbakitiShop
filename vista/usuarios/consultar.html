@@ -1,35 +1,47 @@
-<!DOCTYPE html>
-<html>
+
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
 <head>
-	<meta charset="utf-8">
-	<title>AmbakitiShop</title>
+	<link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../static/css/estilo_tabla.css" rel="stylesheet" >
 </head>
-<body>
+<main id="bloque">
     <h1>Listado de Usuarios</h1>
-    <a href="/usuarios/registrarNuevo"><img src="{{url_for('static',filename='imagenes/añadir.png')}}">Nuevo</a>
-    <table border="1">
-        <thead>
+    <!--<a href="/usuarios/registrarNuevo"  ><img src="{{url_for('static',filename='imagenes/añadir.png')}}" >Nuevo</a>-->
+    <br>
+    <table id="tabla" border="1" class="table table-striped table-hover">
+        <thead class="thead">
             <th>idUsuario</th>
-            <th>idDireccion</th>
             <th>Nombre</th>
             <th>Telefono</th>
             <th>Estatus</th>
             <th>Tipo</th>
             <th>Correo</th>
-            <th>Editar</th>
+            <th>Contraseña</th>
         </thead>
         {% for usu in usuarios %}
         <tr>
             <td>{{usu.idUsuario}}</td>
             <td>{{usu.nombre}}</td>
             <td>{{usu.telefono}}</td>
-            <td>{{usu.estatus}}</td>
+            <td>
+                {% if usu.estatus == 1%}
+                <input  type="checkbox" name="estatus" checked>
+                {% endif %}
+            </td>
             <td>{{usu.tipo}}</td>
             <td>{{usu.correo}}</td>
              <td>{{usu.contrasena}}</td>
         </tr>
         {% endfor %}
     </table>
-</body>
-    <a href="/">Regresar</a>
-</html>
+    <br>
+    <div>
+        <button type="submit" class="btn btn-success">Guadar Cambios</button>
+        <a href="/" class="btn btn-warning">Regresar</a>
+    </div>
+</main>
+{% endblock %}
