@@ -1,15 +1,11 @@
 {% extends "comunes/base.html" %}
 {% block navbar %}
-   {% include 'comunes/menu.html' %}
+{% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-
-    <head>
-         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
-    </head>
-    <main id="bloque">
+<div class="well">
         <h1>Listado de Mis pedidos</h1>
-        <table id="tablaPedidos" border="3" >
+        <table class="table"  >
             <thead>
                 <th>idProducto</th>
                 <th>idUsuario</th>
@@ -46,8 +42,18 @@
                 <td>250</td>
                 <td>2200</td>
                 <td>Entregado</td>
+
+                 <td>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
             </tr>
         </table>
-        <a id="botonTabla" href="/" class="btn btn-warning">Regresar</a>
-</main>
+</div>
 {% endblock %}
