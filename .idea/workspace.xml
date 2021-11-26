@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9041997b-1677-4a28-91df-d15ec802c2c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/AmbakitiShop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AmbakitiShop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controlador/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/controlador/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelo/DAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelo/DAO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bloquesCentro.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bloquesCentro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/estiloTarjetas.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/estiloTarjetas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/comunes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/comunes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/comunes/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/comunes/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/descuentos/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/descuentos/consultar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/direcciones/editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/direcciones/editar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/direcciones/nueva.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/direcciones/nueva.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/productos/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/productos/consultar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/productos/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/productos/nuevo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/sugerencias/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/sugerencias/consultar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/tarjetas/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/tarjetas/consultar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/consultar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/editar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/usuarios/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/usuarios/nuevo.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controlador/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="241" column="23" selection-start-line="241" selection-start-column="23" selection-end-line="241" selection-end-column="23" />
+            <state relative-caret-position="297">
+              <caret line="11" column="63" lean-forward="true" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
@@ -44,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/productos/consultar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
+            <state relative-caret-position="1215">
               <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
             </state>
           </provider>
@@ -53,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/productos/prendas/consultar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="52" column="24" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="52" selection-end-column="24" />
+            <state relative-caret-position="1404">
+              <caret line="52" column="24" selection-start-line="50" selection-start-column="20" selection-end-line="52" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -62,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modelo/DAO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="167" column="30" lean-forward="true" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
+            <state relative-caret-position="4428">
+              <caret line="167" column="30" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -74,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/comunes/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
+            <state relative-caret-position="567">
               <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
             </state>
           </provider>
@@ -83,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/productos/nuevoSuvenir.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1114">
+            <state relative-caret-position="1458">
               <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
             </state>
           </provider>
@@ -92,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/productos/nuevoConsumible.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
+            <state relative-caret-position="297">
               <caret line="11" column="105" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="105" />
             </state>
           </provider>
@@ -102,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/editar.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
-              <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -110,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/consultar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
+            <state relative-caret-position="864">
               <caret line="32" column="73" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="73" />
             </state>
           </provider>
@@ -119,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vista/productos/nuevoRopa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="1674">
               <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="71" selection-end-column="15" />
             </state>
           </provider>
@@ -207,65 +192,38 @@
         <subPane>
           <expand>
             <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap-5.0.2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="controlador" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="modelo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
+              <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="vista" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="comunes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="direcciones" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="productos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="productos" type="462c0819:PsiDirectoryNode" />
-              <item name="prendas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AmbakitiShop" type="462c0819:PsiDirectoryNode" />
-              <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -339,14 +297,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15806112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22318527" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24485373" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -532,18 +489,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/AmbakitiShop/modelo/DAO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AmbakitiShop/controlador/app.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AmbakitiShop/modelo/DAO.py" />
+    <entry file="file://$USER_HOME$/Downloads/AmbakitiShop/controlador/app.py" />
     <entry file="file://$PROJECT_DIR$/static/css/estiloLogin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -579,13 +526,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/nuevo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/nuevo.html" />
     <entry file="file://$PROJECT_DIR$/vista/usuarios/editar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1431">
@@ -600,13 +541,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/especial.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/especial.css" />
     <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/nuevo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -645,20 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/consultar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="32" column="73" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/editar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/direcciones/editar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -666,65 +587,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/nuevoRopa.html">
+    <entry file="file://$PROJECT_DIR$/controlador/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/nuevoConsumible.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="11" column="105" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/nuevoSuvenir.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1114">
-          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vista/comunes/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/consultar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="52" column="24" lean-forward="true" selection-start-line="50" selection-start-column="20" selection-end-line="52" selection-end-column="24" />
+        <state relative-caret-position="297">
+          <caret line="11" column="63" lean-forward="true" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vista/productos/consultar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
+        <state relative-caret-position="1215">
           <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/consultar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1404">
+          <caret line="52" column="24" selection-start-line="50" selection-start-column="20" selection-end-line="52" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modelo/DAO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="167" column="30" lean-forward="true" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
+        <state relative-caret-position="4428">
+          <caret line="167" column="30" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlador/app.py">
+    <entry file="file://$PROJECT_DIR$/vista/comunes/menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="241" column="23" selection-start-line="241" selection-start-column="23" selection-end-line="241" selection-end-column="23" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="567">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/nuevoSuvenir.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/nuevoConsumible.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="105" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/editar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/prendas/tallas/consultar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="32" column="73" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/nuevoRopa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1674">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="71" selection-end-column="15" />
         </state>
       </provider>
     </entry>
