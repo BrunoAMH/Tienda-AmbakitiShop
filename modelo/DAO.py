@@ -1,5 +1,7 @@
+from _ast import In
+
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column,Integer,String,Boolean,BLOB,CHAR,Float,ForeignKey
+from sqlalchemy import Column,Integer,String,Boolean,BLOB,CHAR,Float,ForeignKey,Date
 from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 
@@ -124,7 +126,6 @@ class fotos(db.Model):
     def consultaIndividual(self, id):
         return self.query.get(id)
 
-
 class Talla(db.Model):
     __tablename__='tallas'
     idTalla = Column(Integer,primary_key=True)
@@ -200,9 +201,13 @@ class Sabores(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def consultaGeneral(self):
+        return self.query.all()
+
+
 class Suvenir(db.Model):
     __tablename__ = 'suvenirs'
-    idSuvenir = Column (Integer, primary_key=True)
+    idSuvenir = Column(Integer, primary_key=True)
     Productos_idProducto = Column(Integer, ForeignKey('productos.idProducto'))
     unidadesExistencia = Column(Integer, nullable=False)
     producto = relationship('Producto', lazy='select')
@@ -210,3 +215,52 @@ class Suvenir(db.Model):
     def insertar(self):
         db.session.add(self)
         db.session.commit()
+
+class Sugerencia(db.Model):
+    __tablename__ = 'sugerencias'
+    idSugerencias = Column(Integer, primary_key=True)
+    Usuarios_idUsuario = Column(Integer, ForeignKey('usuarios.idUsuario'))
+    comentario = Column(String(510), nullable=False)
+    fecha = Column(Date, nullable=False)
+    usuario = relationship('Usuario', lazy='select')
+
+    def insertar(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def consultaGeneral(self):
+        return self.query.all()
+
+class Tarjetas(db.Model):
+    __tablename__ = 'tarjetas'
+    idTarjeta = Column(Integer, primary_key=True)
+    Usuarios_idUsuario = Column(Integer, ForeignKey('usuarios.idUsuario'))
+    numTarjeta = Column(String(16), nullable=False)
+    emisora = Column(String(50), nullable=False)
+    fechaVigencia = Column(Date, nullable=False)
+    tipo = Column(String(1), nullable=False)
+    cvc = Column(String(3), nullable=False)
+
+    def insertar(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def consultaGeneral(self):
+        return self.query.all()
+class Descuento(db.Model):
+    __tablename__ = 'descuentos'
+    idDescuento = Column(Integer, primary_key=True)
+    Productos_idProducto = Column (Integer, ForeignKey('productos.idProducto'))
+    fechaInicio = Column(Date, nullable=False)
+    fechaFin = Column(Date, nullable=False)
+    descuento = Column(Integer, nullable=False)
+    producto = relationship('Producto', lazy='select')
+
+
+
+    def insertar(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def consultaGeneral(self):
+        return self.query.all()

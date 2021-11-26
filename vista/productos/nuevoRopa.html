@@ -11,7 +11,7 @@
 
     <div id="bloque">
     <h1 id="titulo">Registro de productos</h1>
-            <form action="/productos/guardandoProductoRopa" method="post" enctype="multipart/form-data">
+            <form action="/productos/guardandoProductoRopa" method="post" >
 
                  <div  class="mb-3">
                     <label class="form-label">Nombre del producto</label>
@@ -48,12 +48,25 @@
                  </div>
                  <div  class="mb-3">
                     <label class="form-label">Talla</label>
-                    <input  type="text" class="form-control" placeholder="Ingresa el nombre del producto" maxlength="80" required name="nombreTalla">
+                     <select id="cajaTexto" class="form-label" required name="tipo">
+                         <option>Selecciona una opcion</option>
+                         {% for ta in tallas %}
+                         <option>{{ta.nombreTalla}}</option>
+                         {% endfor %}
+                     </select>
                  </div>
-                 <div  class="mb-3">
-                    <label class="form-label">Medidas</label>
-                    <input  type="text" class="form-control" placeholder="Ingresa el nombre del producto" maxlength="80" required name="medidas">
+
+                <div  class="mb-3">
+                    <label class="form-label">Talla</label>
+                     <select id="cajaTexto" class="form-label" required name="tipo">
+                         <option>Selecciona una opcion</option>
+                         {% for ta in tallas %}
+                         <option>{{ta.medidas}}</option>
+                         {% endfor %}
+                     </select>
                  </div>
+
+
             <br>
         <nav id="bloqueBotones">
             <button type="submit" class="btn btn-success">Guardar</button>

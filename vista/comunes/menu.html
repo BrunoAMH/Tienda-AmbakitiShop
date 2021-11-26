@@ -5,11 +5,25 @@
         <li><a href="/">Inicio</a></li>
 
         <li><a href="/pedidos/MisPedidos">Mis pedidos</a></li>
-        <li class="dropdown">
-        <li><a href="/descuentos/consultar">Descuentos</a></li>
+
 
       </ul>
-      <!-----------------MENU USUARIOS ------------->
+      <!-----------------MENU DESCUENTOS ------------->
+
+      <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Descuentos
+                <span class="caret"></span></a>
+              {% if current_user.is_authenticated and current_user.is_admin() %}
+              <ul class="dropdown-menu" >
+                  <li><a href="/descuentos/consultar">Ver Descuentos</a></li>
+                  <li><a href="/descuentos/nuevo">Nuevo Descuentos</a></li>
+              </ul>
+               {% endif %}
+          </li>
+      </ul>
+
+      <!-----------------MENU PRODUCTOS ------------->
       {% if current_user.is_authenticated and current_user.is_admin() %}
       <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
@@ -58,8 +72,8 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Ropa
                 <span class="caret"></span></a>
               <ul class="dropdown-menu" >
-                  <li><a href="/productos/prendas/nueva">Agregar</a></li>
-                  <li><a href="/productos/prendas/consultar">Ver </a></li>
+                  <li><a href="/prendas/nueva">Agregar</a></li>
+                  <li><a href="/prendas/consultar">Ver </a></li>
               </ul>
           </li>
       </ul>
@@ -72,8 +86,8 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Tallas
                 <span class="caret"></span></a>
               <ul class="dropdown-menu" >
-                  <li><a href="/productos/prendas/tallas/nuevo">Agregar</a></li>
-                  <li><a href="/productos/prendas/tallas/consultar">Ver </a></li>
+                  <li><a href="/tallas/nuevo">Agregar</a></li>
+                  <li><a href="/tallas/consultar">Ver </a></li>
               </ul>
           </li>
       </ul>
@@ -92,6 +106,7 @@
             <ul class="dropdown-menu" >
                 {% if current_user.is_authenticated %}
                 <li><a href="/usuarios/editarUsuario">Editar Perfil</a></li>
+                <li><a href="/tarjeta/nuevaTarjeta">Agregar Tarjeta</a></li>
                 <li><a href="/cerrarSesion">Cerrar Sesion</a></li>
                 {% else %}
                 <li><a href="/usuarios/login">Iniciar Sesion</a></li>

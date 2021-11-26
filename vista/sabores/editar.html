@@ -1,0 +1,17 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+    <head>
+         <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+    <div  class="mb-3">
+        <label for="caja" class="form-label">Nombre del producto</label>
+        <input  type="text" class="form-control" id="caja" placeholder="Ingresa el nombre del producto" maxlength="80" required name="nombre">
+    </div>
+
+
+
+
+{% endblock %}

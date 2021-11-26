@@ -1,10 +1,11 @@
-
+import datetime
 import urllib
+from typing import re
 
 from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
 from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
-from modelo.DAO import db,Usuario,direcciones, Producto,Prenda, Talla, fotos, Sabores, Comestible,Suvenir
+from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento
 
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
@@ -98,8 +99,6 @@ def iniciandoSesion():
 def consultarUsuarios():
     u = Usuario()
     return render_template('usuarios/consultar.html',usuarios = u.consultaGeneral())
-
-
 @app.route('/cerrarSesion')
 def cerrarSesion():
     logout_user()
@@ -132,23 +131,39 @@ def guardarDireccion():
 
 #SUGERENCIAS
 @app.route('/sugerencias/nuevaSugerencia')
+@login_required
 def nuevaSugerencia():
     return render_template('/sugerencias/nueva.html')
-
+@app.route('/sugerencias/validarSugerencia',methods=['post'])
+@login_required
+def validandoSugerencia():
+    try:
+        s = Sugerencia()
+        u = Usuario()
+        u.idUsuario = current_user.idUsuario
+        s.Usuarios_idUsuario = u.idUsuario
+        s.comentario = request.form['comentario']
+        s.fecha = '2021-11-25'
+        s.insertar()
+        flash('Sugerencia mandada con exito')
+    except:
+        flash('Fallo al mandar la sugerencia')
+    return redirect(url_for('nuevaSugerencia'))
 @app.route('/sugerencias/consultarSugerencias')
 def consultarSugerencia():
-    return render_template('/sugerencias/consultar.html')
-
+    s = Sugerencia();
+    return render_template('/sugerencias/consultar.html', sugerencias=s.consultaGeneral())
 #PRODUCTOS
 @app.route('/productos/consultarProductos')
 def consultarProductos():
     prod = Producto()
-    return render_template('/productos/consultar.html', productos=prod.consultaGeneral())
+    return render_template('/productos/consultar.html', productos = prod.consultaGeneral())
 @app.route('/productos/agregarProductoConsumible')
 @login_required
 def agregarProductoConsumible():
+    s = Sabores()
     if current_user.is_authenticated() and current_user.is_admin:
-        return render_template('/productos/nuevoConsumible.html')
+        return render_template('/productos/nuevoConsumible.html', sabor = s.consultaGeneral())
     else:
         abort(404)
 @app.route('/productos/guardandoProductoConsumible',methods=['post'])
@@ -205,7 +220,8 @@ def guardandoProductoSuvenir():
 @login_required
 def agregarProductoRopa():
     if current_user.is_authenticated() and current_user.is_admin:
-        return render_template('/productos/nuevoRopa.html')
+        t = Talla()
+        return render_template('/productos/nuevoRopa.html', tallas=t.consultaGeneral())
     else:
         abort(404)
 @app.route('/productos/guardandoProductoRopa',methods=['post'])
@@ -242,48 +258,49 @@ def consultarImagenProducto(id):
 @app.route('/productos/ver/<int:id>')
 def editarProducto(id):
     t = Talla()
-    return render_template('/productos/prendas/tallas/editar.html', t = t.consultaIndividual(id))
+    return render_template('/tallas/editar.html', t = t.consultaIndividual(id))
 #PRENDAS
-@app.route('/productos/prendas/consultar')
+@app.route('/prendas/consultar')
 def consultarPrendas():
     pren = Prenda()
-    return render_template('/productos/prendas/consultar.html', prendas=pren.consultaGeneral())
-@app.route('/productos/prendas/nueva')
+    return render_template('/prendas/consultar.html', prendas=pren.consultaGeneral())
+@app.route('/prendas/nueva')
 def agregarPrenda():
-    return render_template('/productos/prendas/nueva.html')
-@app.route('/productos/eliminar/<int:id>')
+    return render_template('/prendas/nueva.html')
+@app.route('/eliminar/<int:id>')
 def eliminarProducto(id):
-
     flash('Eliminada')
     return redirect(url_for('consultarProductos'))
-
 #TALLAS
-@app.route('/productos/prendas/tallas/consultar')
+@app.route('/tallas/consultar')
 def consultarTallas():
     tall = Talla()
-    return render_template('/productos/prendas/tallas/consultar.html', tallas=tall.consultaGeneral())
-@app.route('/productos/prendas/tallas/nuevo')
+    return render_template('/tallas/consultar.html', tallas=tall.consultaGeneral())
+@app.route('/tallas/nuevo')
 def agregarTalla():
-    return render_template('/productos/prendas/tallas/nuevo.html')
-@app.route('/productos/prendas/tallas/validarTalla',methods=['post'])
+    return render_template('/tallas/nuevo.html')
+@app.route('/tallas/validarTalla',methods=['post'])
 def guardandoTalla():
-    t = Talla()
-    t.nombreTalla = request.form['nombreTalla']
-    t.medidas = request.form['medidas']
-    t.insertar()
-    flash('Talla guardada con exito')
+    try:
+        t = Talla()
+        t.nombreTalla = request.form['nombreTalla']
+        t.medidas = request.form['medidas']
+        t.insertar()
+        flash('Talla guardada con exito')
+    except:
+        flash('Fallo al guardar')
     return redirect(url_for('agregarTalla'))
-@app.route('/productos/prendas/tallas/eliminar/<int:id>')
+@app.route('/tallas/eliminar/<int:id>')
 def eliminarTalla(id):
     t = Talla()
     t.eliminar(id)
     flash('Eliminada')
     return redirect(url_for('consultarTallas'))
-@app.route('/productos/prendas/tallas/ver/<int:id>')
+@app.route('/tallas/ver/<int:id>')
 def editarTalla(id):
     t = Talla()
-    return render_template('/productos/prendas/tallas/editar.html', t = t.consultaIndividual(id))
-@app.route('/productos/prendas/tallas/editandoTalla',methods=['post'])
+    return render_template('/tallas/editar.html', t = t.consultaIndividual(id))
+@app.route('/tallas/editandoTalla',methods=['post'])
 def editandoTalla():
     try:
         t = Talla()
@@ -293,35 +310,68 @@ def editandoTalla():
         flash('Cambios guardados con exito')
     except:
         flash('!Error al modificar la direccion!')
-
     return redirect(url_for('consultarTallas'))
 #PEDIDOS
 @app.route('/pedidos/MisPedidos')
 def misPedidos():
     return render_template('/pedidos/consultar.html')
-
 #CARRITO
 @app.route('/carrito/consultar')
 def miCarrito():
     return render_template('/carrito/consultar.html')
-
 #TARJETAS
-@app.route('/tarjeta/anadir')
+@app.route('/tarjeta/nuevaTarjeta')
+@login_required
 def agregarTarjeta():
     return render_template('/tarjetas/nueva.html')
 
-@app.route('/comunes/prueba')
-def comun():
-    return render_template('/comunes/prueba.html')
-
-@app.route('/tarjetas/confirmaCompra', methods=['post'])
-def confirmarCompra():
-    return "Compra confirmada"
+@app.route('/tarjetas/validarTarjeta', methods=['post'])
+@login_required
+def validarTarjeta():
+    try:
+        t = Tarjetas()
+        u = Usuario()
+        u.idUsuario = current_user.idUsuario
+        t.Usuarios_idUsuario = u.idUsuario
+        t.numTarjeta = request.form['tarjeta']
+        t.emisora = request.form['emisora']
+        mes = request.form['mes']
+        anio = request.form['anio']
+        t.fechaVigencia = anio + '-' + mes + '-' +'01'
+        tipo = request.form['tipo']
+        if tipo == 'Credito':
+            t.tipo = 'C'
+        elif tipo == 'Debito':
+            t.tipo = 'D'
+        t.cvc = request.form['cvc']
+        t.insertar()
+        flash('Tarjeta guardada con exito')
+    except:
+        flash('Fallo al guardar la tarjeta')
+    return redirect(url_for('agregarTarjeta'))
 
 #DESCUENTOS
 @app.route('/descuentos/consultar')
 def consultarDescuentos():
-    return render_template('/descuentos/consultar.html')
+    d = Descuento();
+    return render_template('/descuentos/consultar.html', descuento = d.consultaGeneral())
+@app.route('/descuentos/nuevo')
+def nuevoDescuento():
+    return render_template('/descuentos/nuevo.html')
+@app.route('/descuento/validandoDescuento', methods=['post'])
+@login_required
+def validarDescuento():
+    try:
+        d = Descuento()
+        d.fechaInicio = '2021-01-01'
+        d.fechaFin = '2021-01-10'
+        d.descuento = request.form['descuentoPorcentaje']
+        d.Productos_idProducto = request.form['producto']
+        d.insertar()
+        flash('Descuento guardado con exito')
+    except:
+        flash('Fallo al guardar el descuento')
+    return redirect(url_for('nuevoDescuento'))
 
 #PAGINAS DE ERROR
 @app.errorhandler(404)

@@ -6,66 +6,82 @@
     <head>
          <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
     </head>
-     <main id="bloque">
-        <h1 id="titulo">Elije metodo de pago</h1>
-            <form action="/tarjetas/confirmaCompra" method="post">
-                <label>Numero de Tarjeta</label>
-                <input id="cajaTexto" type="text" required name="noTarjeta" placeholder="Ingresa el numero de la tarjeta" maxlength="80">
-                <br>
+     <div id="bloque">
+        <h1 id="titulo">Agregar Tarjeta</h1>
+            <form action="/tarjetas/validarTarjeta" method="post">
 
-                <label>Emisora</label>
-                <select id="cajaTexto" name="cars" id="Emisora">
-                    <option value="MasterCard">MasterCard</option>
-                    <option value="Visa">Visa</option>
-                    <option value="AmericanExpress">AmericanExpress</option>
-                 </select>
-                <br>
+                <div  class="mb-3">
+                    <label  class="form-label">Numero de Tarjeta</label>
+                    <input  type="text" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" required name="tarjeta">
+                </div>
 
-                <label>Mes de Vencimiento</label>
-                <select id="cajaTexto" name="cars" id="mes" required>
-                    <option value="Enero">Enero</option>
-                    <option value="Febrero">Febrero</option>
-                    <option value="Marzo">Marzo</option>
-                    <option value="Abril">Abril</option>
-                    <option value="Mayo">Mayo</option>
-                    <option value="Junio">Junio</option>
-                    <option value="Julio">Julio</option>
-                    <option value="Agosto">Agosto</option>
-                    <option value="Septiembre">Septiembre</option>
-                    <option value="Octubre">Octubre</option>
-                    <option value="Noviembre">Noviembre</option>
-                    <option value="Diciembre">Diciembre</option>
-                 </select>
-                <br>
+                <div class="mb-3">
+                    <label  class="form-label">Emisora</label>
+                    <select id="cajaTexto" class="form-label" required name="emisora">
+                        <option value="Opcion">Selecciona una Opcion</option>
+                        <option value="MasterCard">MasterCard</option>
+                        <option value="Visa">Visa</option>
+                        <option value="AmericanExpress">AmericanExpress</option>
+                    </select>
+                </div>
 
-                <label>Año de vencimiento</label>
-                <select id="cajaTexto" name="cars" id="anio" required>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                 </select>
-                <br>
+                 <div class="mb-3">
+                    <label  class="form-label">Mes de Vencimiento</label>
+                    <select id="cajaTexto" class="form-label" required name="mes">
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
 
-                <label>Tipo de tarjeta</label>
-                <select id="cajaTexto" name="cars" id="tipoTarjeta" required>
-                    <option value="Credito">Elije una opcion</option>
-                    <option value="Credito">Credito</option>
-                    <option value="Debito">Debito</option>
-                 </select>
-                <br>
+               <div class="mb-3">
+                    <label  class="form-label">Año de Vencimiento</label>
+                    <select id="cajaTexto" class="form-label" required name="anio">
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                  </select>
+                </div>
 
-                 <label>CVC</label>
-                <input id="cajaTexto" type="password" name="cvc"  maxlength="3" >
+               <div class="mb-3">
+                    <label  class="form-label" >Tipo</label>
+                    <select id="cajaTexto" class="form-label" required name="tipo">
+                        <option value="Credito">Elije una opcion</option>
+                        <option value="Credito">Credito</option>
+                        <option value="Debito">Debito</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label  class="form-label">CVC</label>
+                    <input  type="password" class="form-control"  placeholder="Ingresa el codigo de seguridad" maxlength="3" required name="cvc">
+                 </div>
                 <br>
-                <nav id="bloqueBotones">
+                <div id="bloqueBotones">
                     <button type="submit" class="btn btn-success">Confirmar Compra</button>
                     <a href="/carrito/consultar" class="btn btn-warning">Regresar</a>
-                </nav>
+                </div>
             </form>
-
-
-    </main>
+    </div>
+    <br>
+    {% if get_flashed_messages() %}
+    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}

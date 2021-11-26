@@ -27,18 +27,24 @@
                     <input type="radio" name="estatus" checked>Existente
                     <input type="radio" name="estatus" >Agotado
             </div>
-            <div class="form-group">
-                    <label>Imagen:</label>
-                    <input type="file" name="foto" class="form-control" placeholder="Imagen de la categoria">
-                 </div>
             <div  class="mb-3">
                 <label for="caja" class="form-label">Unidades en existencia</label>
                 <input  type="text" class="form-control" id="caja" placeholder="Ingresa la categoria" maxlength="80" required name="unidades">
             </div>
             <div  class="mb-3">
-                <label for="caja" class="form-label">Tipo sabor</label>
-                <input  type="text" class="form-control" id="caja" placeholder="Ingresa la categoria" maxlength="80" required name="sabor">
+                    <label class="form-label">Tipo de sabor</label>
+                     <select id="cajaTexto" class="form-label" required name="tipo">
+                         <option>Selecciona una opcion</option>
+                         {% for sa in sabor %}
+                            <option>{{sa.nombreSabor}}</option>
+                         {% endfor %}
+                     </select>
             </div>
+            <div class="form-group">
+                    <label>Imagen:</label>
+                    <input type="file" name="foto" class="form-control" placeholder="Imagen de la categoria">
+            </div>
+
             <br>
             <nav id="bloqueBotones">
             <button type="submit" class="btn btn-success">Guardar</button>

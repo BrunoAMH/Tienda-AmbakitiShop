@@ -1,34 +1,41 @@
-
 {% extends "comunes/base.html" %}
 {% block navbar %}
-   {% include 'comunes/menu.html' %}
+{% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
 <head>
 	<link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
-<div id="bloque">
+<div class="welll">
     <h1>Listado de Sugerenciaas</h1>
-    <table id="tabla" border="1" class="table table-striped table-hover">
+    <table class="table">
         <thead>
-            <th>Nombre</th>
+            <th>idSugerencia</th>
             <th>Email</th>
-            <th>Producto</th>
             <th>Comentario</th>
+            <th>Fecha</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </thead>
+        {% for sug in sugerencias %}
         <tr>
-            <td>Mario Eduardo </td>
-            <td>mpalato389@accitesz.com</td>
-            <td>Playera eternal skull</td>
-            <td>Buena calidad</td>
+            <td>{{sug.idSugerencias}}</td>
+            <td>{{sug.usuario.correo}}</td>
+            <td>{{sug.comentario}}</td>
+            <td>{{sug.fecha}}</td>
+            <td>
+                <a href="#">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+            </td>
+            <td>
+                <a href="#">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
         </tr>
-        <tr>
-            <td>Jaime Castel</td>
-            <td>jcastel400@accitesz.com</td>
-            <td>Cinturon</td>
-            <td>No llego a tiempo</td>
-        </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

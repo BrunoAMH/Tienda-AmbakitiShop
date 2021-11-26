@@ -1,29 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Descuentos</title>
-</head>
-<body>
-	<main id="bloque">
-    <h1 id="titulo">Registro de descuentos</h1>
-        <form action="/productos/registrar" method="post">
-        <label>Inicio del descuento:</label>
-        <input id="cajaTexto" type="text" required  name="Fecha inicio" placeholder="Fecha de inicio" maxlength="8">
-        <br>
-        <label>Terminacion del descuento:</label>
-        <input id="cajaTexto" type="text" name="Fecha fin" placeholder="Fecha de finalización" maxlength="8">
-        <br>
-        <label>Porcentaje de descuento:</label>
-        <input id="cajaTexto" type="text" name="Porcentaje" placeholder="Porcentaje de descuento" maxlength="2">
-        <br>
-
-        <nav id="bloqueBotones">
-            <button type="submit" class="btn btn-success">Registrar</button>
-            <a href="/" class="btn btn-warning">Regresar</a>
-        </nav>
-    </form>
-    </main>
-</body>
-</html>
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+    <head>
+         <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
+    </head>
+	<div id="bloque">
+        <h1 id="titulo">Registro de descuentos</h1>
+        <form action="/descuento/validandoDescuento" method="post">
+             <div  class="mb-3">
+                 <label  class="form-label">Producto</label>
+                 <input  type="text" class="form-control"  placeholder="Ingresa el id del producto" maxlength="80" required name="producto">
+             </div>
+            <div  class="mb-3">
+                 <label  class="form-label">Inicio del descuento</label>
+                <!--cambiar formato de fecha-->
+                <input  type="date" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" required name="tarjeta">
+             </div>
+            <div  class="mb-3">
+                 <label  class="form-label">Fin del descuento</label>
+                 <input  type="date" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" required name="tarjeta">
+             </div>
+            <div  class="mb-3">
+                 <label  class="form-label">Porcentaje de descuento</label>
+                 <input  type="number" class="form-control"  placeholder="Ingresa el porcentaje de descuento" maxlength="80" required name="descuentoPorcentaje">
+             </div>
+            <br>
+            <nav id="bloqueBotones">
+                <button type="submit" class="btn btn-success">Registrar</button>
+                <a href="/" class="btn btn-warning">Regresar</a>
+            </nav>
+        </form>
+    </div>
+<br>
+    {% if get_flashed_messages() %}
+    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

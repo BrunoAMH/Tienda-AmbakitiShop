@@ -9,44 +9,26 @@
         <table class = "table">
             <thead>
                 <th>idDescuento</th>
-                <th>idProducto</th>
+                <th>Producto</th>
+                <th>Imagen</th>
                 <th>fechaInicio</th>
                 <th>fechaFin</th>
-                <th>porcentajeDesc</th>
+                <th>Porcentaje de Descuento</th>
             {% if current_user.is_authenticated and current_user.is_admin() %}
                 <th>Editar</th>
                 <th>Eliminar</th>
             {% endif %}
             </thead>
+            {% for desc in descuento %}
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>18/10/2021</td>
-                <td>26/10/2021</td>
-                <td>6%</td>                
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>16/09/2021</td>
-                <td>18/09/2021</td>
-                <td>2%</td>    
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>20/10/2021</td>
-                <td>23/10/2021</td>
-                <td>7%</td>    
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>4</td>
-                <td>12/11/2021</td>
-                <td>23/11/2021</td>
-                <td>0%</td>
+                <td>{{desc.idDescuento}}</td>
+                <td>{{desc.producto.nombre}}</td>
+                <td><img src="/productos/imagen/{{desc.producto.idFoto}}" width="100px"></td>
+                <td>{{desc.fechaInicio}}</td>
+                <td>{{desc.fechaFin}}</td>
+                <td>{{desc.descuento}}</td>
                 {% if current_user.is_authenticated and current_user.is_admin() %}
-              <td>
+                <td>
                     <a href="#">
                         <span class="glyphicon glyphicon-eye-open"></span>
                     </a>
@@ -58,6 +40,7 @@
                 </td>
             {% endif %}
             </tr>
+            {% endfor %}
 
         </table>
 </div>

@@ -1,7 +1,6 @@
-
 {% extends "comunes/base.html" %}
 {% block navbar %}
-   {% include 'comunes/menu.html' %}
+{% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
     <head>
@@ -9,19 +8,23 @@
     </head>
 
     <div id="bloque">
-        <h1>Nueva Sugerencia</h1>
-        <form action="" method="post">
-               <label for="caja">Nombre:</label>
-               <input  type="text" id="caja" name="user_name"/>
-                <br>
-               <label for="caja">Correo electrónico:</label>
-               <input  type="email" id="caja" height="" name="user_email" />
-                <br>
-               <label for="caja">Comentario:</label>
-               <textarea id="cajaComentario" name="user_message"></textarea>
-                <br>
+        <h1>Enviar Sugerencia</h1>
+        <form action="/sugerencias/validarSugerencia" method="post">
+            <div  class="mb-3">
+                <label for="caja" class="form-label">Nueva Sugerencia</label>
+                <textarea  type="text" class="form-control" id="caja" placeholder="Ingresa tu sugerencia" maxlength="510" required name="comentario"></textarea>
+            </div>
+            <br>
             <button class="btn btn-success" type="submit" >Enviar Sugerencia</button>
-            <a href="/" class="btn btn-warning">Regresar</a>
         </form>
     </div>
+
+    {% if get_flashed_messages() %}
+    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}
