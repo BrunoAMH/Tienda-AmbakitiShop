@@ -1,11 +1,9 @@
 import datetime
-import urllib
-from typing import re
 
 from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
 from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
-from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento
+from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario
 
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
@@ -25,7 +23,6 @@ def load_user(id):
 @app.route('/')
 def inicio():
     return render_template('comunes/index.html')
-
 
 #USUARIOS
 @app.route('/usuarios/registrarNuevo')
@@ -150,9 +147,17 @@ def validandoSugerencia():
         flash('Fallo al mandar la sugerencia')
     return redirect(url_for('nuevaSugerencia'))
 @app.route('/sugerencias/consultarSugerencias')
+@login_required
 def consultarSugerencia():
     s = Sugerencia();
     return render_template('/sugerencias/consultar.html', sugerencias=s.consultaGeneral())
+@app.route('/sugerencia/eliminar/<int:id>')
+@login_required
+def eliminarSugerencia(id):
+    s = Sugerencia()
+    s.eliminar(id)
+    flash('Eliminada')
+    return redirect(url_for('consultarSugerencia'))
 #PRODUCTOS
 @app.route('/productos/consultarProductos')
 def consultarProductos():
@@ -368,6 +373,20 @@ def validarDescuento():
         d.descuento = request.form['descuentoPorcentaje']
         d.Productos_idProducto = request.form['producto']
         d.insertar()
+        flash('Descuento guardado con exito')
+    except:
+        flash('Fallo al guardar el descuento')
+    return redirect(url_for('nuevoDescuento'))
+#COMENTARIOS
+@app.route('/comentarios/nuevo')
+@login_required
+def nuevoComentario():
+    return render_template('/comentarios/nuevo.html')
+@app.route('/comentario/validandoComentario/<int:id>', methods=['post'])
+@login_required
+def validandoComentario():
+    try:
+
         flash('Descuento guardado con exito')
     except:
         flash('Fallo al guardar el descuento')

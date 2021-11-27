@@ -1,0 +1,36 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<body>
+     <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</body>
+   <div id="bloque">
+    <h1 id="titulo">Nuevo comentario</h1>
+        <form action="/productos/guardandoProductoConsumible" method="post" enctype="multipart/form-data">
+            <div  class="mb-3">
+                <label for="caja" class="form-label">Calificacion del producto</label>
+                <input  type="text" class="form-control" id="caja" placeholder="Ingresa tu calificacion" maxlength="510" required name="comentario"></input>
+            </div>
+            <div  class="mb-3">
+                <label for="caja" class="form-label">Comentario</label>
+                <textarea  type="text" class="form-control" id="caja" placeholder="Ingresa tu comentario" maxlength="510" required name="comentario"></textarea>
+            </div>
+            <br>
+            <nav id="bloqueBotones">
+                <button type="submit" class="btn btn-success">Comentar</button>
+            </nav>
+        </form>
+    </div>
+    <br>
+    </div>
+    {% if get_flashed_messages() %}
+    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

@@ -231,6 +231,14 @@ class Sugerencia(db.Model):
     def consultaGeneral(self):
         return self.query.all()
 
+    def eliminar(self, id):
+        obj = self.consultaIndividual(id)
+        db.session.delete(obj)
+        db.session.commit()
+
+    def consultaIndividual(self, id):
+        return self.query.get(id)
+
 class Tarjetas(db.Model):
     __tablename__ = 'tarjetas'
     idTarjeta = Column(Integer, primary_key=True)
@@ -256,7 +264,22 @@ class Descuento(db.Model):
     descuento = Column(Integer, nullable=False)
     producto = relationship('Producto', lazy='select')
 
+    def insertar(self):
+        db.session.add(self)
+        db.session.commit()
 
+    def consultaGeneral(self):
+        return self.query.all()
+
+class Comentario(db.Model):
+    __tablename__='comentarios'
+    idComentario = Column(Integer, primary_key=True)
+    Usuarios_idUsuarios = Column(Integer, ForeignKey('usuarios.idUsuario'))
+    Productos_idProducto = Column(Integer, ForeignKey('productos.idProducto'))
+    comentario = Column(String(510), nullable=False)
+    compraConfirmada = Column(String(11), nullable=False)
+    usuario = relationship('Usuario', lazy='select')
+    producto = relationship('Producto', lazy='select')
 
     def insertar(self):
         db.session.add(self)

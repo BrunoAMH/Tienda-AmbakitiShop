@@ -8,14 +8,13 @@
 </head>
 
 <div class="welll">
-    <h1>Listado de Sugerenciaas</h1>
+    <h1>Listado de Sugerencias</h1>
     <table class="table">
         <thead>
             <th>idSugerencia</th>
             <th>Email</th>
             <th>Comentario</th>
             <th>Fecha</th>
-            <th>Editar</th>
             <th>Eliminar</th>
         </thead>
         {% for sug in sugerencias %}
@@ -24,13 +23,9 @@
             <td>{{sug.usuario.correo}}</td>
             <td>{{sug.comentario}}</td>
             <td>{{sug.fecha}}</td>
+
             <td>
-                <a href="#">
-                    <span class="glyphicon glyphicon-eye-open"></span>
-                </a>
-            </td>
-            <td>
-                <a href="#">
+                <a href="/sugerencia/eliminar/{{sug.idSugerencias}}">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </td>
@@ -38,4 +33,13 @@
         {% endfor %}
     </table>
 </div>
+<br>
+    {% if get_flashed_messages() %}
+    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}

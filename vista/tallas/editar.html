@@ -8,7 +8,7 @@
     </head>
     <div id="bloque">
         <h1>Editar Talla</h1>
-        <form action="/productos/prendas/tallas/editandoTalla" method="post">
+        <form action="/tallas/editandoTalla" method="post">
              <div  class="mb-3">
                 <label for="caja" class="form-label">Nombre</label>
                 <input value="{{t.nombreTalla}}" type="text" class="form-control" id="caja" placeholder="Ingresa el nombre de la talla" maxlength="80" required name="nombreTalla" >
@@ -20,7 +20,7 @@
             <br>
             <div class="mb-3">
                 <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                <a href="/productos/prendas/tallas/consultar" class="btn btn-warning">Regresar</a>
+                <a href="/tallas/consultar" class="btn btn-warning">Regresar</a>
             </div>
 
         </form>
