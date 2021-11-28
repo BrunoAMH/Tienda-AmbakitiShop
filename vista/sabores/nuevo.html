@@ -1,14 +1,33 @@
 {% extends "comunes/base.html" %}
 {% block navbar %}
-   {% include 'comunes/menu.html' %}
+{% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
     <head>
-         <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
+         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
     </head>
-
-
-
-
-
+<div class="container">
+    <div id="bloque">
+        <h1>Registro de Sabores</h1>
+        <form action="/sabores/validarSabor" method="post">
+             <div  class="mb-3">
+                <label for="caja" class="form-label">Sabor</label>
+                <input type="text" class="form-control" id="caja" placeholder="Ingresa el nombre del sabor" maxlength="80" required name="sabor">
+             </div>
+             <br>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </div>
+        </form>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+   </div>
+</div>
 {% endblock %}

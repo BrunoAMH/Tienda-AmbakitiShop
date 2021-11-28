@@ -6,7 +6,7 @@
 <head>
   <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
 </head>
-
+<div class="container">
 <div class="well">
     <h1>Listado de Productos</h1>
     <!--
@@ -17,13 +17,12 @@
         <option>Varios</option>
     </select>-->
 
-    <table class="table">
+    <table  class="table table-striped">
         <THEAD>
             <TH>ID</TH>
             <TH>NOMBRE</TH>
             <TH>DESCRIPCION</TH>
             <TH>PRECIO</TH>
-            <TH>ESTATUS</TH>
             <th>CATEGORIA</th>
             <TH>FOTO</TH>
             <TH>EDITAR</TH>
@@ -31,12 +30,21 @@
         </THEAD>
         {% for prod in productos %}
             <tr>
+                {% if prod.estatus == 'D' %}
                 <td>{{prod.idProducto}}</td>
                 <td>{{prod.nombre}}</td>
                 <td>{{prod.descripcion}}</td>
                 <td>{{prod.precioVenta}}</td>
-                <td>{{prod.estatus}}</td>
-                <td><td><img src="/productos/imagen/{{prod.idFoto}}" width="100px"></td></td>
+
+                {% if prod.categoria == 'R' %}
+                <td>Ropa</td>
+                {% elif prod.categoria == 'C' %}
+                <td>Consumible</td>
+                {% elif prod.categoria == 'S' %}
+                <td>Suvenirs</td>
+                {% endif%}
+
+                <td><img src="/productos/imagen/{{prod.idFoto}}" width="100px"></td>
                 <td>
                     <a href="/productos/ver/{{prod.idProducto}}">
                         <span class="glyphicon glyphicon-eye-open"></span>
@@ -48,8 +56,10 @@
                     </a>
                 </td>
                 <td><a href="/comentarios/nuevo">Agregar Comentario</a></td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>
+</div>
 </div>
 {% endblock %}

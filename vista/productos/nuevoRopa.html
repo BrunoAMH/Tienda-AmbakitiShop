@@ -11,7 +11,7 @@
 
     <div id="bloque">
     <h1 id="titulo">Registro de productos</h1>
-            <form action="/productos/guardandoProductoRopa" method="post" >
+            <form action="/productos/guardandoProductoRopa" method="post" enctype="multipart/form-data" >
 
                  <div  class="mb-3">
                     <label class="form-label">Nombre del producto</label>
@@ -19,36 +19,39 @@
                  </div>
                  <div  class="mb-3">
                     <label class="form-label">Descripcion</label>
-                    <input  type="text" class="form-control"  placeholder="Ingresa el nombre del producto" maxlength="80" required name="descripcion">
+                    <input  type="text" class="form-control"  placeholder="Ingresa la descripcion del producto" maxlength="80" required name="descripcion">
                  </div>
                  <div  class="mb-3">
                     <label  class="form-label">Precio Venta</label>
-                    <input  type="text" class="form-control" placeholder="Ingresa el nombre del producto" maxlength="80" required name="precioVenta">
+                    <input  type="text" class="form-control" placeholder="Ingresa el precio del producto" maxlength="80" required name="precioVenta">
                  </div>
                  <div  class="mb-3">
                     <label class="form-label">Estatus</label>
-                    <input type="radio" name="estatus" checked>Existente
-                    <input type="radio" name="estatus" >Agotado
+                    <input type="radio" name="estatus" checked>Disponible
+                    <input type="radio" name="estatus" >No disponible
                  </div>
-                 <div class="form-group">
-                    <label>Imagen:</label>
-                    <input type="file" name="foto" class="form-control" placeholder="Imagen de la categoria">
-                 </div>
+
                  <div  class="mb-3">
                     <label class="form-label">Unidades en existencia</label>
-                    <input  type="text" class="form-control"  placeholder="Ingresa el nombre del producto" maxlength="80" required name="unidades">
+                    <input  type="text" class="form-control"  placeholder="Ingresa las unidades en existencia" maxlength="80" required name="unidades">
                  </div>
                  <div  class="mb-3">
                     <label  class="form-label">Color</label>
-                    <input  type="text" class="form-control"  placeholder="Ingresa el nombre del producto" maxlength="80" required name="color">
+                    <input  type="text" class="form-control"  placeholder="Ingresa el color de la prenda" maxlength="80" required name="color">
                  </div>
                  <div  class="mb-3">
                     <label class="form-label">Genero</label>
-                    <input  type="text" class="form-control" placeholder="Ingresa el nombre del producto" maxlength="80" required name="genero">
+                     <select id="cajaTexto" class="form-label" required name="genero">
+                         <option>Selecciona una opcion</option>
+                         <option>Hombre</option>
+                         <option>Mujer</option>
+                         <option>Ambos</option>
+                    </select>
                  </div>
+
                  <div  class="mb-3">
                     <label class="form-label">Talla</label>
-                     <select id="cajaTexto" class="form-label" required name="tipo">
+                     <select id="cajaTexto" class="form-label" required name="nombreTalla">
                          <option>Selecciona una opcion</option>
                          {% for ta in tallas %}
                          <option>{{ta.nombreTalla}}</option>
@@ -57,8 +60,8 @@
                  </div>
 
                 <div  class="mb-3">
-                    <label class="form-label">Talla</label>
-                     <select id="cajaTexto" class="form-label" required name="tipo">
+                    <label class="form-label">Medidas</label>
+                     <select id="cajaTexto" class="form-label" required name="medidas">
                          <option>Selecciona una opcion</option>
                          {% for ta in tallas %}
                          <option>{{ta.medidas}}</option>
@@ -66,7 +69,10 @@
                      </select>
                  </div>
 
-
+                <div class="form-group">
+                    <label>Imagen:</label>
+                    <input type="file" name="foto" class="form-control" placeholder="Imagen de la categoria">
+                 </div>
             <br>
         <nav id="bloqueBotones">
             <button type="submit" class="btn btn-success">Guardar</button>

@@ -8,8 +8,10 @@
 
 
       </ul>
-      <!-----------------MENU DESCUENTOS ------------->
 
+
+
+      <!-----------------MENU DESCUENTOS ------------->
       <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Descuentos
@@ -92,6 +94,20 @@
           </li>
       </ul>
       {% endif %}
+      <!--------------------------------------------->
+
+      <!-----------------MENU SABORES ------------->
+      <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Sabores
+                <span class="caret"></span></a>
+              {% if current_user.is_authenticated and current_user.is_admin() %}
+              <ul class="dropdown-menu" >
+                  <li><a href="/sabores/nuevo">Nuevo Sabor</a></li>
+              </ul>
+               {% endif %}
+          </li>
+      </ul>
       <!--------------------------------------------->
 
     <ul class="nav navbar-nav navbar-right">

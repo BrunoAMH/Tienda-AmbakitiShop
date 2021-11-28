@@ -84,8 +84,12 @@ def iniciandoSesion():
     user=Usuario()
     user=user.validar(correo, password)
     if user!= None:
+        #estatus = user.tipo
+        #if estatus == 1:
         login_user(user)
         return render_template('comunes/index.html')
+        #else:
+        #    return render_template('usuarios/login.html')
     else:
         #flash('Datos incorrectos')
         return render_template('usuarios/login.html')
@@ -181,15 +185,13 @@ def guardandoProductoConsumible():
     p.descripcion = request.form['descripcion']
     p.precioVenta = request.form['precioVenta']
     p.estatus = 'D'
-    p.categoria = 'R'
+    p.categoria = 'C'
     f.fotografia =request.files['foto'].read()
     f.insertar()
     p.idFoto = f.idFoto
     p.insertar()
-    s.nombreSabor = request.form['sabor']
-    s.insertar()
     c.Productos_idProducto = p.idProducto
-    c.Sabores_idSabor = s.idSabor
+    c.Sabores_idSabor = 1
     c.unidadesExistencia = request.form['unidades']
     c.insertar()
     flash('Producto guardado con exito')
@@ -210,7 +212,7 @@ def guardandoProductoSuvenir():
     p.descripcion = request.form['descripcion']
     p.precioVenta = request.form['precioVenta']
     p.estatus = 'D'
-    p.categoria = 'R'
+    p.categoria = 'S'
     f.fotografia =request.files['foto'].read()
     f.insertar()
     p.idFoto = f.idFoto
@@ -233,7 +235,6 @@ def agregarProductoRopa():
 def guardandoProductoRopa():
     p = Producto()
     f = fotos()
-    t = Talla()
     r = Prenda()
     p.nombre = request.form['nombre']
     p.descripcion = request.form['descripcion']
@@ -244,14 +245,17 @@ def guardandoProductoRopa():
     f.insertar()
     p.idFoto=f.idFoto
     p.insertar()
-    t.nombreTalla = request.form['nombreTalla']
-    t.medidas = request.form['medidas']
-    t.insertar()
     r.Productos_idProducto = p.idProducto
-    r.Tallas_idTalla = t.idTalla
+    r.Tallas_idTalla = 1
     r.unidadesExistencia = request.form['unidades']
     r.color = request.form['color']
-    r.genero = 'M'
+    genero = request.form['genero']
+    if genero == 'Hombre':
+        r.genero='H'
+    elif genero == 'Mujer':
+        r.genero = 'M'
+    elif genero == 'Ambos':
+        r.genero = 'A'
     r.insertar()
     flash('Producto guardado con exito')
     return redirect(url_for('agregarProductoRopa'))
@@ -358,25 +362,29 @@ def validarTarjeta():
 #DESCUENTOS
 @app.route('/descuentos/consultar')
 def consultarDescuentos():
-    d = Descuento();
+    d = Descuento()
     return render_template('/descuentos/consultar.html', descuento = d.consultaGeneral())
 @app.route('/descuentos/nuevo')
 def nuevoDescuento():
-    return render_template('/descuentos/nuevo.html')
+    p = Producto()
+    return render_template('/descuentos/nuevo.html', productos = p.consultaGeneral())
 @app.route('/descuento/validandoDescuento', methods=['post'])
 @login_required
 def validarDescuento():
-    try:
+    #try:
         d = Descuento()
         d.fechaInicio = '2021-01-01'
         d.fechaFin = '2021-01-10'
         d.descuento = request.form['descuentoPorcentaje']
-        d.Productos_idProducto = request.form['producto']
+        d.Productos_idProducto = request.form['tipo']
         d.insertar()
         flash('Descuento guardado con exito')
-    except:
+    #except:
         flash('Fallo al guardar el descuento')
-    return redirect(url_for('nuevoDescuento'))
+
+
+        return render_template('/comentarios/nuevo.html')
+    #return redirect(url_for('nuevoDescuento'))
 #COMENTARIOS
 @app.route('/comentarios/nuevo')
 @login_required
@@ -391,7 +399,20 @@ def validandoComentario():
     except:
         flash('Fallo al guardar el descuento')
     return redirect(url_for('nuevoDescuento'))
+#SABORES
+@app.route('/sabores/nuevo')
+@login_required
+def nuevoSabor():
+    return render_template('/sabores/nuevo.html')
+@app.route('/sabores/validarSabor', methods=['post'])
+@login_required
+def validarSabor():
 
+        s = Sabores()
+        s.nombreSabor = request.form['sabor']
+        s.insertar()
+        flash('Sabor guardado con exito')
+        return redirect(url_for('nuevoSabor'))
 #PAGINAS DE ERROR
 @app.errorhandler(404)
 def error_404(e):

@@ -6,15 +6,16 @@
 <head>
   <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
 </head>
-
+<div class="container">
 <div class="well">
     <h1>Listado de Tallas</h1>
+    <!--
     <select name="nombre">
         <option>--Selecciona la talla--</option>
         <option>XL</option>
         <option>X</option>
         <option>L</option>
-    </select>
+    </select>-->
     <table class="table">
         <THEAD>
             <TH>ID</TH>
@@ -42,8 +43,7 @@
             </tr>
         {% endfor %}
     </table>
-</div>
-        <br>
+     <br>
         {% if get_flashed_messages() %}
         <div id="mensajeAlert" class="alert alert-success alert-dismissible">
         {% for message in get_flashed_messages() %}
@@ -52,5 +52,7 @@
         {% endfor %}
         </div>
         {% endif %}
-        </div>
+</div>
+
+</div>
 {% endblock %}

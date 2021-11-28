@@ -11,7 +11,12 @@
         <form action="/descuento/validandoDescuento" method="post">
              <div  class="mb-3">
                  <label  class="form-label">Producto</label>
-                 <input  type="text" class="form-control"  placeholder="Ingresa el id del producto" maxlength="80" required name="producto">
+                  <select id="cajaTexto" class="form-label" required name="tipo">
+                         <option>Selecciona una opcion</option>
+                         {% for pro in productos %}
+                            <option>{{pro.nombre}}</option>
+                         {% endfor %}
+                  </select>
              </div>
             <div  class="mb-3">
                  <label  class="form-label">Inicio del descuento</label>
