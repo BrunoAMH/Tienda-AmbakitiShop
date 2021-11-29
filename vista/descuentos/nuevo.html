@@ -11,10 +11,10 @@
         <form action="/descuento/validandoDescuento" method="post">
              <div  class="mb-3">
                  <label  class="form-label">Producto</label>
-                  <select id="cajaTexto" class="form-label" required name="tipo">
+                  <select id="cajaTexto" class="form-label" required name="producto">
                          <option>Selecciona una opcion</option>
                          {% for pro in productos %}
-                            <option>{{pro.nombre}}</option>
+                            <option value="{{pro.idProducto}}">{{pro.nombre}}</option>
                          {% endfor %}
                   </select>
              </div>

@@ -371,20 +371,17 @@ def nuevoDescuento():
 @app.route('/descuento/validandoDescuento', methods=['post'])
 @login_required
 def validarDescuento():
-    #try:
+    try:
         d = Descuento()
         d.fechaInicio = '2021-01-01'
         d.fechaFin = '2021-01-10'
         d.descuento = request.form['descuentoPorcentaje']
-        d.Productos_idProducto = request.form['tipo']
+        d.Productos_idProducto = request.form['producto']
         d.insertar()
         flash('Descuento guardado con exito')
-    #except:
+    except:
         flash('Fallo al guardar el descuento')
-
-
-        return render_template('/comentarios/nuevo.html')
-    #return redirect(url_for('nuevoDescuento'))
+    return redirect(url_for('nuevoDescuento'))
 #COMENTARIOS
 @app.route('/comentarios/nuevo')
 @login_required
