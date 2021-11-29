@@ -269,11 +269,12 @@ def editarProducto(id):
     t = Talla()
     return render_template('/tallas/editar.html', t = t.consultaIndividual(id))
 @app.route('/producto/verProducto/<int:id>')
-@login_required
+
 def verProducto(id):
     p = Producto()
     c = Comentario()
-    return render_template('/productos/verProducto.html', producto=p.consultaIndividual(id), comentario = c.consultaGeneral())
+    pre = Prenda()
+    return render_template('/productos/verProducto.html', producto=p.consultaIndividual(id), comentario = c.consultaGeneral(), prenda = pre.consultaGeneral())
 #PRENDAS
 @app.route('/prendas/consultar')
 def consultarPrendas():
@@ -332,6 +333,7 @@ def misPedidos():
     return render_template('/pedidos/consultar.html')
 #CARRITO
 @app.route('/carrito/consultar')
+@login_required
 def miCarrito():
     carr = Carrito()
     return render_template('/carrito/consultar.html', carrito=carr.consultaGeneral())
@@ -372,6 +374,7 @@ def consultarDescuentos():
     d = Descuento()
     return render_template('/descuentos/consultar.html', descuento = d.consultaGeneral())
 @app.route('/descuentos/nuevo')
+@login_required
 def nuevoDescuento():
     p = Producto()
     return render_template('/descuentos/nuevo.html', productos = p.consultaGeneral())
@@ -418,7 +421,6 @@ def nuevoSabor():
 @app.route('/sabores/validarSabor', methods=['post'])
 @login_required
 def validarSabor():
-
         s = Sabores()
         s.nombreSabor = request.form['sabor']
         s.insertar()

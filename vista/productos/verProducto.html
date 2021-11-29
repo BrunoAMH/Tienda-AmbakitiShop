@@ -7,19 +7,37 @@
     <div class="well">
         <h2>{{producto.nombre}}</h2>
         <img src="/productos/imagen/{{producto.idFoto}}" width="300px">
-        <h5>{{producto.descripcion}}</h5>
-        <h5>{{producto.precioVenta}}</h5>
+        <h3>${{producto.precioVenta}}</h3>
+        <h3>Caracteristicas</h3>
+        <h5>&nbsp;&nbsp;&nbsp;{{producto.descripcion}}</h5>
         {% if producto.categoria == 'R' %}
-        <td>Ropa</td>
+            <h5>&nbsp;&nbsp;&nbsp;Ropa</h5>
+            {% for pre in prenda %}
+            {% if pre.Productos_idProducto == producto.idProducto %}
+            <div>
+                <h5>&nbsp;&nbsp;&nbsp;Unidades en existencia:{{pre.unidadesExistencia}}</h5>
+                <h5>&nbsp;&nbsp;&nbsp;Color: {{pre.color}}</h5>
+                {% if pre.genero == 'H' %}
+                    <h5>&nbsp;&nbsp;&nbsp;Genero:Masculino</h5>
+                {% elif pre.genero == 'M' %}
+                    <h5>&nbsp;&nbsp;&nbsp;Genero: Femenino</h5>
+                {% elif pre.genero == 'A' %}
+                    <h5>&nbsp;&nbsp;&nbsp;Genero: Ambos</h5>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+
         {% elif producto.categoria == 'C' %}
-        <td>Consumible</td>
+            <h5>Consumible</h5>
         {% elif producto.categoria == 'S' %}
-        <td>Suvenirs</td>
+            <h5>Suvenirs</h5>
         {% endif%}
     </div>
     <a class="btn btn-success">Agregar al carrito</a>
     <a href="/comentarios/nuevo/{{producto.idProducto}}">Comentar</a>
     <h3>Comentarios</h3>
+
     {% for com in comentario %}
     {% if com.Productos_idProducto == producto.idProducto %}
     <div class="well">

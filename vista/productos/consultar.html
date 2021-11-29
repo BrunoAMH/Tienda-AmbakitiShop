@@ -4,10 +4,11 @@
 {% endblock %}
 {% block principal %}
 <head>
-  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+
 </head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 <div class="container">
-<div class="well">
+    <div class="well">
     <h1>Listado de Productos</h1>
     <!--
     <select name="categoria">
@@ -16,49 +17,88 @@
         <option>Calzado</option>
         <option>Varios</option>
     </select>-->
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#Ropa">Ropa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Comestible">Comestible</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Suvenirs">Suvenirs</a>
+            </li>
+        </ul>
 
-    <table  class="table table-striped">
-        <THEAD>
-            <TH>ID</TH>
-            <TH>NOMBRE</TH>
-            <TH>DESCRIPCION</TH>
-            <TH>PRECIO</TH>
-            <th>CATEGORIA</th>
-            <TH>FOTO</TH>
-            <TH>EDITAR</TH>
-            <TH>ELIMINAR</TH>
-        </THEAD>
-        {% for prod in productos %}
-            <tr>
-                {% if prod.estatus == 'D' %}
-                <td>{{prod.idProducto}}</td>
-                <td><a href="/producto/verProducto/{{prod.idProducto}}">{{prod.nombre}}</a></td>
-                <td>{{prod.descripcion}}</td>
-                <td>{{prod.precioVenta}}</td>
 
-                {% if prod.categoria == 'R' %}
-                <td>Ropa</td>
-                {% elif prod.categoria == 'C' %}
-                <td>Consumible</td>
-                {% elif prod.categoria == 'S' %}
-                <td>Suvenirs</td>
-                {% endif%}
 
-                <td><img src="/productos/imagen/{{prod.idFoto}}" width="100px"></td>
-                <td>
-                    <a href="/productos/ver/{{prod.idProducto}}">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="/productos/eliminar/{{prod.idProducto}}">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                </td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-    </table>
+        <div id="Ropa" class="container-fluid bg-success text-white" style="padding:100px 20px;" >
+            <h1>Ropa</h1>
+            {% for prod in productos %}
+            {% if prod.categoria == 'R' %}
+            <div  class="container mt-3">
+                <div  class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{prod.nombre}}</h4>
+                        <h5 class="card-title">${{prod.precioVenta}}</h5>
+                        <p class="card-text">{{prod.descripcion}}</p>
+                        <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                        </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+         <div id="Comestible" class="container-fluid bg-secondary text-white" style="padding:100px 20px;" >
+            <h1>Comestible</h1>
+            {% for prod in productos %}
+            {% if prod.categoria == 'C' %}
+            <div  class="container mt-3">
+                <div  class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{prod.nombre}}</h4>
+                        <h5 class="card-title">${{prod.precioVenta}}</h5>
+                        <p class="card-text">{{prod.descripcion}}</p>
+                        <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                        </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+         <div id="Suvenirs" class="container-fluid bg-warning" style="padding:100px 20px;" >
+            <h1>Suvenirs</h1>
+            {% for prod in productos %}
+            {% if prod.categoria == 'S' %}
+            <div  class="container mt-3">
+                <div class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{prod.nombre}}</h4>
+                        <h5 class="card-title">${{prod.precioVenta}}</h5>
+                        <p class="card-text">{{prod.descripcion}}</p>
+                        <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                        </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+
+
+
+    </div>
 </div>
-</div>
+</body>
 {% endblock %}

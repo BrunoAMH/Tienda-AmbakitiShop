@@ -3,43 +3,45 @@
       <ul class="nav navbar-nav navbar-left">
 
         <li><a href="/">Inicio</a></li>
-
+        {% if current_user.is_authenticated and (current_user.is_cliente() or current_user.is_admin()) %}
         <li><a href="/pedidos/MisPedidos">Mis pedidos</a></li>
-
+        {% endif %}
 
       </ul>
-
-
 
       <!-----------------MENU DESCUENTOS ------------->
       <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Descuentos
                 <span class="caret"></span></a>
-              {% if current_user.is_authenticated and current_user.is_admin() %}
+
               <ul class="dropdown-menu" >
                   <li><a href="/descuentos/consultar">Ver Descuentos</a></li>
+                  {% if current_user.is_authenticated and current_user.is_admin() %}
                   <li><a href="/descuentos/nuevo">Nuevo Descuentos</a></li>
+                  {% endif %}
               </ul>
-               {% endif %}
+
           </li>
       </ul>
 
       <!-----------------MENU PRODUCTOS ------------->
-      {% if current_user.is_authenticated and current_user.is_admin() %}
+
       <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Productos
                 <span class="caret"></span></a>
               <ul class="dropdown-menu" >
                   <li><a href="/productos/consultarProductos">Ver productos</a></li>
+                   {% if current_user.is_authenticated and current_user.is_admin() %}
                   <li><a href="/productos/agregarProductoRopa">Agregar Prenda</a></li>
                   <li><a href="/productos/agregarProductoConsumible">Agregar Comestible</a></li>
                   <li><a href="/productos/agregarProductoSuvenir">Agregar Suvenir</a></li>
+                  {% endif %}
               </ul>
           </li>
       </ul>
-      {% endif %}
+
       <!--------------------------------------------->
       <!-----------------MENU USUARIOS ------------->
        {% if current_user.is_authenticated and current_user.is_admin() %}
@@ -97,17 +99,18 @@
       <!--------------------------------------------->
 
       <!-----------------MENU SABORES ------------->
+      {% if current_user.is_authenticated and current_user.is_admin() %}
       <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Sabores
                 <span class="caret"></span></a>
-              {% if current_user.is_authenticated and current_user.is_admin() %}
               <ul class="dropdown-menu" >
                   <li><a href="/sabores/nuevo">Nuevo Sabor</a></li>
               </ul>
-               {% endif %}
+
           </li>
       </ul>
+       {% endif %}
       <!--------------------------------------------->
 
     <ul class="nav navbar-nav navbar-right">
