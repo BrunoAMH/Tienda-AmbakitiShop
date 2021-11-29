@@ -8,7 +8,7 @@ from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabore
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Cocacola069*@127.0.1.2/ambakitishop'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.1.1/mydb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='cl4v3'
 
@@ -264,10 +264,16 @@ def guardandoProductoRopa():
 def consultarImagenProducto(id):
     f = fotos()
     return f.consultaIndividual(id).fotografia
-@app.route('/productos/ver/<int:id>')
+@app.route('/productos/editar/<int:id>')
 def editarProducto(id):
     t = Talla()
     return render_template('/tallas/editar.html', t = t.consultaIndividual(id))
+@app.route('/producto/verProducto/<int:id>')
+@login_required
+def verProducto(id):
+    p = Producto()
+    c = Comentario()
+    return render_template('/productos/verProducto.html', producto=p.consultaIndividual(id), comentario = c.consultaGeneral())
 #PRENDAS
 @app.route('/prendas/consultar')
 def consultarPrendas():
@@ -384,19 +390,26 @@ def validarDescuento():
         flash('Fallo al guardar el descuento')
     return redirect(url_for('nuevoDescuento'))
 #COMENTARIOS
-@app.route('/comentarios/nuevo')
+@app.route('/comentarios/nuevo/<int:id>')
 @login_required
-def nuevoComentario():
-    return render_template('/comentarios/nuevo.html')
-@app.route('/comentario/validandoComentario/<int:id>', methods=['post'])
+def nuevoComentario(id):
+    p = Producto()
+    return render_template('/comentarios/nuevo.html', producto = p.consultaIndividual(id))
+@app.route('/comentario/validandoComentario', methods=['post'])
 @login_required
 def validandoComentario():
-    try:
-
-        flash('Descuento guardado con exito')
-    except:
-        flash('Fallo al guardar el descuento')
-    return redirect(url_for('nuevoDescuento'))
+        c = Comentario()
+        u = Usuario()
+        c.comentario = request.form['comentario']
+        c.calificacion = request.form['calificacion']
+        u.idUsuario = current_user.idUsuario
+        c.Usuarios_idUsuario = u.idUsuario
+        c.Productos_idProducto = request.form['id']
+        c.compraConfirmada='Y'
+        c.insertar()
+        #flash('Descuento guardado con exito')
+        #flash('Fallo al guardar el descuento')
+        return redirect(url_for('consultarProductos'))
 #SABORES
 @app.route('/sabores/nuevo')
 @login_required

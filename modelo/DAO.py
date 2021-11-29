@@ -274,10 +274,11 @@ class Descuento(db.Model):
 class Comentario(db.Model):
     __tablename__='comentarios'
     idComentario = Column(Integer, primary_key=True)
-    Usuarios_idUsuarios = Column(Integer, ForeignKey('usuarios.idUsuario'))
+    Usuarios_idUsuario = Column(Integer, ForeignKey('usuarios.idUsuario'))
     Productos_idProducto = Column(Integer, ForeignKey('productos.idProducto'))
     comentario = Column(String(510), nullable=False)
-    compraConfirmada = Column(String(11), nullable=False)
+    calificacion = Column(String(11), nullable=False)
+    compraConfirmada = Column(String(1), nullable=False)
     usuario = relationship('Usuario', lazy='select')
     producto = relationship('Producto', lazy='select')
 

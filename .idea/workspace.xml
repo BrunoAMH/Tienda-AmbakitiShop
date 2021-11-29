@@ -7,12 +7,89 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controlador/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/controlador/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modelo/DAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelo/DAO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vista/carrito/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/carrito/consultar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vista/comentarios/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/comentarios/nuevo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vista/productos/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/productos/consultar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vista/sugerencias/consultar.html" beforeDir="false" afterPath="$PROJECT_DIR$/vista/sugerencias/consultar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controlador/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-242">
+              <caret line="400" column="12" selection-start-line="400" selection-start-column="12" selection-end-line="400" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/comentarios/nuevo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="17" column="148" selection-start-line="17" selection-start-column="148" selection-end-line="17" selection-end-column="148" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modelo/DAO.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="279" column="16" selection-start-line="279" selection-start-column="16" selection-end-line="279" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vista/productos/verProducto.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <folding>
+                <element signature="e#920#926#0" expanded="true" />
+                <element signature="e#926#932#0" expanded="true" />
+                <element signature="e#932#938#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/sugerencias/consultar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/productos/consultar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="59" column="20" lean-forward="true" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vista/descuentos/consultar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,7 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vista/usuarios.html" />
         <option value="$PROJECT_DIR$/vista/sugerencias.html" />
         <option value="$PROJECT_DIR$/static/css/estiloLogin.css" />
         <option value="$PROJECT_DIR$/vista/tarjetas/consultar.html" />
@@ -65,9 +141,6 @@
         <option value="$PROJECT_DIR$/vista/sabores/editar.html" />
         <option value="$PROJECT_DIR$/vista/comunes/index.html" />
         <option value="$PROJECT_DIR$/vista/tallas/editar.html" />
-        <option value="$PROJECT_DIR$/vista/sugerencias/consultar.html" />
-        <option value="$PROJECT_DIR$/vista/productos/consultar.html" />
-        <option value="$PROJECT_DIR$/modelo/DAO.py" />
         <option value="$PROJECT_DIR$/vista/comunes/menu.html" />
         <option value="$PROJECT_DIR$/vista/sabores/nuevo.html" />
         <option value="$PROJECT_DIR$/vista/productos/nuevoConsumible.html" />
@@ -77,8 +150,12 @@
         <option value="$PROJECT_DIR$/vista/tallas/consultar.html" />
         <option value="$PROJECT_DIR$/vista/productos/nuevoRopa.html" />
         <option value="$PROJECT_DIR$/vista/descuentos/nuevo.html" />
-        <option value="$PROJECT_DIR$/controlador/app.py" />
+        <option value="$PROJECT_DIR$/vista/sugerencias/consultar.html" />
+        <option value="$PROJECT_DIR$/vista/productos/consultar.html" />
+        <option value="$PROJECT_DIR$/modelo/DAO.py" />
         <option value="$PROJECT_DIR$/vista/comentarios/nuevo.html" />
+        <option value="$PROJECT_DIR$/controlador/app.py" />
+        <option value="$PROJECT_DIR$/vista/productos/verProducto.html" />
       </list>
     </option>
   </component>
@@ -113,7 +190,7 @@
               <item name="Tienda-AmbakitiShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tienda-AmbakitiShop" type="462c0819:PsiDirectoryNode" />
               <item name="vista" type="462c0819:PsiDirectoryNode" />
-              <item name="comentarios" type="462c0819:PsiDirectoryNode" />
+              <item name="productos" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -136,6 +213,18 @@
       <recent name="C:\Users\mario\Documents\GitHub\AmbakitiShop\static\css" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AmbakitiShop" />
@@ -144,9 +233,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\mario\Documents\GitHub\Tienda-AmbakitiShop\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/controlador" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/controlador/app.py" />
@@ -164,7 +253,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -230,13 +319,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vista/comunes/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/carrito/consultar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -405,13 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/sugerencias/consultar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/tallas/nuevo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -447,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vista/productos/consultar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="46" column="79" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/productos/nuevoRopa.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -484,8 +552,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vista/descuentos/consultar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="432">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -496,16 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlador/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="377" column="55" selection-start-line="377" selection-start-column="36" selection-end-line="377" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vista/descuentos/nuevo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -513,10 +571,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/consultar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="59" column="20" lean-forward="true" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modelo/DAO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="264" column="52" selection-start-line="264" selection-start-column="46" selection-end-line="264" selection-end-column="52" />
+        <state relative-caret-position="351">
+          <caret line="279" column="16" selection-start-line="279" selection-start-column="16" selection-end-line="279" selection-end-column="16" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -525,8 +590,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vista/comentarios/nuevo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        <state relative-caret-position="459">
+          <caret line="17" column="148" selection-start-line="17" selection-start-column="148" selection-end-line="17" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlador/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <caret line="400" column="12" selection-start-line="400" selection-start-column="12" selection-end-line="400" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/sugerencias/consultar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="28" column="67" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vista/productos/verProducto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="e#920#926#0" expanded="true" />
+            <element signature="e#926#932#0" expanded="true" />
+            <element signature="e#932#938#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

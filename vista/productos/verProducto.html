@@ -1,0 +1,35 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<div class="container">
+    <div class="well">
+        <h2>{{producto.nombre}}</h2>
+        <img src="/productos/imagen/{{producto.idFoto}}" width="300px">
+        <h5>{{producto.descripcion}}</h5>
+        <h5>{{producto.precioVenta}}</h5>
+        {% if producto.categoria == 'R' %}
+        <td>Ropa</td>
+        {% elif producto.categoria == 'C' %}
+        <td>Consumible</td>
+        {% elif producto.categoria == 'S' %}
+        <td>Suvenirs</td>
+        {% endif%}
+    </div>
+    <a class="btn btn-success">Agregar al carrito</a>
+    <a href="/comentarios/nuevo/{{producto.idProducto}}">Comentar</a>
+    <h3>Comentarios</h3>
+    {% for com in comentario %}
+    {% if com.Productos_idProducto == producto.idProducto %}
+    <div class="well">
+        <h4>{{com.usuario.nombre}}</h4>
+        {% for i in range(com.calificacion) %}
+        <span class="glyphicon glyphicon-star"></span>
+        {% endfor %}
+        <h5>&nbsp;&nbsp;&nbsp;{{com.comentario}}</h5>
+    </div>
+    {% endif %}
+     {% endfor %}
+</div>
+{% endblock %}
