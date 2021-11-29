@@ -287,3 +287,17 @@ class Comentario(db.Model):
 
     def consultaGeneral(self):
         return self.query.all()
+
+class Carrito(db.Model):
+    __tablename__ = 'carrito'
+    idCarrito = Column(Integer, primary_key=True)
+    Usuarios_idUsuario = Column(Integer, ForeignKey('usuarios.idUsuario'))
+    Productos_idProducto = Column(Integer, ForeignKey('productos.idProducto'))
+    fecha = Column(Date, nullable=False)
+    cantidad = Column(Integer, nullable=False)
+    precio = Column(Float, nullable=False)
+    usuario = relationship('Usuario', lazy='select')
+    producto = relationship('Producto', lazy='select')
+
+    def consultaGeneral(self):
+        return self.query.all()

@@ -3,12 +3,12 @@ import datetime
 from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
 from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
-from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario
+from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario, Carrito
 
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.0.1/mydb'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Cocacola069*@127.0.1.2/ambakitishop'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='cl4v3'
 
@@ -327,7 +327,8 @@ def misPedidos():
 #CARRITO
 @app.route('/carrito/consultar')
 def miCarrito():
-    return render_template('/carrito/consultar.html')
+    carr = Carrito()
+    return render_template('/carrito/consultar.html', carrito=carr.consultaGeneral())
 #TARJETAS
 @app.route('/tarjeta/nuevaTarjeta')
 @login_required

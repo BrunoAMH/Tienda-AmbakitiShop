@@ -1,98 +1,50 @@
 {% extends "comunes/base.html" %}
 {% block navbar %}
-   {% include 'comunes/menu.html' %}
+{% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-    <head>
-         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
-    </head>
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<div class="container">
+<div class="well">
+    <h1>Tu carrito  de compras</h1>
+    <!--
+    <select name="categoria">
+        <option>--Selecciona la categoria --</option>
+        <option>Refrescos</option>
+        <option>Calzado</option>
+        <option>Varios</option>
+    </select>-->
 
-    <div id="bloque">
-        <h1>Carrito</h1>
-
-        <div class="card mb-3" style="max-width: 600px;" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="{{url_for('static',filename='imagenes/sombrero.png')}}" class="img-fluid rounded-start" alt="1">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                    <h5 class="card-title">Sombrero</h5>
-                    <p class="card-text">Sombrero tradicional de la comunidad de Paracho</p>
-                    <p class="card-text"><small class="text-muted">Piezas:  <a href="#"class="btn btn-light" >-</a> </small>1<a href="#"class="btn btn-light">+</a></p>
-                    <p class="card-text"><small>$200</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-3" style="max-width: 600px;" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="{{url_for('static',filename='imagenes/camisa.png')}}" class="img-fluid rounded-start" alt="1">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                    <h5 class="card-title">Camisa</h5>
-                    <p class="card-text">Camisa estilo guayabera de Tanaquillos</p>
-                    <p class="card-text"><small class="text-muted">Piezas:  <a href="#"class="btn btn-light" >-</a> </small>1<a href="#"class="btn btn-light">+</a></p>
-                    <p class="card-text"><small>$200</small></p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-3" style="max-width: 600px;" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="{{url_for('static',filename='imagenes/reloj.png')}}" class="img-fluid rounded-start" alt="1">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                    <h5 class="card-title">Reloj</h5>
-                    <p class="card-text">Reloj de cuero</p>
-                    <p class="card-text"><small class="text-muted">Piezas:  <a href="#"class="btn btn-light" >-</a> </small>1<a href="#"class="btn btn-light">+</a></p>
-                    <p class="card-text"><small>$200</small></p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-3" style="max-width: 600px;" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="{{url_for('static',filename='imagenes/vestido.png')}}" class="img-fluid rounded-start" alt="1">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                    <h5 class="card-title">Vestido</h5>
-                    <p class="card-text">Vestido tradicional de Uruapan</p>
-                    <p class="card-text"><small class="text-muted">Piezas:  <a href="#"class="btn btn-light" >-</a> </small>1<a href="#"class="btn btn-light">+</a></p>
-                    <p class="card-text"><small>$500</small></p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-3" style="max-width: 600px;" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="{{url_for('static',filename='imagenes/dulces.png')}}" class="img-fluid rounded-start" alt="1">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                    <h5 class="card-title">Dulces</h5>
-                    <p class="card-text">Dulces tradicionales de la comunidad de Zamora</p>
-                    <p class="card-text"><small class="text-muted">Piezas:  <a href="#"class="btn btn-light" >-</a> </small>1<a href="#"class="btn btn-light">+</a></p>
-                    <p class="card-text"><small>$100</small></p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="/tarjeta/anadir" class="btn btn-success">Confirmar Compra</a>
-    </div>
+    <table  class="table table-striped">
+        <THEAD>
+            <TH>ID</TH>
+            <TH>ID USUARIO</TH>
+            <TH>ID PRODUCTO</TH>
+            <TH>FECHA</TH>
+            <th>CANTIDAD</th>
+            <TH>PRECIO</TH>
+            <TH>IMAGEN</TH>
+            <TH>ELIMINAR</TH>
+        </THEAD>
+        {% for carr in carrito %}
+            <tr>
+                <td>{{carr.idCarrito}}</td>
+                <td>{{carr.Usuarios_idUsuario}}</td>
+                <td>{{carr.Productos_idProducto}}</td>
+                <td>{{carr.fecha}}</td>
+                <td>{{carr.cantidad}}</td>
+                <td>{{carr.precio}}</td>
+                <td><img src="/productos/imagen/{{carr.Productos_idProducto}}" width="100px"></td>
+                <td>
+                    <a href="/productos/eliminar/{{carr.Productos_idProducto}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
 {% endblock %}
