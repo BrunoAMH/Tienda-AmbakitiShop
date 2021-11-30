@@ -13,9 +13,17 @@
                 <label for="caja" class="form-label">ID</label>
                  <input type="number" name="id" value="{{producto.idProducto}}" class="form-control" readonly>
             </div>
+
             <div  class="mb-3">
                 <label for="caja" class="form-label">Calificacion del producto</label>
-                <input  type="text" class="form-control" id="caja" placeholder="Ingresa tu calificacion" maxlength="510" required name="calificacion"></input>
+                <br>
+                <select id="caja" name="calificacion" required>
+                    <option value="5">5 Estrellas-Excelente</option>
+                    <option value="4">4 Estrellas-Bueno</option>
+                    <option value="3">3 Estrellas-Regular</option>
+                    <option value="2">2 Estrellas-Malo</option>
+                    <option value="1">1 Estrellas-Muy Malo</option>
+                </select>
             </div>
             <div  class="mb-3">
                 <label for="caja" class="form-label">Comentario</label>

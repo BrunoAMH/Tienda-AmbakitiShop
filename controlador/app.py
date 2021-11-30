@@ -332,6 +332,14 @@ def editandoTalla():
 def misPedidos():
     return render_template('/pedidos/consultar.html')
 #CARRITO
+@app.route('/carrito/nuevo', methods=['post'])
+@login_required
+def nuevoCarrito():
+    c= Carrito()
+    c.fecha = '2021-11-29'
+    c.cantidad=1
+    c.precio=request.form['precio']
+    print(c.precio)
 @app.route('/carrito/consultar')
 @login_required
 def miCarrito():

@@ -4,50 +4,59 @@
 {% endblock %}
 {% block principal %}
 <div class="container">
-    <div class="well">
-        <h2>{{producto.nombre}}</h2>
-        <img src="/productos/imagen/{{producto.idFoto}}" width="300px">
-        <h3>${{producto.precioVenta}}</h3>
-        <h3>Caracteristicas</h3>
-        <h5>&nbsp;&nbsp;&nbsp;{{producto.descripcion}}</h5>
-        {% if producto.categoria == 'R' %}
-            <h5>&nbsp;&nbsp;&nbsp;Ropa</h5>
-            {% for pre in prenda %}
-            {% if pre.Productos_idProducto == producto.idProducto %}
-            <div>
-                <h5>&nbsp;&nbsp;&nbsp;Unidades en existencia:{{pre.unidadesExistencia}}</h5>
-                <h5>&nbsp;&nbsp;&nbsp;Color: {{pre.color}}</h5>
-                {% if pre.genero == 'H' %}
-                    <h5>&nbsp;&nbsp;&nbsp;Genero:Masculino</h5>
-                {% elif pre.genero == 'M' %}
-                    <h5>&nbsp;&nbsp;&nbsp;Genero: Femenino</h5>
-                {% elif pre.genero == 'A' %}
-                    <h5>&nbsp;&nbsp;&nbsp;Genero: Ambos</h5>
-                {% endif %}
+
+        <form action="/carrito/nuevo" method="post">
+            <div class="well">
+            <h2>{{producto.nombre}}</h2>
+                <img src="/productos/imagen/{{producto.idFoto}}" width="300px">
+                <input name="precio" readonly value="${{producto.precioVenta}}"></input>
+                <h3>Caracteristicas</h3>
+                <h5>&nbsp;&nbsp;&nbsp;{{producto.descripcion}}</h5>
+                {% if producto.categoria == 'R' %}
+                    <h5>&nbsp;&nbsp;&nbsp;Ropa</h5>
+                    {% for pre in prenda %}
+                    {% if pre.Productos_idProducto == producto.idProducto %}
+                    <div>
+                        <h5>&nbsp;&nbsp;&nbsp;Unidades en existencia:{{pre.unidadesExistencia}}</h5>
+                        <h5>&nbsp;&nbsp;&nbsp;Color: {{pre.color}}</h5>
+                        {% if pre.genero == 'H' %}
+                            <h5>&nbsp;&nbsp;&nbsp;Genero:Masculino</h5>
+                        {% elif pre.genero == 'M' %}
+                            <h5>&nbsp;&nbsp;&nbsp;Genero: Femenino</h5>
+                        {% elif pre.genero == 'A' %}
+                            <h5>&nbsp;&nbsp;&nbsp;Genero: Ambos</h5>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                {% elif producto.categoria == 'C' %}
+                    <h5>Consumible</h5>
+                {% elif producto.categoria == 'S' %}
+                    <h5>Suvenirs</h5>
+                {% endif%}
+
+
+            <button type="submit" class="btn btn-success">Agregar al carrito</button>
+            <a href="/comentarios/nuevo/{{producto.idProducto}}">Comentar</a>
+        </div>
+        </form>
+
+            <h3>Comentarios</h3>
+
+            {% for com in comentario %}
+            {% if com.Productos_idProducto == producto.idProducto %}
+            <div class="well">
+                 <h4><a >
+                  <span class="glyphicon glyphicon-user"></span>
+                 </a>{{com.usuario.nombre}}</h4>
+                {% for i in range(com.calificacion) %}
+                <span class="glyphicon glyphicon-star"></span>
+                {% endfor %}
+                <h5>&nbsp;&nbsp;&nbsp;{{com.comentario}}</h5>
             </div>
             {% endif %}
-            {% endfor %}
+             {% endfor %}
 
-        {% elif producto.categoria == 'C' %}
-            <h5>Consumible</h5>
-        {% elif producto.categoria == 'S' %}
-            <h5>Suvenirs</h5>
-        {% endif%}
-    </div>
-    <a class="btn btn-success">Agregar al carrito</a>
-    <a href="/comentarios/nuevo/{{producto.idProducto}}">Comentar</a>
-    <h3>Comentarios</h3>
-
-    {% for com in comentario %}
-    {% if com.Productos_idProducto == producto.idProducto %}
-    <div class="well">
-        <h4>{{com.usuario.nombre}}</h4>
-        {% for i in range(com.calificacion) %}
-        <span class="glyphicon glyphicon-star"></span>
-        {% endfor %}
-        <h5>&nbsp;&nbsp;&nbsp;{{com.comentario}}</h5>
-    </div>
-    {% endif %}
-     {% endfor %}
 </div>
 {% endblock %}
