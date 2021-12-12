@@ -3,11 +3,33 @@
    {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-    <head>
-         <link href="../static/css/estiloTarjetas.css" rel="stylesheet" id="bootstrap-css">
-    </head>
-    <div  class="mb-3">
-        <label for="caja" class="form-label">Nombre del producto</label>
-        <input  type="text" class="form-control" id="caja" placeholder="Ingresa el nombre del producto" maxlength="80" required name="nombre">
+<div class="container">
+    <div id="bloque">
+        <h1>Editando sabor</h1>
+        <form action="/sabores/modificar" method="post">
+         <div class="form-group">
+            <label>ID</label>
+            <input type="number" name="id" value="{{sab.idSabor}}" class="form-control" readonly>
+         </div>
+         <div  class="mb-3">
+            <label for="caja" class="form-label">Nombre del sabor</label>
+             <input type="text" name="nombre" class="form-control" placeholder="Nombre del sabor" value="{{sab.nombreSabor}}" maxlength="60" required>
+        </div>
+         <br>
+         <div>
+            <button type="submit" class="btn btn-success">Guadar Cambios</button>
+             <a href="/sabores/consultar" class="btn btn-warning">Regresar</a>
+         </div>
+        </form>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
     </div>
+</div>
 {% endblock %}

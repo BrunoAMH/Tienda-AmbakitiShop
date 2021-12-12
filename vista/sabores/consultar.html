@@ -1,0 +1,47 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<div class="container">
+<div class="well">
+    <table class="table">
+        <a href="/sabores/consultar"> </a>
+        <THEAD>
+            <TH>ID</TH>
+            <TH>NOMBRE DEL SABOR</TH>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+        </THEAD>
+        {% for sab in sabores %}
+            <tr>
+                <td>{{sab.idSabor}}</td>
+                <td>{{sab.nombreSabor}}</td>
+                <td>
+                    <a href="/sabores/ver/{{sab.idSabor}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="/sabores/eliminar/{{sab.idSabor}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+</div>
+</div>
+{% endblock %}

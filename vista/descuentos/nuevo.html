@@ -38,8 +38,8 @@
             </nav>
         </form>
     </div>
-<br>
-    {% if get_flashed_messages() %}
+    <br>
+        {% if get_flashed_messages() %}
     <div id="mensajeAlert" class="alert alert-success alert-dismissible">
         {% for message in get_flashed_messages() %}
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

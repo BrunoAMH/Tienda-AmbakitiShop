@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<div class="container">
+    <div id="bloque">
+        <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+        <h1 id="titulo">Editando prenda</h1>
+        <form action="/prendas/editandoPrenda" method="post">
+          <div class="form-group">
+            <label>ID PRENDA</label>
+            <input type="number" name="id" value="{{p.idPrenda}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>ID PRODUCTO</label>
+            <input type="number" name="Productos_idProducto" value="{{p.Productos_idProducto}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>ID TALLA</label>
+            <input type="number" name="Tallas_idTalla" value="{{p.Tallas_idTalla}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>STOCK</label>
+            <input type="number" name="unidadesExistencia" value="{{p.unidadesExistencia}}" class="form-control" maxlength="5" required>
+          </div>
+          <div class="form-group">
+            <label>COLOR</label>
+            <input type="text" name="color" class="form-control" placeholder="Color" value="{{p.color}}" maxlength="30" required>
+          </div>
+            <div  class="mb-3">
+                <label class="form-label">GENERO</label>
+                     <select id="cajaTexto" class="form-label" required name="genero">
+                         <option>Selecciona una opcion</option>
+                         <option>Hombre</option>
+                         <option>Mujer</option>
+                         <option>Ambos</option>
+                     </select>
+            </div>
+           <br>
+          <div>
+            <button type="submit" class="btn btn-success">Guadar Cambios</button>
+            <a href="/prendas/consultar" class="btn btn-warning">Regresar</a>
+          </div>
+        </form>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -3,26 +3,27 @@
    {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-    <head>
-         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
-    </head>
+<div class="container">
     <div id="bloque">
-        <h1>Editar Talla</h1>
+        <h1>Editar talla</h1>
         <form action="/tallas/editandoTalla" method="post">
+            <div  class="mb-3">
+                <label for="caja" class="form-label">ID</label>
+                <input type="number" name="idTalla" value="{{t.idTalla}}" class="form-control" readonly>
+             </div>
              <div  class="mb-3">
                 <label for="caja" class="form-label">Nombre</label>
-                <input value="{{t.nombreTalla}}" type="text" class="form-control" id="caja" placeholder="Ingresa el nombre de la talla" maxlength="80" required name="nombreTalla" >
+                <input type="text" name="nombreTalla" class="form-control" placeholder="Nombre de la talla" value="{{t.nombreTalla}}" maxlength="60" required>
              </div>
              <div class="mb-3">
                 <label for="caja" class="form-label">Medidas</label>
-                <input value="{{t.medidas}}" type="text" class="form-control" id="caja" name="medidas" placeholder="Ingresa las medidas" required>
+                <input type="text" name="medidas" class="form-control" placeholder="Medidas" value="{{t.medidas}}" maxlength="60" required>
              </div>
             <br>
             <div class="mb-3">
                 <button type="submit" class="btn btn-success">Guardar Cambios</button>
                 <a href="/tallas/consultar" class="btn btn-warning">Regresar</a>
             </div>
-
         </form>
         <br>
         {% if get_flashed_messages() %}
@@ -32,7 +33,7 @@
         <strong>{{message}}</strong>
         {% endfor %}
         </div>
+    </div>
+</div>
         {% endif %}
-        </div>
-
 {% endblock %}

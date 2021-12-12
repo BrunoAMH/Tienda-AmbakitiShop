@@ -29,12 +29,12 @@
                 <td>{{desc.descuento}}</td>
                 {% if current_user.is_authenticated and current_user.is_admin() %}
                 <td>
-                    <a href="#">
+                    <a href="/descuentos/ver/{{desc.idDescuento}}">
                         <span class="glyphicon glyphicon-eye-open"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#">
+                    <a href="/descuentos/eliminar/{{desc.idDescuento}}">
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
                 </td>

@@ -125,7 +125,7 @@ class fotos(db.Model):
 
     def consultaIndividual(self, id):
         return self.query.get(id)
-
+#-----------------------TALLAS-----------------------------
 class Talla(db.Model):
     __tablename__='tallas'
     idTalla = Column(Integer,primary_key=True)
@@ -152,7 +152,7 @@ class Talla(db.Model):
         db.session.merge(self)
         db.session.commit()
 
-
+#-----------------------PRENDA-----------------------------
 class Prenda(db.Model):
     __tablename__='prendas'
     idPrenda = Column(Integer,primary_key=True)
@@ -179,6 +179,10 @@ class Prenda(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def actualizar(self):
+        db.session.merge(self)
+        db.session.commit()
+
 class Comestible(db.Model):
     __tablename__='comestibles'
     idComestible = Column (Integer, primary_key=True)
@@ -191,7 +195,7 @@ class Comestible(db.Model):
     def insertar(self):
         db.session.add(self)
         db.session.commit()
-
+#-------------------------------SABORES-------------------------------#
 class Sabores(db.Model):
     __tablename__ ='sabores'
     idSabor = Column(Integer, primary_key=True)
@@ -201,10 +205,22 @@ class Sabores(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def actualizar (self):
+        db.session.merge(self)
+        db.session.commit()
+
+    def eliminar(self, id):
+        obj = self.consultaIndividual(id)
+        db.session.delete(obj)
+        db.session.commit()
+
     def consultaGeneral(self):
         return self.query.all()
 
+    def consultaIndividual(self, id):
+        return self.query.get(id)
 
+#-------------------------------SUVENIR-------------------------------
 class Suvenir(db.Model):
     __tablename__ = 'suvenirs'
     idSuvenir = Column(Integer, primary_key=True)
@@ -215,7 +231,7 @@ class Suvenir(db.Model):
     def insertar(self):
         db.session.add(self)
         db.session.commit()
-
+#------------------------------SUGERENCIA-------------------------------
 class Sugerencia(db.Model):
     __tablename__ = 'sugerencias'
     idSugerencias = Column(Integer, primary_key=True)
@@ -238,7 +254,7 @@ class Sugerencia(db.Model):
 
     def consultaIndividual(self, id):
         return self.query.get(id)
-
+#-----------------------------------TARJETAS-----------------------------------
 class Tarjetas(db.Model):
     __tablename__ = 'tarjetas'
     idTarjeta = Column(Integer, primary_key=True)
@@ -255,6 +271,7 @@ class Tarjetas(db.Model):
 
     def consultaGeneral(self):
         return self.query.all()
+#------------------------------------DESCUENTOS----------------------------------
 class Descuento(db.Model):
     __tablename__ = 'descuentos'
     idDescuento = Column(Integer, primary_key=True)
@@ -268,9 +285,21 @@ class Descuento(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def actualizar (self):
+        db.session.merge(self)
+        db.session.commit()
+
     def consultaGeneral(self):
         return self.query.all()
 
+    def eliminar(self, id):
+        obj = self.consultaIndividual(id)
+        db.session.delete(obj)
+        db.session.commit()
+
+    def consultaIndividual(self, id):
+        return self.query.get(id)
+#-----------------------------------COMENTARIOS-----------------------------------
 class Comentario(db.Model):
     __tablename__='comentarios'
     idComentario = Column(Integer, primary_key=True)
@@ -288,7 +317,7 @@ class Comentario(db.Model):
 
     def consultaGeneral(self):
         return self.query.all()
-
+#-----------------------------------CARRITO-----------------------------------
 class Carrito(db.Model):
     __tablename__ = 'carrito'
     idCarrito = Column(Integer, primary_key=True)
