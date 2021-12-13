@@ -1,0 +1,51 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+	<link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<div class="container">
+<div class="well">
+    <h1>Listado de Suvenirs</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>ID PRODUCTO</th>
+            <th>NOMBRE</th>
+            <th>STOCK</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+        </thead>
+        {% for s in suvenirs %}
+            <tr>
+                <td>{{s.idSuvenir}}</td>
+                <td>{{s.Productos_idProducto}}</td>
+                <td>{{s.producto.nombre}}</td>
+                <td>{{s.unidadesExistencia}}</td>
+                <td>
+                     <a href="/suvenirs/ver/{{s.idSuvenir}}">
+                         <span class="glyphicon glyphicon-eye-open"></span>
+                     </a>
+                 </td>
+                 <td>
+                      <a href="/suvenirs/eliminar/{{s.idSuvenir}}">
+                         <span class="glyphicon glyphicon-trash"></span>
+                      </a>
+                 </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+            {% for message in get_flashed_messages() %}
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{message}}</strong>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

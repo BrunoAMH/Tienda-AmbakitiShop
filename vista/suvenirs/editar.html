@@ -1,0 +1,40 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<div class="container">
+    <div id="bloque">
+        <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+        <h1 id="titulo">Editando prenda</h1>
+        <form action="/suvenirs/editandoSuvenir" method="post">
+          <div class="form-group">
+            <label>ID PRENDA</label>
+            <input type="number" name="id" value="{{s.idSuvenir}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>ID PRODUCTO</label>
+            <input type="number" name="Productos_idProducto" value="{{s.Productos_idProducto}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>STOCK</label>
+            <input type="number" name="Stock" value="{{s.unidadesExistencia}}" class="form-control" readonly>
+          </div>
+           <br>
+          <div>
+            <button type="submit" class="btn btn-success">Guadar Cambios</button>
+            <a href="/suvenir/consultar" class="btn btn-warning">Regresar</a>
+          </div>
+        </form>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

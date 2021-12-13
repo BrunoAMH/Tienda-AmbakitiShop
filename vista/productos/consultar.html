@@ -1,0 +1,104 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+<div class="container">
+    <div class="well">
+    <h1>Listado de Productos</h1>
+    <!--
+    <select name="categoria">
+        <option>--Selecciona la categoria --</option>
+        <option>Refrescos</option>
+        <option>Calzado</option>
+        <option>Varios</option>
+    </select>-->
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#Ropa">Ropa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Comestible">Comestible</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Suvenirs">Suvenirs</a>
+            </li>
+        </ul>
+
+
+
+        <div id="Ropa" class="container-fluid bg-success text-white" style="padding:100px 20px;" >
+            <h1>Ropa</h1>
+            {% for prod in productos %}
+            {% if prod.categoria == 'R' %}
+            <div  class="container mt-3">
+                <div  class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{prod.nombre}}</h4>
+                        <h5 class="card-title">${{prod.precioVenta}}</h5>
+                        <p class="card-text">{{prod.descripcion}}</p>
+                        <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                        </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+         <div id="Comestible" class="container-fluid bg-secondary text-white" style="padding:100px 20px;" >
+            <h1>Comestible</h1>
+            {% for prod in productos %}
+            {% if prod.categoria == 'C' %}
+            <div  class="container mt-3">
+                <div  class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{prod.nombre}}</h4>
+                        <h5 class="card-title">${{prod.precioVenta}}</h5>
+                        <p class="card-text">{{prod.descripcion}}</p>
+                        <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                        </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+         <div id="Suvenirs" class="container-fluid bg-warning" style="padding:100px 20px;" >
+            <h1>Suvenirs</h1>
+            {% for prod in productos %}
+            {% if prod.categoria == 'S' %}
+            <div  class="container mt-3">
+                <div class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{prod.nombre}}</h4>
+                        <h5 class="card-title">${{prod.precioVenta}}</h5>
+                        <p class="card-text">{{prod.descripcion}}</p>
+                        <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                        </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+
+
+
+    </div>
+</div>
+</body>
+{% endblock %}

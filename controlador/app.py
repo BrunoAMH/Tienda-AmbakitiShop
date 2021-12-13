@@ -8,7 +8,7 @@ from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabore
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.0.1/mydb'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Cocacola069*@127.0.1.2/ambakitishop'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='cl4v3'
 
@@ -319,6 +319,7 @@ def guardandoProductoRopa():
 def consultarImagenProducto(id):
     f = fotos()
     return f.consultaIndividual(id).fotografia
+
 @app.route('/productos/editar/<int:id>')
 def editarProducto(id):
     t = Talla()
@@ -332,9 +333,35 @@ def verProducto(id):
     return render_template('/productos/verProducto.html', producto=p.consultaIndividual(id), comentario = c.consultaGeneral(), prenda = pre.consultaGeneral())
 #---------------------------------------SUVENIRS---------------------------------------
 @app.route('/suvenirs/consultar')
-def consultarSuvenirs():
+def consultarSuvenir():
+    su = Suvenir()
+    return render_template('/suvenirs/consultar.html', suv=su.consultaGeneral())
+
+@app.route('/suvenirs/ver/<int:id>')
+def editarSuvenir(id):
     s = Suvenir()
-    return render_template('/suvenirs/consultar.html', s=s.consultaGeneral())
+    return render_template('/suvenirs/editar.html', s=s.consultaIndividual(id))
+
+@app.route('/suvenirs/editandoSuvenir',methods=['post'])
+def editandoSuvenir():
+    try:
+        s = Suvenir()
+        s.idSuvenir = request.form['id']
+        s.Productos_idProducto = request.form['Productos_idProducto']
+        s.unidadesExistencia = request.form['Stock']
+        s.actualizar()
+        flash('Datos actualizados con exito')
+    except:
+        flash('!Error al actualizar!')
+    return render_template('/suvenirs/editar.html', s=s)
+
+@app.route('/suvenirs/eliminar/<int:id>')
+def eliminarSuvenir(id):
+    s = Suvenir()
+    s.eliminar(id)
+    flash('Suvenir eliminado')
+    return redirect(url_for('consultarSuvenirs'))
+
 #---------------------------------------PRENDAS---------------------------------------
 @app.route('/prendas/consultar')
 def consultarPrendas():
@@ -359,6 +386,7 @@ def eliminarPrenda(id):
 def editarPrenda(id):
     p = Prenda()
     return render_template('/prendas/editar.html', p=p.consultaIndividual(id))
+
 @app.route('/prendas/editandoPrenda',methods=['post'])
 def editandoPrenda():
     try:
@@ -553,6 +581,7 @@ def validandoComentario():
         #flash('Descuento guardado con exito')
         #flash('Fallo al guardar el descuento')
         return redirect(url_for('consultarProductos'))
+
 #---------------------------------------SABORES---------------------------------------
 @app.route('/sabores/nuevo')
 @login_required
@@ -598,6 +627,41 @@ def validarSabor():
         s.insertar()
         flash('Sabor guardado con exito')
         return redirect(url_for('nuevoSabor'))
+
+#---------------------------------------COMESTIBLES---------------------------------------
+@app.route('/comestibles/consultar')
+@login_required
+def consultarComestibles():
+    c = Comestible()
+    return render_template('/comestibles/consultar.html', com=c.consultaGeneral())
+
+@app.route('/comestibles/eliminar/<int:id>')
+@login_required
+def eliminarComestible(id):
+    c = Comestible()
+    c.eliminar(id)
+    flash('Eliminado')
+    return redirect(url_for('consultarComestibles'))
+
+@app.route('/comestibles/ver/<int:id>')
+@login_required
+def consultarComestible(id):
+    c = Comestible()
+    return render_template('comestibles/editar.html', com=c.consultaIndividual(id))
+
+
+@app.route('/comestibles/modificar', methods=['post'])
+def modificarComestible():
+    c = Comestible()
+    c.idComestible=request.form['id']
+    c.Productos_idProducto=request.form['idProd']
+    c.Sabores_idSabor = request.form['idSab']
+    c.unidadesExistencia = request.form['Stock']
+    c.actualizar()
+    flash('Se ha actualizado correctamente')
+    return render_template('comestibles/editar.html', com=c)
+
+
 
 #---------------------------------------PAGINAS DE ERROR---------------------------------------
 @app.errorhandler(404)

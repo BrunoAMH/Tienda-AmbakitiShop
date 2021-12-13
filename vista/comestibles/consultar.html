@@ -1,0 +1,42 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<div class="container">
+<div class="well">
+    <h1>Listado de Comestibles</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>ID PRODUCTO</th>
+            <th>ID SABOR</th>
+            <th>STOCK</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
+        </thead>
+        {% for com in comestibles %}
+            <tr>
+                <td>{{com.idComestible}}</td>
+                <td>{{com.Productos_idProducto}}</td>
+                <td>{{com.Sabores_idSabor}}</td>
+                <td>{{com.unidadesExistencia}}</td>
+                <td>
+                    <a href="/comestibles/ver/{{com.idComestible}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                 <td>
+                    <a href="/comestibles/eliminar/{{com.idComestible}}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+{% endblock %}

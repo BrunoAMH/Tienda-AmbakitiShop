@@ -191,7 +191,7 @@ class Prenda(db.Model):
     def actualizar(self):
         db.session.merge(self)
         db.session.commit()
-
+#-----------------------------COMESTIBLES-----------------------------
 class Comestible(db.Model):
     __tablename__='comestibles'
     idComestible = Column (Integer, primary_key=True)
@@ -204,7 +204,22 @@ class Comestible(db.Model):
     def insertar(self):
         db.session.add(self)
         db.session.commit()
-#-------------------------------SABORES-------------------------------#
+
+    def actualizar (self):
+        db.session.merge(self)
+        db.session.commit()
+
+    def consultaGeneral(self):
+        return self.query.all()
+
+    def eliminar(self, id):
+        obj = self.consultaIndividual(id)
+        db.session.delete(obj)
+        db.session.commit()
+
+    def consultaIndividual(self, id):
+        return self.query.get(id)
+#-------------------------------SABORES-------------------------------
 class Sabores(db.Model):
     __tablename__ ='sabores'
     idSabor = Column(Integer, primary_key=True)
@@ -241,8 +256,21 @@ class Suvenir(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def actualizar (self):
+        db.session.merge(self)
+        db.session.commit()
+
     def consultaGeneral(self):
         return self.query.all()
+
+    def eliminar(self, id):
+        obj = self.consultaIndividual(id)
+        db.session.delete(obj)
+        db.session.commit()
+
+    def consultaIndividual(self, id):
+        return self.query.get(id)
+
 #------------------------------SUGERENCIA-------------------------------
 class Sugerencia(db.Model):
     __tablename__ = 'sugerencias'

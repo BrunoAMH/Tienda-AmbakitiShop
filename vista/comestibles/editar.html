@@ -1,0 +1,48 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+   {% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<div class="container">
+    <div id="bloque">
+        <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+        <h1 id="titulo">Editando comestible</h1>
+        <form action="/comestibles/modificar" method="post">
+          <div class="form-group">
+            <label>ID COMESTIBLE</label>
+            <input type="number" name="id" value="{{c.idComestible}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>ID PRODUCTO</label>
+            <input type="number" name="idProd" value="{{c.Productos_idProducto}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>ID TALLA</label>
+            <input type="number" name="idSab" value="{{c.Sabores_idSabor}}" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>STOCK</label>
+            <input type="number" name="Stock" value="{{c.unidadesExistencia}}" class="form-control" maxlength="5" required>
+          </div>
+          <div class="form-group">
+            <label>COLOR</label>
+            <input type="text" name="color" class="form-control" placeholder="Color" value="{{p.color}}" maxlength="30" required>
+          </div>
+           <br>
+          <div>
+            <button type="submit" class="btn btn-success">Guadar Cambios</button>
+            <a href="/prendas/consultar" class="btn btn-warning">Regresar</a>
+          </div>
+        </form>
+        <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
