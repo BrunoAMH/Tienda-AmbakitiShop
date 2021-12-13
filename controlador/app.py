@@ -52,7 +52,7 @@ def editarUsuario():
 
 @app.route('/usuarios/guardarCambios', methods=['post'])
 def guardarCambios():
-    try:
+    #try:
         u = Usuario()
         u.idUsuario = current_user.idUsuario
         u.nombre = request.form['nombre']
@@ -60,13 +60,13 @@ def guardarCambios():
         u.estatus = 1
         u.tipo = "Admin"
         u.correo = request.form['correo']
-        u.contrasena = request.form['contrasena']
+        u.contrasena = request.form['password']
         u.actualizar()
         login_user(u.consultaIndividual(u.idUsuario))
         flash('Cambios guardados con exito')
-    except:
-        flash('!Error al modificar el usuario!')
-    return redirect(url_for('editarUsuario'))
+    #except:
+        #flash('!Error al modificar el usuario!')
+        return redirect(url_for('editarUsuario'))
 
 @app.route('/usuarios/login')
 def login():
@@ -99,6 +99,38 @@ def consultarUsuarios():
 def cerrarSesion():
     logout_user()
     return redirect(url_for('login'))
+@app.route('/usuarios/editar/<int:id>')
+def editarUsuarioUnico(id):
+    u = Usuario();
+    return render_template('/usuarios/editarUnico.html', usuario = u.consultaIndividual(id))
+
+@app.route('/usuarios/editandoUsuarioUnico',methods=['post'])
+def editandoUsuarioUnico():
+    try:
+        u = Usuario()
+        u.idUsuario = request.form['idUsuario']
+        u.nombre = request.form['nombrecompleto']
+        u.telefono = request.form['telefono']
+        u.estatus = 1
+        u.tipo = "Admin"
+        u.correo = request.form['email']
+        u.contrasena = request.form['password']
+        u.actualizar()
+        #login_user(u.consultaIndividual(u.idUsuario))
+        flash('Cambios guardados con exito')
+    except:
+        flash('!Error al modificar el usuario!')
+    return redirect(url_for('consultarUsuarios'))
+
+@app.route('/usuarios/eliminar/<int:id>')
+def eliminarUsuario(id):
+    try:
+        u = Usuario()
+        u.eliminar(id)
+        flash('Usuario eliminado')
+    except:
+        flash('No se puede eliminar el usuario')
+    return redirect(url_for('consultarUsuarios'))
 
 #---------------------------------------DIRECCION---------------------------------------
 @app.route('/usuarios/editarDireccion')
@@ -119,19 +151,31 @@ def nuevaDireccion():
 def guardarDireccion():
     try:
         d = direcciones()
-        d.idUsuario = current_user.idUsuario
-        d.calle = request.form['calle']
-        d.codigoPostal = request.form['codigo']
-        d.descripcion = request.form['descripcion']
-        d.ciudad = request.form['ciudad']
-        d.colonia = request.form['colonia']
-        d.instruccionEntrega = request.form['instruccion']
-        d.actualizar()
-        #login_user(u.consultaIndividual(u.idUsuario))
-        flash('Cambios guardados con exito')
+        id = request.form['idDireccion']
+        if (id == ""):
+            d.idUsuario = current_user.idUsuario
+            d.calle = request.form['calle']
+            d.codigoPostal = request.form['codigo']
+            d.descripcion = request.form['descripcion']
+            d.ciudad = request.form['ciudad']
+            d.colonia = request.form['colonia']
+            d.instruccionEntrega = request.form['instruccion']
+            d.insertar()
+            flash('Cambios guardados con exito')
+        else:
+            d.idDireccion = request.form['idDireccion']
+            d.idUsuario = current_user.idUsuario
+            d.calle = request.form['calle']
+            d.codigoPostal = request.form['codigo']
+            d.descripcion = request.form['descripcion']
+            d.ciudad = request.form['ciudad']
+            d.colonia = request.form['colonia']
+            d.instruccionEntrega = request.form['instruccion']
+            d.actualizar()
+            #login_user(u.consultaIndividual(u.idUsuario))
+            flash('Cambios guardados con exito')
     except:
         flash('!Error al modificar la direccion!')
-
     return redirect(url_for('editarDireccion'))
 
 #---------------------------------------SUGERENCIAS---------------------------------------
@@ -238,14 +282,7 @@ def guardandoProductoSuvenir():
     flash('Producto guardado con exito')
     return redirect(url_for('agregarProductoSuvenir'))
 
-@app.route('/productos/agregarProductoRopa')
-@login_required
-def agregarProductoRopa():
-    if current_user.is_authenticated() and current_user.is_admin:
-        t = Talla()
-        return render_template('/productos/nuevoRopa.html', tallas=t.consultaGeneral())
-    else:
-        abort(404)
+
 @app.route('/productos/guardandoProductoRopa',methods=['post'])
 def guardandoProductoRopa():
     p = Producto()
@@ -290,16 +327,22 @@ def verProducto(id):
     c = Comentario()
     pre = Prenda()
     return render_template('/productos/verProducto.html', producto=p.consultaIndividual(id), comentario = c.consultaGeneral(), prenda = pre.consultaGeneral())
+#---------------------------------------SUVENIRS---------------------------------------
+
+
 #---------------------------------------PRENDAS---------------------------------------
 @app.route('/prendas/consultar')
 def consultarPrendas():
     pren = Prenda()
     return render_template('/prendas/consultar.html', prendas=pren.consultaGeneral())
-
 @app.route('/prendas/nueva')
-def agregarPrenda():
-    return render_template('/productos/nuevoRopa.html')
-
+@login_required
+def agregarProductoRopa():
+    if current_user.is_authenticated() and current_user.is_admin:
+        t = Talla()
+        return render_template('/productos/nuevoRopa.html', tallas=t.consultaGeneral())
+    else:
+        abort(404)
 @app.route('/prendas/eliminar/<int:id>')
 def eliminarPrenda(id):
     p = Prenda()
@@ -311,7 +354,6 @@ def eliminarPrenda(id):
 def editarPrenda(id):
     p = Prenda()
     return render_template('/prendas/editar.html', p=p.consultaIndividual(id))
-
 @app.route('/prendas/editandoPrenda',methods=['post'])
 def editandoPrenda():
     try:

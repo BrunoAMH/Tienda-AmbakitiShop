@@ -17,32 +17,46 @@
             <th>idUsuario</th>
             <th>Nombre</th>
             <th>Telefono</th>
-            <th>Estatus</th>
             <th>Tipo</th>
             <th>Correo</th>
             <th>Contraseña</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </thead>
         {% for usu in usuarios %}
         <tr>
             <td>{{usu.idUsuario}}</td>
             <td>{{usu.nombre}}</td>
             <td>{{usu.telefono}}</td>
-            <td>
-                {% if usu.estatus == 1%}
-                <input  type="checkbox" name="estatus" checked>
-                {% endif %}
-            </td>
             <td>{{usu.tipo}}</td>
             <td>{{usu.correo}}</td>
             <td>{{usu.contrasena}}</td>
+            <td>
+                <a href="/usuarios/editar/{{usu.idUsuario}}">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+                </td>
+            <td>
+                {% if (current_user.idUsuario == usu.idUsuario) %}
+
+                {% else %}
+                <a href="/usuarios/eliminar/{{usu.idUsuario}}">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
     <br>
-    <div id="bloque">
-        <button type="submit" class="btn btn-success">Guadar Cambios</button>
-        <a href="/" class="btn btn-warning">Regresar</a>
-    </div>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlertUsuario" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+        </div>
+        {% endif %}
 </div>
 </div>
 {% endblock %}

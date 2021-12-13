@@ -48,7 +48,7 @@ class Usuario(UserMixin,db.Model):
     def eliminar(self, id):
         obj = self.consultaIndividual(id)
         db.session.delete(obj)
-        db.commit
+        db.session.commit()
 
     def actualizar (self):
         db.session.merge(self)

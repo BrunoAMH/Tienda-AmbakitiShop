@@ -1,4 +1,3 @@
-
 {% extends "comunes/base.html" %}
 {% block navbar %}
    {% include 'comunes/menu.html' %}
@@ -9,53 +8,58 @@
     <head>
         <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
     </head>
-    <div id="bloque">
+<div class="container">
+    <div class="well">
         <h1>Editar Usuario</h1>
-        <form action="/usuarios/guardarCambios" method="post" onsubmit="return validar(this)">
+        <form action="/usuarios/editandoUsuarioUnico" method="post" onsubmit="return validar(this)">
              <div  class="mb-3">
-                <label for="caja" class="form-label">Nombre</label>
-                <input value="{{current_user.nombre}}" type="text" class="form-control" id="caja" placeholder="Ingresa tu nombre completo" maxlength="80" required name="nombre">
+                <label for="caja" class="form-label">idUsuario</label>
+                <input value="{{usuario.idUsuario}}" readonly type="text" class="form-control" id="caja" placeholder="Ingresa tu nombre completo" maxlength="80" required name="idUsuario">
              </div>
-             <div class="mb-3">
-                <label for="caja" class="form-label">Telefono</label>
-                <input  maxlength="10" value="{{current_user.telefono}}" type="text" class="form-control" id="caja" name="telefono" placeholder="Ingresa tu número de telefono" required>
-             </div>
-
-             <div class="mb-3">
+            <div class="mb-3">
                 <label for="caja" class="form-label">Correo</label>
-                <input readonly value="{{current_user.correo}}" type="email" class="form-control" id="caja" name="correo" placeholder="Ingresa tu correo electronico" required>
+                <input  value="{{usuario.correo}}" type="email" class="form-control" id="caja" name="email" placeholder="Ingresa tu correo electronico" required readonly onblur="consultarEmail()">
              </div>
-
+            <div  class="mb-3">
+                <label for="caja" class="form-label">Nombre</label>
+                <input value="{{usuario.nombre}}" type="text" class="form-control" id="caja" placeholder="Ingresa tu nombre completo" maxlength="80" required name="nombrecompleto">
+             </div>
+            <div class="mb-3">
+                <label for="caja" class="form-label">Telefono</label>
+                <input value ="{{usuario.telefono}}" maxlength="10" type="text" class="form-control" id="caja" name="telefono" placeholder="##########" required>
+             </div>
              <div class="mb-3">
                 <label for="caja" class="form-label">Contraseña</label>
-                <input value="{{current_user.contrasena}}" type="password" class="form-control" id="password" name="password" placeholder="Ingresa una contraseña" required>
-                 <label class="checkbox-inline">
+                <input value="{{usuario.contrasena}}" type="password" class="form-control" id="password" name="password" placeholder="Ingresa una contraseña" required>
+                <label class="checkbox-inline">
                     <input type="checkbox" id="verPassword" onclick="ver()">Ver contraseña
                  </label>
              </div>
              <div class="mb-3">
                 <label for="caja" class="form-label">Tipo</label>
-                 {% if current_user.tipo == 'Admin' %}
+
+                 {% if usuario.tipo == 'Admin' %}
                  <input type="radio" name="tipo" checked>Administrador
                  <input type="radio" name="tipo">Cliente
                  {% endif %}
-                 {% if current_user.tipo == 'Cliente' %}
+
+                 {% if usuario.tipo == 'Cliente' %}
+                 <input type="radio" name="tipo" >Administrador
                  <input type="radio" name="tipo" checked>Cliente
                  {% endif %}
              </div>
 
              <div class="mb-3">
-                 {% if current_user.estatus == 1%}
                  <label for="caja">Estatus</label>
+                 {% if usuario.estatus == 1%}
                  <input  type="checkbox" name="estatus" checked>
+                 {% else %}
+                 <input  type="checkbox" name="estatus" >
                  {% endif %}
              </div>
-
             <div>
                 <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                <a href="/usuarios/editarDireccion" class="btn btn-info">Mi direccion</a>
             </div>
-            <br>
             <div id="notificaciones" style="width: 500px; margin: 0 auto; background-color: brown; color: white;">
             </div>
 
@@ -69,6 +73,11 @@
         {% endfor %}
         </div>
         {% endif %}
+
     </div>
+</div>
+
+
+
 
 {% endblock %}

@@ -19,7 +19,7 @@ function evaluarTelefono(cadena){
     var patron=/[0-9]{3}[0-9]{3}[0-9]{4}/;
     var res=patron.test(cadena);
     if(res==false){
-        salida="Debes informar un número telefonico con el siguiente formato:###-###-#### \n";
+        salida="Debes informar un número telefonico de diez dígitos \n";
     }
     return salida;
 }
