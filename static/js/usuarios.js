@@ -86,3 +86,48 @@ function ver(){
         document.getElementById("password").setAttribute("type","password");
     }
 }
+
+function consultarEmail(){
+    var ajax=new XMLHttpRequest();
+    var email=document.getElementById("email").value;
+    var url='/usuarios/email/'+email;
+    var div=document.getElementById("notificaciones");
+    ajax.open('Get',url,true);
+    ajax.onreadystatechange= function(){
+        if(this.readyState==4 && this.status==200){
+           var respuesta=JSON.parse(this.responseText);
+           if(respuesta.estatus=='Ok'){
+               document.getElementById("registrar").removeAttribute("disabled");
+               div.innerHTML="";
+           }
+           else{
+                document.getElementById("registrar").setAttribute("disabled","true");
+                div.innerHTML=respuesta.mensaje;
+           }
+        }
+    };
+    ajax.send();
+}
+
+function consultarTelefono(){
+    var ajax=new XMLHttpRequest();
+    var telefono=document.getElementById("telefono").value;
+    var url='/usuarios/telefono/'+telefono;
+    var div=document.getElementById("notificaciones");
+    ajax.open('Get',url,true);
+    ajax.onreadystatechange= function(){
+
+        if(this.readyState==4 && this.status==200){
+           var respuesta=JSON.parse(this.responseText);
+           if(respuesta.estatus=='Ok'){
+               document.getElementById("registrar").removeAttribute("disabled");
+               div.innerHTML="";
+           }
+           else{
+                document.getElementById("registrar").setAttribute("disabled","true");
+                div.innerHTML=respuesta.mensaje;
+           }
+        }
+    };
+    ajax.send();
+}

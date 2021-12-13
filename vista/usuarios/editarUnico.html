@@ -37,7 +37,7 @@
              </div>
              <div class="mb-3">
                 <label for="caja" class="form-label">Tipo</label>
-                 {% if usuario.tipo == 'Admi' %}
+                 {% if usuario.tipo == 'Admin' %}
                  <label class="radio-inline">
                  <input type="radio" name="tipo" checked value="Admi">Administrador
                  </label>
@@ -47,7 +47,7 @@
 
                  {% elif usuario.tipo == 'Cliente' %}
                  <label class="radio-inline">
-                 <input type="radio" name="tipo"  value="Admi">Administrador
+                 <input type="radio" name="tipo"  value="Admin">Administrador
                  </label>
                  <label class="radio-inline">
                     <input type="radio" name="tipo" checked value="Cliente">Cliente

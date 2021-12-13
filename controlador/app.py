@@ -4,11 +4,11 @@ from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
 from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
 from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario, Carrito
-
+import json
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Cocacola069*@127.0.1.2/ambakitishop'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.0.1/mydb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='cl4v3'
 
@@ -58,7 +58,7 @@ def guardarCambios():
         u.nombre = request.form['nombre']
         u.telefono = request.form['telefono']
         u.estatus = 1
-        u.tipo = "Admin"
+        u.tipo = "Cliente"
         u.correo = request.form['correo']
         u.contrasena = request.form['password']
         u.actualizar()
@@ -88,7 +88,6 @@ def iniciandoSesion():
     else:
         #flash('Datos incorrectos')
         return render_template('usuarios/login.html')
-
     return "iniciando sesion con " + correo + " y " + password
 
 @app.route('/usuarios/consultarUsuarios')
@@ -134,6 +133,16 @@ def eliminarUsuario(id):
     except:
         flash('No se puede eliminar el usuario')
     return redirect(url_for('consultarUsuarios'))
+
+@app.route('/usuarios/email/<string:email>',methods=['Get'])
+def consultarPorEmail(email):
+    usuario=Usuario()
+    return json.dumps(usuario.consultarPorEmail(email))
+
+@app.route('/usuarios/telefono/<string:telefono>',methods=['Get'])
+def consultarPorTelefono(telefono):
+    usuario=Usuario()
+    return json.dumps(usuario.consultarPorTelefono(telefono))
 
 #---------------------------------------DIRECCION---------------------------------------
 @app.route('/usuarios/editarDireccion')
@@ -367,6 +376,7 @@ def eliminarSuvenir(id):
 def consultarPrendas():
     pren = Prenda()
     return render_template('/prendas/consultar.html', prendas=pren.consultaGeneral())
+
 @app.route('/prendas/nueva')
 @login_required
 def agregarProductoRopa():
@@ -629,11 +639,12 @@ def validarSabor():
         return redirect(url_for('nuevoSabor'))
 
 #---------------------------------------COMESTIBLES---------------------------------------
+
 @app.route('/comestibles/consultar')
 @login_required
 def consultarComestibles():
     c = Comestible()
-    return render_template('/comestibles/consultar.html', com=c.consultaGeneral())
+    return render_template('/comestibles/consultar.html', comestibles=c.consultaGeneral())
 
 @app.route('/comestibles/eliminar/<int:id>')
 @login_required

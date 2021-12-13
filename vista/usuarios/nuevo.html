@@ -17,12 +17,12 @@
              </div>
              <div class="mb-3">
                 <label for="caja" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="caja" name="telefono" maxlength="10" placeholder="##########" required>
+                <input type="text" class="form-control" id="telefono" name="telefono" maxlength="10" placeholder="##########" required onblur="consultarTelefono()">
              </div>
 
              <div class="mb-3">
                 <label for="caja" class="form-label">Correo</label>
-                <input type="email" class="form-control" id="caja" name="email" placeholder="Ingresa tu correo electronico" required onblur="consultarEmail()">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electronico" required onblur="consultarEmail()">
              </div>
 
              <div class="mb-3">
@@ -41,7 +41,7 @@
 
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-success">Registrar</button>
+                <button id="registrar" type="submit" class="btn btn-success">Registrar</button>
                 <a href="/usuarios/login" class="btn btn-warning">Regresar</a>
             </div>
             <br>

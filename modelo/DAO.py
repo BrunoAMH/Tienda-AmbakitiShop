@@ -63,7 +63,31 @@ class Usuario(UserMixin,db.Model):
     def validar(self,correo,contrasena):
         usuario = None
         usuario = self.query.filter(Usuario.correo ==correo, Usuario.contrasena==contrasena, Usuario.estatus==1).first()
-        return usuario;
+        return usuario
+
+    def consultarPorEmail(self,correo):
+        salida={"estatus":"","mensaje":""}
+        usuario=None
+        usuario=self.query.filter(Usuario.correo==correo).first()
+        if usuario!=None:
+            salida['estatus']='Error'
+            salida['mensaje']='La cuenta:'+correo+' ya se encuentra registrada.'
+        else:
+            salida['estatus'] = 'Ok'
+            salida['mensaje'] = 'La cuenta:' + correo + ' esta libre.'
+        return salida
+
+    def consultarPorTelefono(self,telefono):
+        salida={"estatus":"","mensaje":""}
+        usuario=None
+        usuario=self.query.filter(Usuario.telefono==telefono).first()
+        if usuario!=None:
+            salida['estatus']='Error'
+            salida['mensaje']='El telefono '+telefono+' ya se esta registrado.'
+        else:
+            salida['estatus'] = 'Ok'
+            salida['mensaje'] = 'El telefono: ' + telefono + ' esta libre.'
+        return salida
 
 class direcciones(db.Model):
     __tablename__ = 'direcciones'
@@ -170,6 +194,7 @@ class Prenda(db.Model):
     unidadesExistencia = Column(Integer, nullable=False)
     color = Column(String(45), nullable=False)
     genero = Column(String(1), nullable=False)
+
     producto = relationship('Producto', lazy='select')
     talla = relationship('Talla', lazy='select')
 
