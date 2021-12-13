@@ -163,7 +163,6 @@ class Talla(db.Model):
     __tablename__='tallas'
     idTalla = Column(Integer,primary_key=True)
     nombreTalla = Column(CHAR(5), nullable=False)
-    medidas = Column(String(45), nullable=False)
 
     def insertar(self):
         db.session.add(self)

@@ -36,7 +36,7 @@ def registrarUsuario():
         u.nombre = request.form['nombrecompleto']
         u.telefono = request.form['telefono']
         u.estatus = 1
-        u.tipo = "Admin"
+        u.tipo = "Cliente"
         u.correo = request.form['email']
         u.contrasena = request.form['password']
         u.insertar()
@@ -344,7 +344,7 @@ def verProducto(id):
 @app.route('/suvenirs/consultar')
 def consultarSuvenir():
     su = Suvenir()
-    return render_template('/suvenirs/consultar.html', suv=su.consultaGeneral())
+    return render_template('/suvenirs/consultar.html', suvenirs=su.consultaGeneral())
 
 @app.route('/suvenirs/ver/<int:id>')
 def editarSuvenir(id):
@@ -658,7 +658,7 @@ def eliminarComestible(id):
 @login_required
 def consultarComestible(id):
     c = Comestible()
-    return render_template('comestibles/editar.html', com=c.consultaIndividual(id))
+    return render_template('comestibles/editar.html', c=c.consultaIndividual(id))
 
 
 @app.route('/comestibles/modificar', methods=['post'])
