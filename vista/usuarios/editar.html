@@ -33,16 +33,6 @@
                     <input type="checkbox" id="verPassword" onclick="ver()">Ver contraseña
                  </label>
              </div>
-             <div class="mb-3">
-                <label for="caja" class="form-label">Tipo</label>
-                 {% if current_user.tipo == 'Admin' %}
-                 <input type="radio" name="tipo" checked>Administrador
-                 <input type="radio" name="tipo">Cliente
-                 {% endif %}
-                 {% if current_user.tipo == 'Cliente' %}
-                 <input type="radio" name="tipo" checked>Cliente
-                 {% endif %}
-             </div>
 
              <div class="mb-3">
                  {% if current_user.estatus == 1%}

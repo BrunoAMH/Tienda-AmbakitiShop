@@ -7,6 +7,7 @@
 <head>
 	<link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
 </head>
+{% if current_user.is_authenticated and current_user.is_admin() %}
 <div class="container">
 <div class="well">
     <h1>Listado de Usuarios</h1>
@@ -59,4 +60,5 @@
         {% endif %}
 </div>
 </div>
+{% endif %}
 {% endblock %}

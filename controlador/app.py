@@ -92,6 +92,7 @@ def iniciandoSesion():
     return "iniciando sesion con " + correo + " y " + password
 
 @app.route('/usuarios/consultarUsuarios')
+@login_required
 def consultarUsuarios():
     u = Usuario()
     return render_template('usuarios/consultar.html',usuarios = u.consultaGeneral())
@@ -100,11 +101,13 @@ def cerrarSesion():
     logout_user()
     return redirect(url_for('login'))
 @app.route('/usuarios/editar/<int:id>')
+@login_required
 def editarUsuarioUnico(id):
     u = Usuario();
     return render_template('/usuarios/editarUnico.html', usuario = u.consultaIndividual(id))
 
 @app.route('/usuarios/editandoUsuarioUnico',methods=['post'])
+@login_required
 def editandoUsuarioUnico():
     try:
         u = Usuario()
@@ -112,7 +115,7 @@ def editandoUsuarioUnico():
         u.nombre = request.form['nombrecompleto']
         u.telefono = request.form['telefono']
         u.estatus = 1
-        u.tipo = "Admin"
+        u.tipo=request.form['tipo']
         u.correo = request.form['email']
         u.contrasena = request.form['password']
         u.actualizar()
@@ -475,7 +478,6 @@ def validarTarjeta():
 def consultarDescuentos():
     d = Descuento()
     return render_template('/descuentos/consultar.html', descuento = d.consultaGeneral())
-
 @app.route('/descuentos/nuevo')
 @login_required
 def nuevoDescuento():
@@ -487,8 +489,12 @@ def nuevoDescuento():
 def validarDescuento():
     try:
         d = Descuento()
-        d.fechaInicio = '2021-01-01'
-        d.fechaFin = '2021-01-10'
+        fechaInicio = request.form['fechaInicio'].split('-')
+        fechaFin = request.form['fechaFin'].split('-')
+
+        d.fechaInicio = fechaInicio[0]+'-'+fechaInicio[1]+'-'+fechaInicio[2]
+        d.fechaFin = fechaFin[0]+'-'+fechaFin[1]+'-'+fechaFin[2]
+    
         d.descuento = request.form['descuentoPorcentaje']
         d.Productos_idProducto = request.form['producto']
         d.insertar()

@@ -37,24 +37,30 @@
              </div>
              <div class="mb-3">
                 <label for="caja" class="form-label">Tipo</label>
+                 {% if usuario.tipo == 'Admi' %}
+                 <label class="radio-inline">
+                 <input type="radio" name="tipo" checked value="Admi">Administrador
+                 </label>
+                 <label class="radio-inline">
+                    <input type="radio" name="tipo"  value="Cliente">Cliente
+                 </label>
 
-                 {% if usuario.tipo == 'Admin' %}
-                 <input type="radio" name="tipo" checked>Administrador
-                 <input type="radio" name="tipo">Cliente
-                 {% endif %}
-
-                 {% if usuario.tipo == 'Cliente' %}
-                 <input type="radio" name="tipo" >Administrador
-                 <input type="radio" name="tipo" checked>Cliente
+                 {% elif usuario.tipo == 'Cliente' %}
+                 <label class="radio-inline">
+                 <input type="radio" name="tipo"  value="Admi">Administrador
+                 </label>
+                 <label class="radio-inline">
+                    <input type="radio" name="tipo" checked value="Cliente">Cliente
+                 </label>
                  {% endif %}
              </div>
 
              <div class="mb-3">
                  <label for="caja">Estatus</label>
                  {% if usuario.estatus == 1%}
-                 <input  type="checkbox" name="estatus" checked>
+                 <input  type="checkbox" name="estatus" value="1" checked>
                  {% else %}
-                 <input  type="checkbox" name="estatus" >
+                 <input  type="checkbox" name="estatus" value="0" >
                  {% endif %}
              </div>
             <div>
