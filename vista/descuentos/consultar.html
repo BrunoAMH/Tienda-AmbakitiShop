@@ -43,6 +43,16 @@
             {% endfor %}
 
         </table>
+
+        {% if get_flashed_messages() %}
+
+        <div id="mensajeAlertConsultarDescuentos" class="alert alert-success alert-dismissible">
+        {% for message in get_flashed_messages() %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{message}}</strong>
+        {% endfor %}
+    </div>
+    {% endif %}
 </div>
 </div>
 {% endblock %}

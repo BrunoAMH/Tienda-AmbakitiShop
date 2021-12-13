@@ -1,6 +1,8 @@
 {% extends "comunes/base.html" %}
 {% block navbar %}
 {% include 'comunes/menu.html' %}
+    {{super()}}
+    <script src="{{url_for('static',filename='js/descuentos.js')}}"></script>
 {% endblock %}
 {% block principal %}
     <head>
@@ -8,7 +10,7 @@
     </head>
 	<div id="bloque">
         <h1 id="titulo">Registro de descuentos</h1>
-        <form action="/descuento/validandoDescuento" method="post">
+        <form action="/descuento/validandoDescuento" method="post" onsubmit="return validar(this)">
              <div  class="mb-3">
                  <label  class="form-label">Producto</label>
                   <select id="cajaTexto" class="form-label" required name="producto">
@@ -21,30 +23,25 @@
             <div  class="mb-3">
                  <label  class="form-label">Inicio del descuento</label>
                 <!--cambiar formato de fecha-->
-                <input  type="date" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" required name="tarjeta">
+                <input  type="date" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" id="fechaInicio" required name="fechaInicio">
              </div>
             <div  class="mb-3">
                  <label  class="form-label">Fin del descuento</label>
-                 <input  type="date" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" required name="tarjeta">
+                 <input  type="date" class="form-control"  placeholder="Ingresa el numero de la tarjeta" maxlength="80" id="fechaFin" required name="fechaFin">
              </div>
             <div  class="mb-3">
                  <label  class="form-label">Porcentaje de descuento</label>
-                 <input  type="number" class="form-control"  placeholder="Ingresa el porcentaje de descuento" maxlength="80" required name="descuentoPorcentaje">
+                 <input  type="text" class="form-control"  placeholder="Ingresa el porcentaje de descuento" maxlength="3" required name="descuentoPorcentaje">
              </div>
             <br>
             <nav id="bloqueBotones">
                 <button type="submit" class="btn btn-success">Registrar</button>
                 <a href="/" class="btn btn-warning">Regresar</a>
             </nav>
+            <br>
+            <div id="notificaciones" style="width: 400px; margin: 0 auto; background-color: brown; color: white;">
+            </div>
         </form>
     </div>
     <br>
-        {% if get_flashed_messages() %}
-    <div id="mensajeAlert" class="alert alert-success alert-dismissible">
-        {% for message in get_flashed_messages() %}
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>{{message}}</strong>
-        {% endfor %}
-    </div>
-    {% endif %}
 {% endblock %}

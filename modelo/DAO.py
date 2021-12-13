@@ -240,6 +240,9 @@ class Suvenir(db.Model):
     def insertar(self):
         db.session.add(self)
         db.session.commit()
+
+    def consultaGeneral(self):
+        return self.query.all()
 #------------------------------SUGERENCIA-------------------------------
 class Sugerencia(db.Model):
     __tablename__ = 'sugerencias'

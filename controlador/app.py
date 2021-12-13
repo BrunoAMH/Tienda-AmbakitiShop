@@ -208,7 +208,7 @@ def consultarSugerencia():
 def eliminarSugerencia(id):
     s = Sugerencia()
     s.eliminar(id)
-    flash('Eliminada')
+    flash('Sugerencia eliminada')
     return redirect(url_for('consultarSugerencia'))
 #---------------------------------------PRODUCTOS---------------------------------------
 @app.route('/productos/consultarPrendas')
@@ -328,8 +328,10 @@ def verProducto(id):
     pre = Prenda()
     return render_template('/productos/verProducto.html', producto=p.consultaIndividual(id), comentario = c.consultaGeneral(), prenda = pre.consultaGeneral())
 #---------------------------------------SUVENIRS---------------------------------------
-
-
+@app.route('/suvenirs/consultar')
+def consultarSuvenirs():
+    s = Suvenir()
+    return render_template('/suvenirs/consultar.html', s=s.consultaGeneral())
 #---------------------------------------PRENDAS---------------------------------------
 @app.route('/prendas/consultar')
 def consultarPrendas():
@@ -493,13 +495,13 @@ def validarDescuento():
         flash('Descuento guardado con exito')
     except:
         flash('Fallo al guardar el descuento')
-    return redirect(url_for('nuevoDescuento'))
+    return redirect(url_for('consultarDescuentos'))
 
 @app.route('/descuentos/eliminar/<int:id>')
 def eliminarDescuento(id):
     d = Descuento()
     d.eliminar(id)
-    flash('Eliminada')
+    flash('¡Descuento Eliminado!')
     return redirect(url_for('consultarDescuentos'))
 
 @app.route('/descuentos/ver/<int:id>')
@@ -512,15 +514,17 @@ def editandoDescuento():
     try:
         d = Descuento()
         d.idDescuento = request.form['idDescuento']
-        d.fechaInicio = request.form['fechaInicio']
-        d.fechaFin = request.form['fechaFin']
+        #d.fechaInicio = request.form['fechaInicio']
+        d.fechaInicio = '2021-10-01'
+        #d.fechaFin = request.form['fechaFin']
+        d.fechaFin = '2021-11-01'
         d.descuento = request.form['descuento']
-        d.Productos_idProducto = request.form['Productos_idProducto']
+        d.Productos_idProducto = request.form['producto']
         d.actualizar()
-        flash('Datos del descuento actualizados con exito')
+        flash('!Datos actualizados!')
     except:
         flash('!Error al actualizar el descuento!')
-    return render_template('/descuentos/editar.html', d=d)
+    return  redirect(url_for('consultarDescuentos'))
 
 #----------------------------------------COMENTARIOS---------------------------------------
 @app.route('/comentarios/nuevo/<int:id>')
