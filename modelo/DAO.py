@@ -10,14 +10,12 @@ db=SQLAlchemy()
 class Usuario(UserMixin,db.Model):
     __tablename__='usuarios'
     idUsuario=Column(Integer,primary_key=True)
-    idDireccion = Column(Integer,ForeignKey('direcciones.idDireccion'))
     nombre=Column(String(80),nullable=False)
     telefono=Column(String(10),nullable=False)
     estatus = Column(Boolean, nullable=True)
     tipo = Column(String(20), nullable=False, default='Cliente')
     correo=Column(String(80),unique=True)
     contrasena=Column(String(50),nullable=False)
-    direccion = relationship('direcciones',backref='direcciones',lazy='select')
 
     def is_authenticated(self):
         return True
@@ -70,12 +68,14 @@ class Usuario(UserMixin,db.Model):
 class direcciones(db.Model):
     __tablename__ = 'direcciones'
     idDireccion = Column(Integer, primary_key=True)
+    idUsuario = Column(Integer,ForeignKey('usuarios.idUsuario'))
     calle = Column(String(45), nullable=False)
     codigoPostal = Column(String(5), nullable=False)
     descripcion = Column(String(255), nullable=False)
     ciudad = Column(String(45), nullable=False)
     colonia= Column(String(45), nullable=False)
     instruccionEntrega = Column(String(45),nullable=False)
+    direccion = relationship('Usuario',lazy='select')
 
     def insertar(self):
         db.session.add(self)
@@ -83,6 +83,15 @@ class direcciones(db.Model):
 
     def consultaIndividual(self, id):
         return self.query.get(id)
+
+    def consultaIndividualIdUsuario(self, id):
+        objc = self.consultaGeneral()
+        for obj in objc:
+            if obj.idUsuario == id:
+                return self.query.get(obj.idDireccion)
+
+    def consultaGeneral (self):
+        return self.query.all()
 
     def actualizar(self):
         db.session.merge(self)

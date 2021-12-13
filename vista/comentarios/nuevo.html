@@ -6,35 +6,38 @@
 <body>
      <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
 </body>
-   <div id="bloque">
-    <h1 id="titulo">Nuevo comentario</h1>
-        <form action="/comentario/validandoComentario" method="post" enctype="multipart/form-data">
-            <div  class="mb-3">
-                <label for="caja" class="form-label">ID</label>
-                 <input type="number" name="id" value="{{producto.idProducto}}" class="form-control" readonly>
-            </div>
+   <div id="bloque" class="container">
+       <div class="div">
+            <h1 id="titulo">Nuevo comentario</h1>
+            <form action="/comentario/validandoComentario" method="post" enctype="multipart/form-data">
+                <div  class="mb-3">
+                    <label for="caja" class="form-label">ID</label>
+                     <input type="number" name="id" value="{{producto.idProducto}}" class="form-control" readonly>
+                </div>
 
-            <div  class="mb-3">
-                <label for="caja" class="form-label">Calificacion del producto</label>
+                <div  class="mb-3">
+                    <label for="caja" class="form-label">Calificacion del producto</label>
+                    <br>
+                    <select id="caja" name="calificacion" required>
+                        <option value="5">5 Estrellas-Excelente</option>
+                        <option value="4">4 Estrellas-Bueno</option>
+                        <option value="3">3 Estrellas-Regular</option>
+                        <option value="2">2 Estrellas-Malo</option>
+                        <option value="1">1 Estrellas-Muy Malo</option>
+                    </select>
+                </div>
+                <div  class="mb-3">
+                    <label for="caja" class="form-label">Comentario</label>
+                    <textarea  type="text" class="form-control" id="caja" placeholder="Ingresa tu comentario" maxlength="510" required name="comentario"></textarea>
+                </div>
                 <br>
-                <select id="caja" name="calificacion" required>
-                    <option value="5">5 Estrellas-Excelente</option>
-                    <option value="4">4 Estrellas-Bueno</option>
-                    <option value="3">3 Estrellas-Regular</option>
-                    <option value="2">2 Estrellas-Malo</option>
-                    <option value="1">1 Estrellas-Muy Malo</option>
-                </select>
-            </div>
-            <div  class="mb-3">
-                <label for="caja" class="form-label">Comentario</label>
-                <textarea  type="text" class="form-control" id="caja" placeholder="Ingresa tu comentario" maxlength="510" required name="comentario"></textarea>
-            </div>
-            <br>
-            <nav id="bloqueBotones">
-                <button type="submit" class="btn btn-success">Comentar</button>
-            </nav>
-        </form>
-    </div>
+                <nav id="bloqueBotones">
+                    <button type="submit" class="btn btn-success">Comentar</button>
+                </nav>
+            </form>
+       </div>
+   </div>
+
     <br>
     </div>
     {% if get_flashed_messages() %}

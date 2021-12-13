@@ -8,7 +8,7 @@ from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabore
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Cocacola069*@127.0.1.2/ambakitishop'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.0.1/mydb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='cl4v3'
 
@@ -31,25 +31,20 @@ def nuevoUsuario():
 
 @app.route('/usuarios/creacionCuenta', methods=['post'])
 def registrarUsuario():
-    u = Usuario()
-    u.nombre = request.form['nombre']
-    u.telefono = request.form['telefono']
-    u.estatus = 1
-    u.tipo = "Admin"
-    u.correo = request.form['correo']
-    u.contrasena = request.form['contrasena']
-    d = direcciones()
-    d.calle = request.form['calle']
-    d.codigoPostal = request.form['codigo']
-    d.descripcion = request.form['descripcion']
-    d.ciudad = request.form['ciudad']
-    d.colonia = request.form['colonia']
-    d.instruccionEntrega = request.form['instruccion']
-    d.insertar()
-    u.idDireccion = d.idDireccion
-    u.insertar()
-    flash('Usuario registrado con exito')
-    return render_template('usuarios/nuevo.html')
+    try:
+        u = Usuario()
+        u.nombre = request.form['nombrecompleto']
+        u.telefono = request.form['telefono']
+        u.estatus = 1
+        u.tipo = "Admin"
+        u.correo = request.form['email']
+        u.contrasena = request.form['password']
+        u.insertar()
+        flash('Usuario registrado con exito')
+        return redirect(url_for('login'))
+    except:
+        flash('!Error al guardar el usuario!')
+        return redirect(url_for('nuevoUsuario'))
 
 @app.route('/usuarios/editarUsuario')
 def editarUsuario():
@@ -109,14 +104,22 @@ def cerrarSesion():
 @app.route('/usuarios/editarDireccion')
 def editarDireccion():
     d = direcciones()
-    return render_template('/direcciones/editar.html',direccion = d.consultaIndividual(current_user.idDireccion))
+    return render_template('/direcciones/editar.html',direccion = d.consultaIndividualIdUsuario(current_user.idUsuario))
+@app.route('/usuarios/ValidarDireccion', methods =['post'])
+def nuevaDireccion():
+    d = direcciones()
+    d.calle = request.form['calle']
+    d.codigoPostal = request.form['codigo']
+    d.descripcion = request.form['descripcion']
+    d.ciudad = request.form['ciudad']
+    d.colonia = request.form['colonia']
+    d.instruccionEntrega = request.form['instruccion']
+    d.insertar()
 @app.route('/usuarios/guardarDireccion', methods=['post'])
 def guardarDireccion():
     try:
         d = direcciones()
-        u = Usuario()
-        u.idUsuario = current_user.idUsuario
-        d.idDireccion = current_user.idDireccion
+        d.idUsuario = current_user.idUsuario
         d.calle = request.form['calle']
         d.codigoPostal = request.form['codigo']
         d.descripcion = request.form['descripcion']
@@ -124,7 +127,7 @@ def guardarDireccion():
         d.colonia = request.form['colonia']
         d.instruccionEntrega = request.form['instruccion']
         d.actualizar()
-        login_user(u.consultaIndividual(u.idUsuario))
+        #login_user(u.consultaIndividual(u.idUsuario))
         flash('Cambios guardados con exito')
     except:
         flash('!Error al modificar la direccion!')
@@ -164,10 +167,21 @@ def eliminarSugerencia(id):
     flash('Eliminada')
     return redirect(url_for('consultarSugerencia'))
 #---------------------------------------PRODUCTOS---------------------------------------
-@app.route('/productos/consultarProductos')
-def consultarProductos():
+@app.route('/productos/consultarPrendas')
+def consultarProductosPrendas():
     prod = Producto()
-    return render_template('/productos/consultar.html', productos = prod.consultaGeneral())
+    return render_template('/productos/consultarPrendas.html', productos = prod.consultaGeneral())
+
+@app.route('/productos/consultarSuvenirs')
+def consultarProductosSuvenirs():
+    prod = Producto()
+    return render_template('/productos/consultarSuvenirs.html', productos = prod.consultaGeneral())
+
+@app.route('/productos/consultarConsumibles')
+def consultarProductosComestibles():
+    prod = Producto()
+    return render_template('/productos/consultarComestibles.html', productos = prod.consultaGeneral())
+
 @app.route('/productos/agregarProductoConsumible')
 @login_required
 def agregarProductoConsumible():

@@ -3,14 +3,13 @@
 {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
-<div class="container">
-
+    <div class="container">
         <form action="/carrito/nuevo" method="post">
             <div class="well">
-            <h2>{{producto.nombre}}</h2>
+            <h1>{{producto.nombre}}</h1>
                 <img src="/productos/imagen/{{producto.idFoto}}" width="300px">
-                <input name="precio" readonly value="${{producto.precioVenta}}"></input>
-                <h3>Caracteristicas</h3>
+                <h3 name="precio">Precio: ${{producto.precioVenta}}</h3>
+                <h2>Caracteristicas</h2>
                 <h5>&nbsp;&nbsp;&nbsp;{{producto.descripcion}}</h5>
                 {% if producto.categoria == 'R' %}
                     <h5>&nbsp;&nbsp;&nbsp;Ropa</h5>
@@ -31,14 +30,14 @@
                     {% endfor %}
 
                 {% elif producto.categoria == 'C' %}
-                    <h5>Consumible</h5>
+                    <h5>&nbsp;&nbsp;&nbsp;Consumible</h5>
                 {% elif producto.categoria == 'S' %}
-                    <h5>Suvenirs</h5>
+                    <h5>&nbsp;&nbsp;&nbsp;Suvenirs</h5>
                 {% endif%}
 
 
             <button type="submit" class="btn btn-success">Agregar al carrito</button>
-            <a href="/comentarios/nuevo/{{producto.idProducto}}">Comentar</a>
+            <a href="/comentarios/nuevo/{{producto.idProducto}}" class="btn btn-primary">Comentar</a>
         </div>
         </form>
 
@@ -57,6 +56,5 @@
             </div>
             {% endif %}
              {% endfor %}
-
-</div>
+    </div>
 {% endblock %}

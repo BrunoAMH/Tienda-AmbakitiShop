@@ -10,7 +10,6 @@
     <div id="bloque">
         <h1 id="titulo">Datos del Domicilio</h1>
             <form action="/usuarios/guardarDireccion" method="post">
-
                 <div  class="mb-3">
                     <label for="caja" class="form-label">Calle</label>
                     <input value="{{direccion.calle}}" type="text" class="form-control" id="caja" placeholder="Ingresa tu nombre completo" maxlength="80" required name="calle">
@@ -43,6 +42,7 @@
                 </div>
 
             </form>
+
         <br>
         {% if get_flashed_messages() %}
         <div id="mensajeAlert" class="alert alert-success alert-dismissible">

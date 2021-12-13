@@ -1,0 +1,28 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+        <div  class="container">
+            <div class="div">
+                <h1>Productos Suvenirs</h1>
+                {% for prod in productos %}
+                {% if prod.categoria == 'S' %}
+                <div  class="container mt-3">
+                    <div class="card" style="width:400px">
+                    <img class="card-img-top" src="/productos/imagen/{{prod.idFoto}}" alt="Card image" style="width:60%">
+                        <div class="card-body">
+                            <h4 class="card-title">{{prod.nombre}}</h4>
+                            <h5 class="card-title">${{prod.precioVenta}}</h5>
+                            <p class="card-text">{{prod.descripcion}}</p>
+                            <a href="/producto/verProducto/{{prod.idProducto}}" class="btn btn-primary">Ver Producto</a>
+
+                            </div>
+                    </div>
+                </div>
+                <br>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
