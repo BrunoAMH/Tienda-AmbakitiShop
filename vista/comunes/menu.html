@@ -14,10 +14,10 @@
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Descuentos
                 <span class="caret"></span></a>
-
               <ul class="dropdown-menu" >
-                  <li><a href="/descuentos/consultar">Ver Descuentos</a></li>
+                   <li><a href="/descuentos/mostrar">Ver Descuentos</a></li>
                   {% if current_user.is_authenticated and current_user.is_admin() %}
+                  <li><a href="/descuentos/consultar">Ver Descuentos</a></li>
                   <li><a href="/descuentos/nuevo">Nuevo Descuentos</a></li>
                   {% endif %}
               </ul>
@@ -150,6 +150,7 @@
                 {% if current_user.is_authenticated %}
                 <li><a href="/usuarios/editarUsuario">Editar Perfil</a></li>
                 <li><a href="/tarjeta/nuevaTarjeta">Agregar Tarjeta</a></li>
+                <li><a href="/tarjeta/consultar">Ver tarjetas</a></li>
                 <li><a href="/cerrarSesion">Cerrar Sesion</a></li>
                 {% else %}
                 <li><a href="/usuarios/login">Iniciar Sesion</a></li>

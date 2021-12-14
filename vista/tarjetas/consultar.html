@@ -1,52 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
 </head>
-<body>
-
-    <main id="bloque">
-        <h1>Listado de tarjetas</h1>
-        <table id="tablaTarjetas" border="3" >
-            <thead>
-                <th>idtarjeta</th>
-                <th>Usuarios_idUsuario</th>
-                <th>numTarjeta</th>
-                <th>emisora</th>
-                <th>fechaVigencia</th>
-                <th>tipo</th>
-                <th>cvc</th>
-            </thead>
+<div class="container">
+<div class="well">
+    <h1>Listado de Suvenirs</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>USUARIO</th>
+            <th>NUMERO TARJETA</th>
+            <th>EMISORA</th>
+            <th>FECHA DE VIGENCIA</th>
+            <th>TIPO</th>
+            <th>CVC</th>
+            <th>ELIMINAR</th>
+        </thead>
+        {% for t in tarjetas %}
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>4455848765251412</td>
-                <td>Mastercad</td>
-                <td>30/02/2026</td>
-                <td>Debito</td>
-                <td>120</td>
+                <td>{{t.idTarjeta}}</td>
+                <td>{{t.usuario.nombre}}</td>
+                <td>{{t.numTarjeta}}</td>
+                <td>{{t.emisora}}</td>
+                <td>{{t.fechaVigencia}}</td>
+                <td>{{t.tipo}}</td>
+                <td>{{t.cvc}}</td>
+                 <td>
+                      <a href="/tarjeta/eliminar/{{t.idTarjeta}}">
+                         <span class="glyphicon glyphicon-trash"></span>
+                      </a>
+                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>4478848655251302</td>
-                <td>Mastercad</td>
-                <td>25/10/2023</td>
-                <td>Debito</td>
-                <td>654</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>1465328965474478</td>
-                <td>Visa</td>
-                <td>12/06/2025</td>
-                <td>Credito</td>
-                <td>845</td>
-            </tr>
-        </table>
-        <a id="botonTabla" href="/" class="btn btn-warning">Regresar</a>
-</main>
-</body>
-</html>
+        {% endfor %}
+    </table>
+    <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+            {% for message in get_flashed_messages() %}
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{message}}</strong>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

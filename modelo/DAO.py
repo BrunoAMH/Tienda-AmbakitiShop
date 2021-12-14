@@ -355,6 +355,7 @@ class Tarjetas(db.Model):
     fechaVigencia = Column(Date, nullable=False)
     tipo = Column(String(1), nullable=False)
     cvc = Column(String(3), nullable=False)
+    usuario = relationship('Usuario', lazy='select')
 
     def insertar(self):
         db.session.add(self)
@@ -362,6 +363,15 @@ class Tarjetas(db.Model):
 
     def consultaGeneral(self):
         return self.query.all()
+
+    def eliminar(self, id):
+        obj = self.consultaIndividual(id)
+        db.session.delete(obj)
+        db.session.commit()
+
+    def consultaIndividual(self, id):
+        return self.query.get(id)
+
 #------------------------------------DESCUENTOS----------------------------------
 class Descuento(db.Model):
     __tablename__ = 'descuentos'

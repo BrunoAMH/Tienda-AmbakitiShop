@@ -8,7 +8,7 @@ import json
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:root@127.0.0.1/mydb'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Cocacola069*@127.0.1.2/ambakiti_shop'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.secret_key='cl4v3'
 
@@ -438,7 +438,9 @@ def guardandoTalla():
     #except:
      #   flash('Fallo al guardar')
         return redirect(url_for('agregarTalla'))
+
 @app.route('/tallas/eliminar/<int:id>')
+@login_required
 def eliminarTalla(id):
     t = Talla()
     t.eliminar(id)
@@ -446,11 +448,13 @@ def eliminarTalla(id):
     return redirect(url_for('consultarTallas'))
 
 @app.route('/tallas/ver/<int:id>')
+@login_required
 def editarTalla(id):
     t = Talla()
     return render_template('/tallas/editar.html', t=t.consultaIndividual(id))
 
 @app.route('/tallas/editandoTalla',methods=['post'])
+@login_required
 def editandoTalla():
     try:
         t = Talla()
@@ -470,6 +474,7 @@ def consultarPoridTalla(id):
 
 #---------------------------------------PEDIDOS---------------------------------------
 @app.route('/pedidos/MisPedidos')
+@login_required
 def misPedidos():
     return render_template('/pedidos/consultar.html')
 #---------------------------------------CARRITO---------------------------------------
@@ -486,11 +491,25 @@ def nuevoCarrito():
 def miCarrito():
     carr = Carrito()
     return render_template('/carrito/consultar.html', carrito=carr.consultaGeneral())
-#TARJETAS
+#-------------------------------------TARJETAS---------------------------------------
 @app.route('/tarjeta/nuevaTarjeta')
 @login_required
 def agregarTarjeta():
     return render_template('/tarjetas/nueva.html')
+
+@app.route('/tarjeta/consultar')
+@login_required
+def consultarTarjetas():
+    t = Tarjetas()
+    return render_template('/tarjetas/consultar.html', tarjetas=t.consultaGeneral())
+
+@app.route('/tarjeta/eliminar/<int:id>')
+@login_required
+def eliminarTarjeta(id):
+    t = Tarjetas()
+    t.eliminar(id)
+    flash('Eliminada')
+    return redirect(url_for('consultarTarjetas'))
 
 @app.route('/tarjetas/validarTarjeta', methods=['post'])
 @login_required
@@ -519,9 +538,17 @@ def validarTarjeta():
 
 #---------------------------------------DESCUENTOS---------------------------------------
 @app.route('/descuentos/consultar')
+@login_required
 def consultarDescuentos():
     d = Descuento()
     return render_template('/descuentos/consultar.html', descuento = d.consultaGeneral())
+
+@app.route('/descuentos/mostrar')
+@login_required
+def mostarDescuentos():
+    d = Descuento()
+    return render_template('/descuentos/consultar_como_usuario.html', descuento = d.consultaGeneral())
+
 @app.route('/descuentos/nuevo')
 @login_required
 def nuevoDescuento():

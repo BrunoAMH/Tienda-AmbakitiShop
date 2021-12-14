@@ -1,0 +1,28 @@
+{% extends "comunes/base.html" %}
+{% block navbar %}
+{% include 'comunes/menu.html' %}
+{% endblock %}
+{% block principal %}
+<head>
+  <link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
+     <div class="container">
+         <div class="div">
+             <h1>Productos en descuento</h1>
+                {% for d in descuento %}
+                <div  class="container mt-3">
+                 <div  class="card" style="width:400px">
+                <img class="card-img-top" src="/productos/imagen/{{d.producto.idFoto}}" alt="Card image" style="width:60%">
+                    <div class="card-body">
+                        <h4 class="card-title">{{d.producto.nombre}}</h4>
+                        <h5 class="card-title">${{d.producto.precioVenta}}</h5>
+                        <p class="card-text">{{d.descuento}}</p>
+                        <a href="/producto/verProducto/{{d.producto.idProducto}}" class="btn btn-primary">Ver Producto</a>
+                    </div>
+                </div>
+                </div>
+                <br>
+            {% endfor %}
+         </div>
+     </div>
+{% endblock %}
