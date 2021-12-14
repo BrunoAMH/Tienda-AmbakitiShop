@@ -3,59 +3,43 @@
 {% include 'comunes/menu.html' %}
 {% endblock %}
 {% block principal %}
+<head>
+	<link href="../static/css/bloquesCentro.css" rel="stylesheet" id="bootstrap-css">
+</head>
 <div class="container">
 <div class="well">
-        <h1>Listado de Mis pedidos</h1>
-        <table class="table"  >
-            <thead>
-                <th>idProducto</th>
-                <th>idUsuario</th>
-                <th>idTarjeta</th>
-                <th>FechaCompra</th>
-                <th>CostoEnvio</th>
-                <th>Costo total</th>
-                <th>Comentarios</th>
-                <th>Estatus</th>
-            </thead>
+    <h1>Listado de Pedidos</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>USUARIO</th>
+            <th>NUMERO TARJETA</th>
+            <th>FECHA DE COMPRA</th>
+            <th>COSTO ENVIO</th>
+            <th>MONTO TOTAL</th>
+            <th>ESTATUS</th>
+        </thead>
+        {% for p in pedidos %}
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>25/10/2021</td>
-                <td>200</td>
-                <td>800</td>
-                <td>En camino</td>
+                <td>{{p.idPedido}}</td>
+                <td>{{p.usuario.nombre}}</td>
+                <td>{{p.tarjeta.numTarjeta}}</td>
+                <td>{{p.fechaCompra}}</td>
+                <td>{{p.costoEnvio}}</td>
+                <td>{{p.montoTotal}}</td>
+                <td>{{p.estatus}}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>25/10/2021</td>
-                <td>150</td>
-                <td>1300</td>
-                <td>En camino</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>22/9/2021</td>
-                <td>250</td>
-                <td>2200</td>
-                <td>Entregado</td>
-
-                 <td>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                </td>
-            </tr>
-        </table>
-</div>
+        {% endfor %}
+    </table>
+    <br>
+        {% if get_flashed_messages() %}
+        <div id="mensajeAlert" class="alert alert-success alert-dismissible">
+            {% for message in get_flashed_messages() %}
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{message}}</strong>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

@@ -432,3 +432,19 @@ class Carrito(db.Model):
 
     def consultaGeneral(self):
         return self.query.all()
+
+#-----------------------------------PEDIDOS-----------------------------------
+class Pedido(db.Model):
+    __tablename__ = 'pedidos'
+    idPedido = Column(Integer, primary_key=True)
+    Usuarios_idUsuario = Column(Integer, ForeignKey('usuarios.idUsuario'))
+    Tarjetas_idTarjeta = Column(Integer, ForeignKey('tarjetas.idTarjeta'))
+    fechaCompra = Column(Date, nullable=False)
+    costoEnvio = Column(Float, nullable=False)
+    montoTotal = Column(Float, nullable=False)
+    estatus = Column(String(1), nullable=False)
+    usuario = relationship('Usuario', lazy='select')
+    tarjeta = relationship('Tarjetas', lazy='select')
+
+    def consultaGeneral(self):
+        return self.query.all()

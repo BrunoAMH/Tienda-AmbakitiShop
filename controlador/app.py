@@ -3,7 +3,7 @@ import datetime
 from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
 from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
-from modelo.DAO import db,Usuario,AuxiliarTalla,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario, Carrito
+from modelo.DAO import db,Usuario,AuxiliarTalla,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario, Carrito, Pedido
 import json
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
@@ -476,7 +476,8 @@ def consultarPoridTalla(id):
 @app.route('/pedidos/MisPedidos')
 @login_required
 def misPedidos():
-    return render_template('/pedidos/consultar.html')
+    p = Pedido()
+    return render_template('/pedidos/consultar.html', pedidos=p.consultaGeneral())
 #---------------------------------------CARRITO---------------------------------------
 @app.route('/carrito/nuevo', methods=['post'])
 @login_required
