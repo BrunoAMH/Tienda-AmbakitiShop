@@ -2,6 +2,8 @@
 {% extends "comunes/base.html" %}
 {% block navbar %}
    {% include 'comunes/menu.html' %}
+    {{super()}}
+    <script src="{{url_for('static',filename='js/TallasMedidas.js')}}"></script>
 {% endblock %}
 {% block principal %}
     <head>
@@ -51,31 +53,33 @@
 
                  <div  class="mb-3">
                     <label class="form-label">Talla</label>
-                     <select id="cajaTexto" class="form-label" required name="nombreTalla">
+                     <select id="cajaTexto" class="form-label" required name="nombreTalla" >
                          <option>Selecciona una opcion</option>
                          {% for ta in tallas %}
-                         <option>{{ta.nombreTalla}}</option>
+                         <option value="{{ta.idTalla}}">{{ta.nombreTalla}}</option>
                          {% endfor %}
                      </select>
                  </div>
 
                 <div  class="mb-3">
                     <label class="form-label">Medidas</label>
-                     <select id="cajaTexto" class="form-label" required name="medidas">
+                     <select id="cajaTexto" class="form-label" required name="medidas" >
                          <option>Selecciona una opcion</option>
-
                      </select>
                  </div>
 
                 <div class="form-group">
                     <label>Imagen:</label>
-                    <input type="file" name="foto" class="form-control" placeholder="Imagen de la categoria">
+                    <input type="file" name="foto" class="form-control">
                  </div>
-            <br>
-        <nav id="bloqueBotones">
-            <button type="submit" class="btn btn-success">Guardar</button>
-            <a href="/" class="btn btn-warning">Regresar</a>
-        </nav>
+                <br>
+                <nav id="bloqueBotones">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="/" class="btn btn-warning">Regresar</a>
+                </nav>
+                <br>
+                <div id="notificaciones" style="width: 500px; margin: 0 auto; background-color: brown; color: white;">
+                </div>
     </form>
         <br>
     </div>

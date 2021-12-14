@@ -164,6 +164,7 @@ class Talla(db.Model):
     idTalla = Column(Integer,primary_key=True)
     nombreTalla = Column(CHAR(5), nullable=False)
 
+
     def insertar(self):
         db.session.add(self)
         db.session.commit()
@@ -183,6 +184,32 @@ class Talla(db.Model):
     def actualizar(self):
         db.session.merge(self)
         db.session.commit()
+
+
+# -----------------------AuxiliarTalla-----------------------------
+class AuxiliarTalla(db.Model):
+    __tablename__ = 'axuliartallas'
+    idAuxiliarTalla = Column(Integer, primary_key=True)
+    idTalla = Column(Integer, ForeignKey('tallas.idTalla'))
+    medidas = Column(String(45), nullable=False)
+
+    def insertar(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def consultarPoridTalla(self, id):
+        salida = {"estatus": "", "mensaje": ""}
+        medidas = None
+
+        medidas = self.query.filter(AuxiliarTalla.idTalla == id).first()
+
+        #if usuario != None:
+        #    salida['estatus'] = 'Error'
+        #    salida['mensaje'] = 'El telefono '
+        #else:
+        #    salida['estatus'] = 'Ok'
+        #    salida['mensaje'] = 'El telefono: '
+        return medidas
 
 #-----------------------PRENDA-----------------------------
 class Prenda(db.Model):

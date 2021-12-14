@@ -3,7 +3,7 @@ import datetime
 from flask import Flask,render_template,request,flash,redirect,url_for,abort
 from flask_bootstrap import Bootstrap
 from flask_login import current_user,login_user,logout_user,login_manager,login_required,LoginManager
-from modelo.DAO import db,Usuario,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario, Carrito
+from modelo.DAO import db,Usuario,AuxiliarTalla,direcciones,Producto,Prenda,Talla,fotos,Sabores,Comestible,Suvenir,Sugerencia,Tarjetas,Descuento, Comentario, Carrito
 import json
 app=Flask(__name__, template_folder='../vista', static_folder='../static')
 Bootstrap(app)
@@ -425,18 +425,19 @@ def consultarTallas():
     return render_template('/tallas/consultar.html', tallas=tall.consultaGeneral())
 @app.route('/tallas/nuevo')
 def agregarTalla():
-    return render_template('/tallas/nuevo.html')
+    tall = Talla()
+    return render_template('/tallas/nuevo.html',tallas=tall.consultaGeneral())
 @app.route('/tallas/validarTalla',methods=['post'])
 def guardandoTalla():
-    try:
-        t = Talla()
-        t.nombreTalla = request.form['nombreTalla']
-        t.medidas = request.form['medidas']
-        t.insertar()
+    #try:
+        at = AuxiliarTalla()
+        at.idTalla = request.form['idTalla']
+        at.medidas = request.form['medidas']
+        at.insertar()
         flash('Talla guardada con exito')
-    except:
-        flash('Fallo al guardar')
-    return redirect(url_for('agregarTalla'))
+    #except:
+     #   flash('Fallo al guardar')
+        return redirect(url_for('agregarTalla'))
 @app.route('/tallas/eliminar/<int:id>')
 def eliminarTalla(id):
     t = Talla()
@@ -461,6 +462,11 @@ def editandoTalla():
     except:
         flash('!Error al actualizar datos de la talla!')
     return render_template('/tallas/editar.html', t=t)
+
+@app.route('/tallas/medidas/<int:id>',methods=['Get'])
+def consultarPoridTalla(id):
+    ax=AuxiliarTalla()
+    return json.dumps(ax.consultarPoridTalla(id))
 
 #---------------------------------------PEDIDOS---------------------------------------
 @app.route('/pedidos/MisPedidos')

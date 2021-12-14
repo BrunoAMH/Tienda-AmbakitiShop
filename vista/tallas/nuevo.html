@@ -9,10 +9,18 @@
     <div id="bloque">
         <h1>Registro de Tallas</h1>
         <form action="/tallas/validarTalla" method="post">
-             <div  class="mb-3">
-                <label for="caja" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="caja" placeholder="Ingresa el nombre de la talla" maxlength="80" required name="nombreTalla">
-             </div>
+
+            <div  class="mb-3">
+                <label class="form-label">Talla</label>
+                <br>
+                <select id="cajaTexto" class="form-label" required name="idTalla" style="width: 500px; margin: 0 auto;">
+                    <option>Selecciona una opcion</option>
+                    {% for ta in tallas %}
+                    <option value="{{ta.idTalla}}">{{ta.nombreTalla}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
              <div class="mb-3">
                 <label for="caja" class="form-label">Medidas</label>
                 <input type="text" class="form-control" id="caja" name="medidas" placeholder="Ingresa las medidas" required>
