@@ -128,6 +128,6 @@ function consultarTelefono(){
                 div.innerHTML=respuesta.mensaje;
            }
         }
-    };
+    }; pene
     ajax.send();
 }
